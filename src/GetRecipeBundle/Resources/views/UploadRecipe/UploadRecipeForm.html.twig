@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+    <h1 id="napiswylosuj">Dodaj przepis!</h1>
+    <div class="form-group">
+    {{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
+
+        {{ form_row(form.time) }}
+
+        {{ form_row(form.components) }}
+
+        {{ form_row(form.name, {'help': 'Choose a unique and clever username'}) }}
+
+        {{ form_row(form.image) }}
+
+        {{ form_row(form.preparation) }}
+
+        {{ form_row(form.author) }}
+
+        <input type="submit" value="Create"
+               class="btn btn-default pull-middle" />
+    {{ form_end(form) }}
+    </div>
+{% endblock %}

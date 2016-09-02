@@ -1,31 +1,32 @@
 {% extends '::base.html.twig' %}
+
 {% block content %}
-    {{ parent() }}
+    <h1 id="napiswylosuj">Dodaj przepis!</h1>
     <div id="typy">
-        <a href="{{ path('sniadanie') }}">
+        <a href="{{ path('dodaj_sniadanie') }}">
             <div class="typ" id="sniadanie" style="float:left;">
                 <p>Śniadanie</p>
             </div>
         </a>
 
-        <a href="{{ path('obiad') }}">
+        <a href="{{ path('dodaj_obiad') }}">
             <div class="typ" id="obiad"  style="float:left;">
                 <p>Obiad</p>
             </div>
         </a>
         <div style="clear:both;"></div>
 
-        <a href="{{ path('kolacja') }}">
+        <a href="{{ path('dodaj_kolacje') }}">
             <div class="typ" id="kolacja" style="float:left;">
                 <p>Kolacja</p>
             </div>
         </a>
 
-        <a href="{{ path('deser') }}">
+        <a href="{{ path('dodaj_deser') }}">
             <div class="typ" id="deser"  style="float:left;">
                 <p>Deser/przekąska</p>
-            </div>
-        </a>
-        <div style="clear:both;"></div>
-    </div>
+</div>
+</a>
+<div style="clear:both;"></div>
+</div>
 {% endblock %}

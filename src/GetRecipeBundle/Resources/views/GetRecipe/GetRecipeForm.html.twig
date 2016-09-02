@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+    {{ parent() }}
+
+    <br/>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <br/>
+    <br/>
+
+    {{ form_row(form.time) }}
+
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    {{ form_row(form.components) }}
+    {{ form_end(form) }}
+{% endblock %}

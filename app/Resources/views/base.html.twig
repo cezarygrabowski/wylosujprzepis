@@ -5,61 +5,45 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('bundles/WhatsToEat/css/style.css') }}" />
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-                  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-                  crossorigin="anonymous">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+            <link rel="stylesheet" href="{{ asset('bundles/WhatsToEat/css/fontello.css') }}" type="text/css" />
+            <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,600&subset=latin,latin-ext'
+                  rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Open+Sans|Lato&subset=latin,latin-ext'
+                  rel='stylesheet' type='text/css'>
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('bundles/WhatsToEat/images/logo.png') }}" />
     </head>
-    <body>
-        {% block body %}
-            <div id="container" class="container-fluid" >
-                <p id ="napis"><a href="path{{ '/' }}" id="napisLogo">What's to eat?</a></p>
+
+    {% block body %}
+        <body>
+            <div class="container-fluid" >
+                <p id ="napis"><a href="{{ path('home')}}" id="napisLogo">What's to eat?</a></p>
                 <img  id="zdjecielogo" src={{ asset('bundles/WhatsToEat/images/logo.png') }}/>
 
                 <div class="nav">
                     <ol>
-                        <li><a href="path{{ '/' }}">Dodaj przepis</a></li>
+                        <li><a id="dodajprzepis" href="{{path('dodaj_przepis')}}">Dodaj przepis</a></li>
                     </ol>
                 </div>
 
                 <div id="content">
-                    {% block content %}{% endblock %}
+                    {% block content %}
+                        <h1 id="napiswylosuj">Wylosuj przepis!</h1>
+                    {% endblock %}
                 </div>
             </div>
             <div class="footer">
                 &copy; 2016 <br/>
                 Kontakt: czaros45@gmail.com
             </div>
-            </div>
+        </body>
+    {% endblock %}
 
-        {% endblock %}
-        {% block javascripts %}
-            <script   src="https://code.jquery.com/jquery-1.12.4.min.js"
-                      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-                      crossorigin="anonymous"></script>
-            {% javascripts 'bundles/WhatsToEat/js/stript.js' %}
-                <script src="{{ asset_url }}">
-                    $(document).ready(function() {
-                        var NavY = $('.nav').offset().top;
-                        $("#draggable").draggable();
-                        var stickyNav = function () {
-                            var ScrollY = $(window).scrollTop();
-
-                            if (ScrollY > NavY) {
-                                $('.nav').addClass('sticky');
-                            }
-                            else {
-                                $('.nav').removeClass('sticky');
-                            }
-                        };
-                        stickyNav();
-                        $(window).scroll(function () {
-                            stickyNav();
-                        });
-                    });
-                </script>
-            {% endjavascripts %}
-        {% endblock %}
-    </body>
+    {% block javascripts %}
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+        <script src="{{ asset('bundles/WhatsToEat/js/script.js') }}"></script>
+    {% endblock %}
 </html>
