@@ -1,2 +1,2 @@
 event_event:
-    resource: "@RecipeBundle/Resources/config/routing/event.yml"
+    resource: "@GetRecipeBundle/Resources/config/routing/event.yml"
