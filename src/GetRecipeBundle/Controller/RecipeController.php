@@ -2,14 +2,16 @@
 
 namespace GetRecipeBundle\Controller;
 
+use GetRecipeBundle\Form\GetRecipeForm;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use GetRecipeBundle\Form\RecipeType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use GetRecipeBundle\Entity\Recipe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class RecipeController extends Controller
 {
@@ -28,16 +30,7 @@ class RecipeController extends Controller
     {
         $recipe = new Recipe();
 
-        $form = $this->createFormBuilder($recipe)
-            ->add('time', ChoiceType::class, array(
-                'label' => 'Wybierz czas przygotowania:',
-                'expanded' =>true,
-                'choices'  => array(
-                    '1-30min' => '30',
-                    '31-60min' => '60',
-                    '61-90min' => '90',
-                    'Dowolny' => 'dowolny',
-                )))
+        $form = $this->createForm(GetRecipeForm::class, $recipe)
             ->add('components', ChoiceType::class, array(
                 'label' => 'Wybierz składniki:',
                 'multiple' =>true,
@@ -52,10 +45,7 @@ class RecipeController extends Controller
                     'Łosoś' => 'losos',
                     'Tuńczyk' => 'tunczyk',
                     'Dowolne Składniki' => 'dowolneskladniki'
-                )))
-            ->add('save', SubmitType::class, array('label' => 'Losuj przepis!'))
-            ->getForm();
-
+                )));
         return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
             'form' => $form->createView()
         ));
@@ -231,12 +221,29 @@ class RecipeController extends Controller
                 'Nie widzę tu moich składników' => 'brakskladnikow'
         )));
 
+        $form->getData()->setType('sniadanie');
+        $form->setData($form->getData());
+
         $form->handleRequest($request);
         if ($request->getMethod() == 'POST')
         {
-            if($form->isValid())
+
+            if($form->isValid() && $form->isSubmitted())
             {
-                return new Response('Cos tam gitara');
+
+                $recipe = $form->getData();
+
+                $em = $this->getDoctrine()->getManager();
+                $em -> persist($recipe);
+                $em ->flush();
+
+                $session = new Session();
+
+                $this->get('session')->getFlashBag()->add('success','Dodawanie przebiegło pomyślnie. Przepis oczekuje na akceptacje.');
+
+                $url = $this->generateUrl('home');
+
+                return $this->redirect($url);
             }
             return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
                 'form' => $form->createView()));
@@ -249,7 +256,7 @@ class RecipeController extends Controller
     /**
      * @Route("/dodaj-obiad", name="dodaj_obiad")
      */
-    public function dodajObiadAction()
+    public function dodajObiadAction(Request $request)
     {
 
         $recipe = new Recipe();
@@ -277,6 +284,34 @@ class RecipeController extends Controller
                 'Nie widzę tu moich składników' => 'brakskladnikow'
             )));
 
+        $form->getData()->setType('obiad');
+        $form->setData($form->getData());
+
+        $form->handleRequest($request);
+        if ($request->getMethod() == 'POST')
+        {
+
+            if($form->isValid() && $form->isSubmitted())
+            {
+
+
+                $recipe = $form->getData();
+
+                $em = $this->getDoctrine()->getManager();
+                $em -> persist($recipe);
+                $em ->flush();
+
+                $session = new Session();
+
+                $this->get('session')->getFlashBag()->add('success','Dodawanie przebiegło pomyślnie. Przepis oczekuje na akceptacje.');
+
+                $url = $this->generateUrl('home');
+
+                return $this->redirect($url);
+            }
+            return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
+                'form' => $form->createView()));
+        }
         return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
             'form' => $form->createView()
         ));
@@ -285,7 +320,7 @@ class RecipeController extends Controller
     /**
      * @Route("/dodaj-kolacje", name="dodaj_kolacje")
      */
-    public function dodajKolacjeAction()
+    public function dodajKolacjeAction(Request $request)
     {
         $recipe = new Recipe();
         $form = $this->createForm(RecipeType::class, $recipe);
@@ -305,6 +340,34 @@ class RecipeController extends Controller
                 'Nie widzę tu moich składników' => 'brakskladnikow'
             )));
 
+        $form->getData()->setType('kolacja');
+        $form->setData($form->getData());
+
+        $form->handleRequest($request);
+        if ($request->getMethod() == 'POST')
+        {
+
+            if($form->isValid() && $form->isSubmitted())
+            {
+
+
+                $recipe = $form->getData();
+
+                $em = $this->getDoctrine()->getManager();
+                $em -> persist($recipe);
+                $em ->flush();
+
+                $session = new Session();
+
+                $this->get('session')->getFlashBag()->add('success','Dodawanie przebiegło pomyślnie. Przepis oczekuje na akceptacje.');
+
+                $url = $this->generateUrl('home');
+
+                return $this->redirect($url);
+            }
+            return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
+                'form' => $form->createView()));
+        }
         return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
             'form' => $form->createView()
         ));
@@ -315,7 +378,7 @@ class RecipeController extends Controller
     /**
      * @Route("/dodaj-deser", name="dodaj_deser")
      */
-    public function dodajDeserAction()
+    public function dodajDeserAction(Request $request)
     {
         $recipe = new Recipe();
         $form = $this->createForm(RecipeType::class, $recipe);
@@ -340,6 +403,35 @@ class RecipeController extends Controller
                 'Biały Ser' => 'bialyser',
                 'Nie widzę tu moich składników' => 'brakskladnikow'
             )));
+
+        $form->getData()->setType('deser');
+        $form->setData($form->getData());
+
+        $form->handleRequest($request);
+        if ($request->getMethod() == 'POST')
+        {
+
+            if($form->isValid() && $form->isSubmitted())
+            {
+
+
+                $recipe = $form->getData();
+
+                $em = $this->getDoctrine()->getManager();
+                $em -> persist($recipe);
+                $em ->flush();
+
+                $session = new Session();
+
+                $this->get('session')->getFlashBag()->add('success','Dodawanie przebiegło pomyślnie. Przepis oczekuje na akceptacje.');
+
+                $url = $this->generateUrl('home');
+
+                return $this->redirect($url);
+            }
+            return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
+                'form' => $form->createView()));
+        }
         return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
             'form' => $form->createView()
         ));

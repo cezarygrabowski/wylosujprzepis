@@ -26,10 +26,9 @@ class RecipeType extends AbstractType
                 'label' => 'Wybierz czas przygotowania:',
                 'expanded' =>true,
                 'choices'  => array(
-                    '1-30min' => '30',
-                    '31-60min' => '60',
-                    '61-90min' => '90',
-                    'Dowolny' => 'dowolny',
+                    '1-30min' => 30,
+                    '31-60min' => 60,
+                    '61-90min' => 90,
                 )))
             ->add('name', TextType::class,array(
                 'label' => 'Wpisz nazwę potrawy'
@@ -45,6 +44,9 @@ class RecipeType extends AbstractType
             ))
             ->add('author', TextType::class, array(
                 'label' => 'Podpisz się!'
+            ))
+            ->add('type', TextType::class,array(
+                'mapped' => false,
             ))
             ->getForm();
     }
