@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+
+        {{ form_start(formPassword) }}
+    <div class="form-group row">
+        <div class="col-xs-10">
+            {{ form_row(formPassword.haslo) }}
+        </div>
+        <br/>
+        <input type="submit" value="Wejdź"
+               class="btn btn-default" />
+
+{% endblock %}

@@ -11,6 +11,7 @@ namespace GetRecipeBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -26,8 +27,11 @@ class GetRecipeForm extends AbstractType
                     '1-30min' => 30,
                     '31-60min' => 60,
                     '61-90min' => 90,
-                    'dowolny' => 0
+                    'Dowolny' => 0
                 )))
+            ->add('type', TextType::class,array(
+                'mapped' => false,
+            ))
             ->getForm();
     }
     public function configureOptions(OptionsResolver $resolver)

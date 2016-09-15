@@ -17,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class RecipeType extends AbstractType
+class UploadRecipeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -25,10 +25,12 @@ class RecipeType extends AbstractType
             ->add('time', ChoiceType::class, array(
                 'label' => 'Wybierz czas przygotowania:',
                 'expanded' =>true,
+                'data' =>true,
                 'choices'  => array(
                     '1-30min' => 30,
                     '31-60min' => 60,
                     '61-90min' => 90,
+
                 )))
             ->add('name', TextType::class,array(
                 'label' => 'Wpisz nazwę potrawy'

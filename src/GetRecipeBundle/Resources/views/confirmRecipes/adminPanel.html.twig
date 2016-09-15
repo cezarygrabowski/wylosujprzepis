@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+{% block content %}
+        {% for recipe in recipeToAccept %}
+                <h1>Twój przepis:</h1>
+                <br/>
+                <h2> {{ recipe.name }}</h2>
+                <br/>
+                <div class="components">
+                        <h2 style="color:limegreen;">Składniki wybrane przez użytkownika:</h2>
+                {% for component in recipe.components %}
+                        <br/>
+                        {{ component }}
+                {% endfor %}
+                </div>
+                <h1>Czas Przygotowania:</h1>
+                <br/>
+                {{ recipe.time }} minut
+                <br/>
+                <h1>Przygotowanie:</h1>
+                <br/>
+                {{ recipe.preparation }}
+                <br/>
+                <h1>Typ posiłku:</h1>
+                <br/>
+                {{ recipe.type }}
+                <br/>
+                <h1>Autor:</h1>
+                {{ recipe.author }}
+                <br/>
+        {% endfor %}
+        </br>
+        </br>
+        <form method="GET" action="{{ path('home') }}">
+                <input type="submit" value="Wyjdź"
+                       class="btn btn-default pull-left" />
+        </form>
+
+        <form method="GET">
+                <input type="submit" name = "acceptRecipe" value="Akceptuj przepis"
+                       class="btn btn-default pull-middle" />
+        </form>
+        <form method="GET">
+                <input type="submit" name = "deleteRecipe" value="Usuń przepis"
+                       class="btn btn-default pull-middle" />
+        </form>
+
+        <form>
+                <input type="submit" value="Następny przepis"
+                       class="btn btn-default pull-right" />
+        </form>
+{% endblock %}

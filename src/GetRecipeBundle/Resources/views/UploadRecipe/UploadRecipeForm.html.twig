@@ -1,21 +1,24 @@
 {% extends '::base.html.twig' %}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
 {% block content %}
-    <h1 id="napiswylosuj">Dodaj przepis!</h1>
-    <div class="has-error">
+
+    <h1 id="napisPrzepis">Dodaj przepis!</h1>
+
     {{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
+
+
         {{ form_row(form.time) }}
 
         {{ form_row(form.components) }}
 
-        {{ form_row(form.name, {'help': 'Choose a unique and clever username'}) }}
+        {{ form_row(form.name) }}
 
         {{ form_row(form.image) }}
 
         {{ form_row(form.preparation) }}
 
         {{ form_row(form.author) }}
-        {{ form_row(form._token) }}
-        <input type="submit" value="Create"
+        <input type="submit" value="Stwórz"
                class="btn btn-default pull-middle" />
-    </div>
+    {{ form_row(form._token) }}
 {% endblock %}

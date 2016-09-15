@@ -1,18 +1,16 @@
 <?php
 
 namespace GetRecipeBundle\Controller;
-
+use Doctrine\DBAL\Types\TextType;
 use GetRecipeBundle\Form\GetRecipeForm;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use GetRecipeBundle\Form\RecipeType;
+use GetRecipeBundle\Form\UploadRecipeType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\HttpFoundation\Request;
 use GetRecipeBundle\Entity\Recipe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Session\Session;
-
 class RecipeController extends Controller
 {
     /**
@@ -26,7 +24,7 @@ class RecipeController extends Controller
     /**
      * @Route("/sniadanie", name="sniadanie")
      */
-    public function sniadanieAction()
+    public function sniadanieAction(Request $request)
     {
         $recipe = new Recipe();
 
@@ -36,16 +34,44 @@ class RecipeController extends Controller
                 'multiple' =>true,
                 'expanded' =>true,
                 'choices'  => array(
+                    'Płatki owsiane' => 'platki owsiane',
+                    'Banan' => 'banan',
+                    'Masło orzechowe' => 'maslo orzechowe',
+                    'Migdały' => 'migdały',
                     'Jajka' => 'jajka',
-                    'Chleb' => 'chleb',
                     'Mleko' => 'mleko',
+                    'Orzechy' => 'orzechy',
+                    'Jogurt naturalny' => 'jogurt naturalny',
+                    'Serek mascarpone' => 'serek mascarpone',
+                    'Truskawki' => 'truskawka',
+                    'Czekolada gorzka' => 'czekolada gorzka',
                     'Miód' => 'miod',
-                    'Biały Ser' => 'bialy ser',
-                    'Pomidory' => 'pomidor',
-                    'Łosoś' => 'losos',
-                    'Tuńczyk' => 'tunczyk',
-                    'Dowolne Składniki' => 'dowolneskladniki'
+                    'Biały Ser' => 'bialyser',
+                    'Dowolne składniki' => 'dowolneskladniki'
                 )));
+
+        $form->getData()->setType('sniadanie');
+        $form->setData($form->getData());
+        $form->handleRequest($request);
+        if ($request->getMethod() == 'POST')
+        {
+            if($form->get('components')->isValid() && $form->get('time')->isValid())
+            {
+
+                $em = $this->getDoctrine()->getManager();
+
+                $randomRecipe = $em->getRepository('GetRecipeBundle:Recipe')
+                    ->getRandomRecipe($form);
+
+                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig',array(
+                    'randomRecipe' => $randomRecipe,
+
+                ));
+
+            }
+            return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
+                'form' => $form->createView()));
+        }
         return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
             'form' => $form->createView()
         ));
@@ -54,20 +80,11 @@ class RecipeController extends Controller
     /**
      * @Route("/obiad", name="obiad")
      */
-    public function obiadAction()
+    public function obiadAction(Request $request)
     {
         $recipe = new Recipe();
 
-        $form = $this->createFormBuilder($recipe)
-            ->add('time', ChoiceType::class, array(
-                'label' => 'Wybierz czas przygotowania:',
-                'expanded' =>true,
-                'choices'  => array(
-                    '1-30min' => '30',
-                    '31-60min' => '60',
-                    '61-90min' => '90',
-                    'Dowolny' => 'dowolny',
-                )))
+            $form = $this->createForm(GetRecipeForm::class, $recipe)
             ->add('components', ChoiceType::class, array(
                 'label' => 'Wybierz składniki:',
                 'multiple' =>true,
@@ -88,10 +105,30 @@ class RecipeController extends Controller
                     'Cebula' => 'cebula',
                     'Sałata' => 'salata',
                     'Dowolne Składniki' => 'dowolneskladniki'
-                )))
-            ->add('save', SubmitType::class, array('label' => 'Losuj przepis!'))
-            ->getForm();
+                )));
 
+        $form->getData()->setType('obiad');
+        $form->setData($form->getData());
+        $form->handleRequest($request);
+        if ($request->getMethod() == 'POST')
+        {
+            if($form->get('components')->isValid() && $form->get('time')->isValid())
+            {
+
+                $em = $this->getDoctrine()->getManager();
+
+                $randomRecipe = $em->getRepository('GetRecipeBundle:Recipe')
+                    ->getRandomRecipe($form);
+
+
+                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig',array(
+                    'randomRecipe' => $randomRecipe,
+                ));
+
+            }
+            return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
+                'form' => $form->createView()));
+        }
         return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
             'form' => $form->createView()
         ));
@@ -100,20 +137,11 @@ class RecipeController extends Controller
     /**
      * @Route("/kolacja", name="kolacja")
      */
-    public function kolacjaAction()
+    public function kolacjaAction(Request $request)
     {
         $recipe = new Recipe();
 
-        $form = $this->createFormBuilder($recipe)
-            ->add('time', ChoiceType::class, array(
-                'label' => 'Wybierz czas przygotowania:',
-                'expanded' =>true,
-                'choices'  => array(
-                    '1-30min' => '30',
-                    '31-60min' => '60',
-                    '61-90min' => '90',
-                    'Dowolny' => 'dowolny',
-                )))
+        $form = $this->createForm(GetRecipeForm::class, $recipe)
             ->add('components', ChoiceType::class, array(
                 'label' => 'Wybierz składniki:',
                 'multiple' =>true,
@@ -127,10 +155,29 @@ class RecipeController extends Controller
                     'Orzechy' => 'orzechy',
                     'Pierś z kurczaka' => 'piers z kurczaka',
                     'Dowolne Składniki' => 'dowolneskladniki'
-                )))
-            ->add('save', SubmitType::class, array('label' => 'Losuj przepis!'))
-            ->getForm();
+                )));
+        $form->getData()->setType('kolacja');
+        $form->setData($form->getData());
+        $form->handleRequest($request);
+        if ($request->getMethod() == 'POST')
+        {
+            if($form->get('components')->isValid() && $form->get('time')->isValid())
+            {
 
+                $em = $this->getDoctrine()->getManager();
+                //die(gettype('%'.implode('%', $form->get('components')->getData()).'%'));
+                $randomRecipe = $em->getRepository('GetRecipeBundle:Recipe')
+                    ->getRandomRecipe($form);
+
+
+                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig',array(
+                    'randomRecipe' => $randomRecipe,
+                ));
+
+            }
+            return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
+                'form' => $form->createView()));
+        }
         return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
             'form' => $form->createView()
         ));
@@ -139,20 +186,11 @@ class RecipeController extends Controller
     /**
      * @Route("/deser", name="deser")
      */
-    public function deserAction()
+    public function deserAction(Request $request)
     {
         $recipe = new Recipe();
 
-        $form = $this->createFormBuilder($recipe)
-            ->add('time', ChoiceType::class, array(
-                'label' => 'Wybierz czas przygotowania:',
-                'expanded' =>true,
-                'choices'  => array(
-                    '1-30min' => '30',
-                    '31-60min' => '60',
-                    '61-90min' => '90',
-                    'Dowolny' => 'dowolny',
-                )))
+        $form = $this->createForm(GetRecipeForm::class, $recipe)
             ->add('components', ChoiceType::class, array(
                 'label' => 'Wybierz składniki:',
                 'multiple' =>true,
@@ -172,10 +210,29 @@ class RecipeController extends Controller
                     'Miód' => 'miod',
                     'Biały Ser' => 'bialyser',
                     'Dowolne Składniki' => 'dowolneskladniki'
-                )))
-            ->add('save', SubmitType::class, array('label' => 'Losuj przepis!'))
-            ->getForm();
+                )));
+        $form->getData()->setType('deser');
+        $form->setData($form->getData());
+        $form->handleRequest($request);
+        if ($request->getMethod() == 'POST')
+        {
+            if($form->get('components')->isValid() && $form->get('time')->isValid())
+            {
 
+                $em = $this->getDoctrine()->getManager();
+                //die(gettype('%'.implode('%', $form->get('components')->getData()).'%'));
+                $randomRecipe = $em->getRepository('GetRecipeBundle:Recipe')
+                    ->getRandomRecipe($form);
+
+
+                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig',array(
+                    'randomRecipe' => $randomRecipe,
+                ));
+
+            }
+            return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
+                'form' => $form->createView()));
+        }
         return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
             'form' => $form->createView()
         ));
@@ -197,7 +254,7 @@ class RecipeController extends Controller
     public function dodajSniadanieAction(Request $request)
     {
         $recipe = new Recipe();
-        $form = $this->createForm(RecipeType::class, $recipe);
+        $form = $this->createForm(UploadRecipeType::class, $recipe);
 
         $form->add('components', ChoiceType::class, array(
             'label' => 'Wybierz składniki:',
@@ -260,7 +317,7 @@ class RecipeController extends Controller
     {
 
         $recipe = new Recipe();
-        $form = $this->createForm(RecipeType::class, $recipe);
+        $form = $this->createForm(UploadRecipeType::class, $recipe);
 
         $form->add('components', ChoiceType::class, array(
             'label' => 'Wybierz składniki:',
@@ -323,7 +380,7 @@ class RecipeController extends Controller
     public function dodajKolacjeAction(Request $request)
     {
         $recipe = new Recipe();
-        $form = $this->createForm(RecipeType::class, $recipe);
+        $form = $this->createForm(UploadRecipeType::class, $recipe);
 
         $form->add('components', ChoiceType::class, array(
             'label' => 'Wybierz składniki:',
@@ -381,7 +438,7 @@ class RecipeController extends Controller
     public function dodajDeserAction(Request $request)
     {
         $recipe = new Recipe();
-        $form = $this->createForm(RecipeType::class, $recipe);
+        $form = $this->createForm(UploadRecipeType::class, $recipe);
 
         $form->add('components', ChoiceType::class, array(
             'label' => 'Wybierz składniki:',
@@ -444,5 +501,50 @@ class RecipeController extends Controller
     public function wynik_losowaniaAction()
     {
         return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig');
+    }
+    /**
+     * @Route("/akceptuj-przepisy", name="akceptuj_przepisy")
+     */
+    public function akceptuj_przepisyAction(Request $request)
+    {
+        $formPassword = $this->createFormBuilder()->getForm();
+        $formPassword->add('haslo',PasswordType::class,array(
+        ));
+        $formPassword->handleRequest($request);
+        if($request->getMethod() == 'POST')
+        {
+            if($formPassword->get('haslo')->getData() == 'AOCE2270Sw')
+            {
+                return $this->redirect($this->generateUrl('panel_admina'));
+            }
+        }
+
+        return $this->render('GetRecipeBundle:confirmRecipes:confirmRecipes.html.twig',array(
+            'formPassword' => $formPassword->createView()
+        ));
+    }
+
+    /**
+     * @Route("/panel-admina", name="panel_admina")
+     */
+    public function panel_adminaAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $recipeToAccept = $em->getRepository('GetRecipeBundle:Recipe')
+            ->acceptRecipes();
+
+        if($request->query->has('acceptRecipe'))
+        {
+            foreach($recipeToAccept as $recipe) {
+                echo($em->getClassMetadata(get_class($recipe))->getName());
+            }
+        }
+
+        return $this->render('GetRecipeBundle:confirmRecipes:adminPanel.html.twig',array(
+            'recipeToAccept' => $recipeToAccept,
+        ));
+
+
     }
 }

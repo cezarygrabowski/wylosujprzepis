@@ -1,21 +1,14 @@
 {% extends '::base.html.twig' %}
 {% block content %}
     {{ parent() }}
+    <div class="has-error">
+        {{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
 
-    <br/>
+        {{ form_row(form.time) }}
 
-    {{ form_start(form) }}
-    {{ form_errors(form) }}
-    <br/>
-    <br/>
-
-    {{ form_row(form.time) }}
-
-
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    {{ form_row(form.components) }}
-    {{ form_end(form) }}
+        {{ form_row(form.components) }}
+        {{ form_row(form._token) }}
+        <input type="submit" value="Losuj"
+               class="btn btn-default pull-middle" />
+    </div>
 {% endblock %}

@@ -9,29 +9,69 @@
 namespace GetRecipeBundle\Entity;
 
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\Request;
-class RecipeRepository extends Controller
+use Doctrine\Common\Collections\ArrayCollection;
+class RecipeRepository extends EntityRepository
 {
-    public function submitForm(Request $request, Form $form)
+    public function getRandomRecipe(Form $form)
     {
-        $form->handleRequest($request);
-        if ($request->getMethod() == 'POST')
+        $qb = $this->createQueryBuilder('e');
+
+        if($form->getData()->getTime() != 0)
         {
-            if($form->isValid() && $form->isSubmitted())
-            {
-                $recipe = $form->getData();
-
-                $em = $this->getDoctrine()->getManager();
-                $em -> persist($recipe);
-                $em ->flush();
-
-                $this->get('session')->getFlashBag()->add('success','Wszystko śmiga!');
-                $url = $this->generateUrl('home');
-
-                return $this->redirect($url);
-            };
+            $qb
+                ->andWhere('e.time LIKE :time')
+                ->setParameter('time',$form->get('time')->getData());
         }
+
+        $noComponents = false;
+        foreach ($form->getData()->getComponents() as $i)
+        {
+            if($i == 'dowolneskladniki'){
+                $noComponents=true;
+            }
+        }
+
+        if($noComponents==false)
+        {
+            $qb
+                ->andWhere('e.components LIKE :components')
+                ->setParameter('components','%'.implode('%', $form->get('components')->getData()).'%');
+        }
+
+        $qb
+            ->andWhere('e.type LIKE :type')
+            ->andWhere('e.accepted = 1')
+            ->setParameter('type', $form->getData()->getType());
+        $qbTemp = $qb;
+
+        $results = $qbTemp->getQuery()->getResult();
+        $numberOfResults = count($results);
+            //->select('COUNT(e)')
+            //->getQuery()
+            //->getSingleScalarResult();
+        return $qb
+            ->setFirstResult(rand(0, $numberOfResults - 1))
+            ->setMaxResults(1)
+            ->getQuery()
+            ->execute();
+    }
+
+    public function acceptRecipes()
+    {
+        $qb = $this->createQueryBuilder('e')
+        ->where('e.accepted = 0');
+
+        $numberOfRows = $qb->select('Count(e)')
+            ->getQuery()
+            ->getSingleScalarResult();
+         $recipe = new Recipe();
+         return $this->createQueryBuilder('e')
+            ->where('e.accepted = 0')
+            ->setFirstResult(rand(0,$numberOfRows-1))
+            ->setMaxResults(1)
+            ->getQuery()
+            ->execute();
     }
 }

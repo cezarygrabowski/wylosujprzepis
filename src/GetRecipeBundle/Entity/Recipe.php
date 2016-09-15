@@ -9,8 +9,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Recipe
  *
  * @ORM\Table(name="recipe")
- * @ORM\Entity(repositoryClass="GetRecipeBundle\Repository\RecipeRepository")
+ * @ORM\Entity(repositoryClass="GetRecipeBundle\Entity\RecipeRepository")
  * @UniqueEntity(fields="name", message="Ten przepis już istnieje!")
+ * @ORM\HasLifecycleCallbacks
+ *
  */
 class Recipe
 {
@@ -27,6 +29,7 @@ class Recipe
      * @var string
      * @Assert\Image(mimeTypesMessage="Powinieneś wybrać zdjęcie!")
      * @Assert\NotBlank(message="Wybierz plik w formie zdjęcia")
+     * @Assert\File(maxSize="6000000")
      * @ORM\Column(name="zdjecie", type="blob", nullable=true)
      */
     private $image;
@@ -117,7 +120,6 @@ class Recipe
     /**
      * Get image
      *
-     * @return string
      */
     public function getImage()
     {
