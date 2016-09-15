@@ -57,7 +57,9 @@ class RecipeRepository extends EntityRepository
             ->getQuery()
             ->execute();
     }
-
+    /**
+     * @return Recipe[]
+     */
     public function acceptRecipes()
     {
         $qb = $this->createQueryBuilder('e')
@@ -66,12 +68,13 @@ class RecipeRepository extends EntityRepository
         $numberOfRows = $qb->select('Count(e)')
             ->getQuery()
             ->getSingleScalarResult();
-         $recipe = new Recipe();
+
          return $this->createQueryBuilder('e')
             ->where('e.accepted = 0')
             ->setFirstResult(rand(0,$numberOfRows-1))
             ->setMaxResults(1)
             ->getQuery()
             ->execute();
+
     }
 }

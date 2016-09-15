@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Session\Session;
+use GetRecipeBundle\Entity\RecipeRepository;
 class RecipeController extends Controller
 {
     /**
@@ -531,20 +532,42 @@ class RecipeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $recipeToAccept = $em->getRepository('GetRecipeBundle:Recipe')
+        $recipeToAccept = $this->getRecipeRepository()
             ->acceptRecipes();
+
+
+
 
         if($request->query->has('acceptRecipe'))
         {
+
             foreach($recipeToAccept as $recipe) {
-                echo($em->getClassMetadata(get_class($recipe))->getName());
+
+                $recipe->setAccepted(1);
+                $em->persist($recipe);
+                $em->flush();
+                //die();
+                //var_dump(get_class($recipe));
+                //die();
+                //var_dump($em->getClassMetadata(get_class($recipe)));
+
+                //var_dump($em->getClassMetadata(get_class($recipe))->getName());
+
             }
+
         }
 
         return $this->render('GetRecipeBundle:confirmRecipes:adminPanel.html.twig',array(
             'recipeToAccept' => $recipeToAccept,
         ));
-
-
     }
+        /**
+         * @return RecipeRepository
+         */
+        protected function getRecipeRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('GetRecipeBundle:Recipe');
+    }
+
+
 }
