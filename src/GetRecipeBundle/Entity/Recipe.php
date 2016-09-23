@@ -30,7 +30,7 @@ class Recipe
      * @Assert\Image(mimeTypesMessage="Powinieneś wybrać zdjęcie!")
      * @Assert\NotBlank(message="Wybierz plik w formie zdjęcia")
      * @Assert\File(maxSize="6000000")
-     * @ORM\Column(name="zdjecie", type="blob", nullable=true)
+     * @ORM\Column(name="zdjecie", type="string")
      */
     private $image;
 

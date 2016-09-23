@@ -1,13 +1,12 @@
 {% extends '::base.html.twig' %}
-{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
 {% block content %}
 
     {% for randomRecipe in randomRecipe %}
         {{ randomRecipe.name }}
         {{ randomRecipe.time }}
-        {{ dump(images[key]) }}
 
-        <img width=100% height=100% src="data:image/jpeg;base64,{{ randomRecipe.image|base64 }}" alt="" />
+        <img src="{{ asset('uploads/images/' ~ randomRecipe.image) }}"/>
         {{ randomRecipe.preparation }}
         {{ randomRecipe.author }}
 

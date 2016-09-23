@@ -14,6 +14,10 @@ use Symfony\Component\Form\Form;
 use Doctrine\Common\Collections\ArrayCollection;
 class RecipeRepository extends EntityRepository
 {
+    /**
+     * @param Form $form
+     * @return mixed
+     */
     public function getRandomRecipe(Form $form)
     {
         $qb = $this->createQueryBuilder('e');
@@ -48,9 +52,7 @@ class RecipeRepository extends EntityRepository
 
         $results = $qbTemp->getQuery()->getResult();
         $numberOfResults = count($results);
-            //->select('COUNT(e)')
-            //->getQuery()
-            //->getSingleScalarResult();
+
         return $qb
             ->setFirstResult(rand(0, $numberOfResults - 1))
             ->setMaxResults(1)

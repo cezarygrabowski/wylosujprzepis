@@ -1,573 +1,167 @@
 <?php
 
 namespace GetRecipeBundle\Controller;
-use Doctrine\DBAL\Types\TextType;
+
 use GetRecipeBundle\Form\GetRecipeForm;
-use GetRecipeBundle\Form\UploadRecipeType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use GetRecipeBundle\Form\UploadRecipeForm;
 use Symfony\Component\HttpFoundation\Request;
 use GetRecipeBundle\Entity\Recipe;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\HttpFoundation\Session\Session;
-use GetRecipeBundle\Entity\RecipeRepository;
-class RecipeController extends Controller
+use Symfony\Component\Routing\Annotation\Route;
+class RecipeController extends CzaroController
 {
+
     /**
      * @Route("/", name="home")
      */
+
     public function indexAction()
     {
         return $this->render('GetRecipeBundle:Default:index.html.twig');
     }
 
     /**
-     * @Route("/sniadanie", name="sniadanie")
+     * @Route("/sniadanie", name="draw_breakfast")
      */
-    public function sniadanieAction(Request $request)
+
+    public function addBreakfastRecipeAction(Request $request)
     {
+
         $recipe = new Recipe();
 
-        $form = $this->createForm(GetRecipeForm::class, $recipe)
-            ->add('components', ChoiceType::class, array(
-                'label' => 'Wybierz składniki:',
-                'multiple' =>true,
-                'expanded' =>true,
-                'choices'  => array(
-                    'Płatki owsiane' => 'platki owsiane',
-                    'Banan' => 'banan',
-                    'Masło orzechowe' => 'maslo orzechowe',
-                    'Migdały' => 'migdały',
-                    'Jajka' => 'jajka',
-                    'Mleko' => 'mleko',
-                    'Orzechy' => 'orzechy',
-                    'Jogurt naturalny' => 'jogurt naturalny',
-                    'Serek mascarpone' => 'serek mascarpone',
-                    'Truskawki' => 'truskawka',
-                    'Czekolada gorzka' => 'czekolada gorzka',
-                    'Miód' => 'miod',
-                    'Biały Ser' => 'bialyser',
-                    'Dowolne składniki' => 'dowolneskladniki'
-                )));
+        $form = $this->createForm(GetRecipeForm::class, $recipe);
+        $this->addBreakfastComponents($form);
 
-        $form->getData()->setType('sniadanie');
-        $form->setData($form->getData());
-        $form->handleRequest($request);
-        if ($request->getMethod() == 'POST')
-        {
-            if($form->get('components')->isValid() && $form->get('time')->isValid())
-            {
-
-                $em = $this->getDoctrine()->getManager();
-
-                $randomRecipe = $em->getRepository('GetRecipeBundle:Recipe')
-                    ->getRandomRecipe($form);
-
-                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig',array(
-                    'randomRecipe' => $randomRecipe,
-
-                ));
-
-            }
-            return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
-                'form' => $form->createView()));
-        }
-        return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
-            'form' => $form->createView()
-        ));
+        return $this->handleGetFormAction($request, $form);
     }
 
     /**
-     * @Route("/obiad", name="obiad")
+     * @Route("/obiad", name="draw_dinner")
      */
-    public function obiadAction(Request $request)
+    public function addDinnerRecipeAction(Request $request)
     {
         $recipe = new Recipe();
 
-            $form = $this->createForm(GetRecipeForm::class, $recipe)
-            ->add('components', ChoiceType::class, array(
-                'label' => 'Wybierz składniki:',
-                'multiple' =>true,
-                'expanded' =>true,
-                'choices'  => array(
-                    'Wieprzowina' => 'wieprzowina',
-                    'Wołowina' => 'wolowina',
-                    'Kurczak' => 'kurczak',
-                    'Baranina' => 'baranina',
-                    'Tuńczyk' => 'tunczyk',
-                    'Łosoś' => 'losos',
-                    'Ryż' => 'ryz',
-                    'Ziemniaki' => 'ziemniaki',
-                    'Makaron' => 'makaron',
-                    'Kasza gryczana' => 'kasza gryczna',
-                    'Orzechy' => 'orzechy',
-                    'Marchew' => 'marchew',
-                    'Cebula' => 'cebula',
-                    'Sałata' => 'salata',
-                    'Dowolne Składniki' => 'dowolneskladniki'
-                )));
-
-        $form->getData()->setType('obiad');
-        $form->setData($form->getData());
-        $form->handleRequest($request);
-        if ($request->getMethod() == 'POST')
-        {
-            if($form->get('components')->isValid() && $form->get('time')->isValid())
-            {
-
-                $em = $this->getDoctrine()->getManager();
-
-                $randomRecipe = $em->getRepository('GetRecipeBundle:Recipe')
-                    ->getRandomRecipe($form);
-
-
-                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig',array(
-                    'randomRecipe' => $randomRecipe,
-                ));
-
-            }
-            return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
-                'form' => $form->createView()));
-        }
-        return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
-            'form' => $form->createView()
-        ));
+        $form = $this->createForm(GetRecipeForm::class, $recipe);
+        $this->addDinnerComponents($form);
+        return $this->handleGetFormAction($request, $form);
     }
 
     /**
-     * @Route("/kolacja", name="kolacja")
+     * @Route("/kolacja", name="draw_supper")
      */
-    public function kolacjaAction(Request $request)
+    public function addSupperRecipeAction(Request $request)
     {
         $recipe = new Recipe();
 
-        $form = $this->createForm(GetRecipeForm::class, $recipe)
-            ->add('components', ChoiceType::class, array(
-                'label' => 'Wybierz składniki:',
-                'multiple' =>true,
-                'expanded' =>true,
-                'choices'  => array(
-                    'Biały Ser' => 'bialy ser',
-                    'Tuńczyk' => 'tunczyk',
-                    'Serek Wiejski' => 'ser wiejski',
-                    'Cukinia' => 'cukinia',
-                    'Marchew' => 'marchew',
-                    'Orzechy' => 'orzechy',
-                    'Pierś z kurczaka' => 'piers z kurczaka',
-                    'Dowolne Składniki' => 'dowolneskladniki'
-                )));
-        $form->getData()->setType('kolacja');
-        $form->setData($form->getData());
-        $form->handleRequest($request);
-        if ($request->getMethod() == 'POST')
-        {
-            if($form->get('components')->isValid() && $form->get('time')->isValid())
-            {
+        $form = $this->createForm(GetRecipeForm::class, $recipe);
+        $this->addSupperComponents($form);
 
-                $em = $this->getDoctrine()->getManager();
-                //die(gettype('%'.implode('%', $form->get('components')->getData()).'%'));
-                $randomRecipe = $em->getRepository('GetRecipeBundle:Recipe')
-                    ->getRandomRecipe($form);
-
-
-                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig',array(
-                    'randomRecipe' => $randomRecipe,
-                ));
-
-            }
-            return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
-                'form' => $form->createView()));
-        }
-        return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
-            'form' => $form->createView()
-        ));
+        return $this->handleGetFormAction($request, $form);
     }
 
     /**
-     * @Route("/deser", name="deser")
+     * @Route("/deser", name="draw_dessert")
      */
-    public function deserAction(Request $request)
+    public function getDessertRecipeAction(Request $request)
     {
         $recipe = new Recipe();
 
-        $form = $this->createForm(GetRecipeForm::class, $recipe)
-            ->add('components', ChoiceType::class, array(
-                'label' => 'Wybierz składniki:',
-                'multiple' =>true,
-                'expanded' =>true,
-                'choices'  => array(
-                    'Płatki owsiane' => 'platki owsiane',
-                    'Banan' => 'banan',
-                    'Masło orzechowe' => 'maslo orzechowe',
-                    'Migdały' => 'migdały',
-                    'Jajka' => 'jajka',
-                    'Mleko' => 'mleko',
-                    'Orzechy' => 'orzechy',
-                    'Jogurt naturalny' => 'jogurt naturalny',
-                    'Serek mascarpone' => 'serek mascarpone',
-                    'Truskawki' => 'truskawka',
-                    'Czekolada gorzka' => 'czekolada gorzka',
-                    'Miód' => 'miod',
-                    'Biały Ser' => 'bialyser',
-                    'Dowolne Składniki' => 'dowolneskladniki'
-                )));
-        $form->getData()->setType('deser');
-        $form->setData($form->getData());
-        $form->handleRequest($request);
-        if ($request->getMethod() == 'POST')
-        {
-            if($form->get('components')->isValid() && $form->get('time')->isValid())
-            {
+        $form = $this->createForm(GetRecipeForm::class, $recipe);
+        $this->addDessertComponents($form);
 
-                $em = $this->getDoctrine()->getManager();
-                //die(gettype('%'.implode('%', $form->get('components')->getData()).'%'));
-                $randomRecipe = $em->getRepository('GetRecipeBundle:Recipe')
-                    ->getRandomRecipe($form);
-
-
-                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig',array(
-                    'randomRecipe' => $randomRecipe,
-                ));
-
-            }
-            return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
-                'form' => $form->createView()));
-        }
-        return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
-            'form' => $form->createView()
-        ));
+        return $this->handleGetFormAction($request, $form);
     }
 
 
-
     /**
-     * @Route("/dodaj-przepis", name="dodaj_przepis")
+     * @Route("/dodaj-przepis", name="add_recipe")
      */
-    public function dodajPrzepisAction()
+    public function addRecipeAction()
     {
         return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipe.html.twig');
     }
 
     /**
-     * @Route("/dodaj-sniadanie", name="dodaj_sniadanie")
+     * @Route("/dodaj-sniadanie", name="add_breakfast")
      */
-    public function dodajSniadanieAction(Request $request)
+    public function addBreakfastAction(Request $request)
     {
         $recipe = new Recipe();
-        $form = $this->createForm(UploadRecipeType::class, $recipe);
 
-        $form->add('components', ChoiceType::class, array(
-            'label' => 'Wybierz składniki:',
-            'multiple' =>true,
-            'expanded' =>true,
-            'mapped' => true,
-            'choices' => array(
-                'Płatki owsiane' => 'platki owsiane',
-                'Banan' => 'banan',
-                'Masło orzechowe' => 'maslo orzechowe',
-                'Migdały' => 'migdały',
-                'Jajka' => 'jajka',
-                'Mleko' => 'mleko',
-                'Orzechy' => 'orzechy',
-                'Jogurt naturalny' => 'jogurt naturalny',
-                'Serek mascarpone' => 'serek mascarpone',
-                'Truskawki' => 'truskawka',
-                'Czekolada gorzka' => 'czekolada gorzka',
-                'Miód' => 'miod',
-                'Biały Ser' => 'bialyser',
-                'Nie widzę tu moich składników' => 'brakskladnikow'
-        )));
+        $form = $this->createForm(UploadRecipeForm::class, $recipe);
+        $this->addBreakfastComponents($form);
 
-        $form->getData()->setType('sniadanie');
-        $form->setData($form->getData());
-
-        $form->handleRequest($request);
-        if ($request->getMethod() == 'POST')
-        {
-
-            if($form->isValid() && $form->isSubmitted())
-            {
-
-                $recipe = $form->getData();
-
-                $em = $this->getDoctrine()->getManager();
-                $em -> persist($recipe);
-                $em ->flush();
-
-                $session = new Session();
-
-                $this->get('session')->getFlashBag()->add('success','Dodawanie przebiegło pomyślnie. Przepis oczekuje na akceptacje.');
-
-                $url = $this->generateUrl('home');
-
-                return $this->redirect($url);
-            }
-            return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
-                'form' => $form->createView()));
-        }
-        return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
-            'form' => $form->createView()
-        ));
+        return $this->handleUploadFormAction($request, $form);
     }
 
     /**
-     * @Route("/dodaj-obiad", name="dodaj_obiad")
+     * @Route("/dodaj-obiad", name="add_dinner")
      */
-    public function dodajObiadAction(Request $request)
+    public function addDinnerAction(Request $request)
     {
 
         $recipe = new Recipe();
-        $form = $this->createForm(UploadRecipeType::class, $recipe);
 
-        $form->add('components', ChoiceType::class, array(
-            'label' => 'Wybierz składniki:',
-            'multiple' =>true,
-            'expanded' =>true,
-            'choices'  => array(
-                'Wieprzowina' => 'wieprzowina',
-                'Wołowina' => 'wolowina',
-                'Kurczak' => 'kurczak',
-                'Baranina' => 'baranina',
-                'Tuńczyk' => 'tunczyk',
-                'Łosoś' => 'losos',
-                'Ryż' => 'ryz',
-                'Ziemniaki' => 'ziemniaki',
-                'Makaron' => 'makaron',
-                'Kasza gryczana' => 'kasza gryczna',
-                'Orzechy' => 'orzechy',
-                'Marchew' => 'marchew',
-                'Cebula' => 'cebula',
-                'Sałata' => 'salata',
-                'Nie widzę tu moich składników' => 'brakskladnikow'
-            )));
-
-        $form->getData()->setType('obiad');
-        $form->setData($form->getData());
-
-        $form->handleRequest($request);
-        if ($request->getMethod() == 'POST')
-        {
-
-            if($form->isValid() && $form->isSubmitted())
-            {
+        $form = $this->createForm(UploadRecipeForm::class, $recipe);
+        $this->addDinnerComponents($form);
 
 
-                $recipe = $form->getData();
-
-                $em = $this->getDoctrine()->getManager();
-                $em -> persist($recipe);
-                $em ->flush();
-
-                $session = new Session();
-
-                $this->get('session')->getFlashBag()->add('success','Dodawanie przebiegło pomyślnie. Przepis oczekuje na akceptacje.');
-
-                $url = $this->generateUrl('home');
-
-                return $this->redirect($url);
-            }
-            return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
-                'form' => $form->createView()));
-        }
-        return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
-            'form' => $form->createView()
-        ));
+        return $this->handleUploadFormAction($request, $form);
     }
 
     /**
-     * @Route("/dodaj-kolacje", name="dodaj_kolacje")
+     * @Route("/dodaj-kolacje", name="add_supper")
      */
-    public function dodajKolacjeAction(Request $request)
+    public function addSupperAction(Request $request)
     {
         $recipe = new Recipe();
-        $form = $this->createForm(UploadRecipeType::class, $recipe);
 
-        $form->add('components', ChoiceType::class, array(
-            'label' => 'Wybierz składniki:',
-            'multiple' =>true,
-            'expanded' =>true,
-            'choices'  => array(
-                'Biały Ser' => 'bialy ser',
-                'Tuńczyk' => 'tunczyk',
-                'Serek Wiejski' => 'ser wiejski',
-                'Cukinia' => 'cukinia',
-                'Marchew' => 'marchew',
-                'Orzechy' => 'orzechy',
-                'Pierś z kurczaka' => 'piers z kurczaka',
-                'Nie widzę tu moich składników' => 'brakskladnikow'
-            )));
+        $form = $this->createForm(UploadRecipeForm::class, $recipe);
+        $this->addSupperComponents($form);
 
-        $form->getData()->setType('kolacja');
-        $form->setData($form->getData());
-
-        $form->handleRequest($request);
-        if ($request->getMethod() == 'POST')
-        {
-
-            if($form->isValid() && $form->isSubmitted())
-            {
-
-
-                $recipe = $form->getData();
-
-                $em = $this->getDoctrine()->getManager();
-                $em -> persist($recipe);
-                $em ->flush();
-
-                $session = new Session();
-
-                $this->get('session')->getFlashBag()->add('success','Dodawanie przebiegło pomyślnie. Przepis oczekuje na akceptacje.');
-
-                $url = $this->generateUrl('home');
-
-                return $this->redirect($url);
-            }
-            return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
-                'form' => $form->createView()));
-        }
-        return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
-            'form' => $form->createView()
-        ));
+        return $this->handleUploadFormAction($request, $form);
 
 
     }
 
     /**
-     * @Route("/dodaj-deser", name="dodaj_deser")
+     * @Route("/dodaj-deser", name="add_dessert")
      */
-    public function dodajDeserAction(Request $request)
+    public function addDessertAction(Request $request)
     {
         $recipe = new Recipe();
-        $form = $this->createForm(UploadRecipeType::class, $recipe);
 
-        $form->add('components', ChoiceType::class, array(
-            'label' => 'Wybierz składniki:',
-            'multiple' =>true,
-            'expanded' =>true,
-            'choices'  => array(
-                'Płatki owsiane' => 'platki owsiane',
-                'Banan' => 'banan',
-                'Masło orzechowe' => 'maslo orzechowe',
-                'Migdały' => 'migdały',
-                'Jajka' => 'jajka',
-                'Mleko' => 'mleko',
-                'Orzechy' => 'orzechy',
-                'Jogurt naturalny' => 'jogurt naturalny',
-                'Serek mascarpone' => 'serek mascarpone',
-                'Truskawki' => 'truskawka',
-                'Czekolada gorzka' => 'czekolada gorzka',
-                'Miód' => 'miod',
-                'Biały Ser' => 'bialyser',
-                'Nie widzę tu moich składników' => 'brakskladnikow'
-            )));
+        $form = $this->createForm(UploadRecipeForm::class, $recipe);
+        $this->addDessertComponents($form);
 
-        $form->getData()->setType('deser');
-        $form->setData($form->getData());
-
-        $form->handleRequest($request);
-        if ($request->getMethod() == 'POST')
-        {
-
-            if($form->isValid() && $form->isSubmitted())
-            {
-
-
-                $recipe = $form->getData();
-
-                $em = $this->getDoctrine()->getManager();
-                $em -> persist($recipe);
-                $em ->flush();
-
-                $session = new Session();
-
-                $this->get('session')->getFlashBag()->add('success','Dodawanie przebiegło pomyślnie. Przepis oczekuje na akceptacje.');
-
-                $url = $this->generateUrl('home');
-
-                return $this->redirect($url);
-            }
-            return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
-                'form' => $form->createView()));
-        }
-        return $this->render('GetRecipeBundle:UploadRecipe:UploadRecipeForm.html.twig', array(
-            'form' => $form->createView()
-        ));
+        return $this->handleUploadFormAction($request, $form);
     }
 
 
     /**
-     * @Route("/wynik-losowania", name="wynik_losowania")
+     * @Route("/wynik-losowania", name="resultOfDraw")
      */
-    public function wynik_losowaniaAction()
+    public function resultOfaDrawAction()
     {
         return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig');
     }
+
+
     /**
-     * @Route("/akceptuj-przepisy", name="akceptuj_przepisy")
+     * @Route("/akceptuj-przepisy", name="accept_recipes")
      */
-    public function akceptuj_przepisyAction(Request $request)
+    public function accept_recipesAction(Request $request)
     {
         $formPassword = $this->createFormBuilder()->getForm();
-        $formPassword->add('haslo',PasswordType::class,array(
-        ));
-        $formPassword->handleRequest($request);
-        if($request->getMethod() == 'POST')
-        {
-            if($formPassword->get('haslo')->getData() == 'AOCE2270Sw')
-            {
-                return $this->redirect($this->generateUrl('panel_admina'));
-            }
-        }
-
-        return $this->render('GetRecipeBundle:confirmRecipes:confirmRecipes.html.twig',array(
-            'formPassword' => $formPassword->createView()
-        ));
+        $this->handlePasswordForm($formPassword, $request);
     }
+
 
     /**
-     * @Route("/panel-admina", name="panel_admina")
+     * @Route("/panel-admina", name="admin_panel")
      */
-    public function panel_adminaAction(Request $request)
+    public function admin_panelAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $recipeToAccept = $this->getRecipeRepository()
-            ->acceptRecipes();
-
-
-
-
-        if($request->query->has('acceptRecipe'))
-        {
-
-            foreach($recipeToAccept as $recipe) {
-
-                $recipe->setAccepted(1);
-                $em->persist($recipe);
-                $em->flush();
-                //die();
-                //var_dump(get_class($recipe));
-                //die();
-                //var_dump($em->getClassMetadata(get_class($recipe)));
-
-                //var_dump($em->getClassMetadata(get_class($recipe))->getName());
-
-            }
-
-        }
-
-        return $this->render('GetRecipeBundle:confirmRecipes:adminPanel.html.twig',array(
-            'recipeToAccept' => $recipeToAccept,
-        ));
+        $this->handleAdminPanel($request);
     }
-        /**
-         * @return RecipeRepository
-         */
-        protected function getRecipeRepository()
-    {
-        return $this->getDoctrine()->getManager()->getRepository('GetRecipeBundle:Recipe');
-    }
-
-
 }

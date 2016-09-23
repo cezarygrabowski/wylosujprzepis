@@ -1,28 +1,28 @@
 {% extends '::base.html.twig' %}
 {% block content %}
     {{ parent() }}
-    <div id="typy">
-        <a href="{{ path('sniadanie') }}">
-            <div class="typ" id="sniadanie" style="float:left;">
+    <div id="types">
+        <a href="{{ path('draw_breakfast') }}">
+            <div class="type" id="breakfast" style="float:left;">
                 <p>Śniadanie</p>
             </div>
         </a>
 
-        <a href="{{ path('obiad') }}">
-            <div class="typ" id="obiad"  style="float:left;">
+        <a href="{{ path('draw_dinner') }}">
+            <div class="type" id="dinner"  style="float:left;">
                 <p>Obiad</p>
             </div>
         </a>
         <div style="clear:both;"></div>
 
-        <a href="{{ path('kolacja') }}">
-            <div class="typ" id="kolacja" style="float:left;">
+        <a href="{{ path('draw_supper') }}">
+            <div class="type" id="supper" style="float:left;">
                 <p>Kolacja</p>
             </div>
         </a>
 
-        <a href="{{ path('deser') }}">
-            <div class="typ" id="deser"  style="float:left;">
+        <a href="{{ path('draw_dessert') }}">
+            <div class="type" id="dessert"  style="float:left;">
                 <p>Deser/przekąska</p>
             </div>
         </a>

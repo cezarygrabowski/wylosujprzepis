@@ -2,9 +2,11 @@ get_recipe:
     resource: "@GetRecipeBundle/Controller/"
     type:     annotation
     prefix:   /
+
 recipe:
     resource: "@GetRecipeBundle/Resources/config/routing.yml"
     prefix: /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
