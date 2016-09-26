@@ -48,7 +48,7 @@ class Recipe
     /**
      * @var array
      * @Assert\NotBlank(message="Wybierz minimum jeden składnik.
-           Jeśli go nie widzisz, kliknij opcję: Nie widzę tu moich składników")
+     *      Jeśli go nie widzisz, kliknij opcję: Nie widzę tu moich składników")
      * @ORM\Column(name="components", type="simple_array")
      */
     private $components;
