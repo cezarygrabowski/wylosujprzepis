@@ -1,6 +1,7 @@
-{% extends '::base.html.twig' %}
+{% extends '::base1.html.twig' %}
 {% block content %}
     {{ parent() }}
+    <section class="text-center">
     <div id="types">
         <a href="{{ path('draw_breakfast') }}">
             <div class="type" id="breakfast" style="float:left;">
@@ -26,6 +27,8 @@
                 <p>Deser/przekąska</p>
             </div>
         </a>
-        <div style="clear:both;"></div>
+        <div style=" clear:both;"></div>
+
     </div>
+    </section>
 {% endblock %}

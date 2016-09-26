@@ -1,6 +1,7 @@
-{% extends '::base.html.twig' %}
+{% extends '::base1.html.twig' %}
 
 {% block content %}
+    <section class="text-center">
     <h1 id="napiswPrzepis">Dodaj przepis!</h1>
     <div id="types">
         <a href="{{ path('add_breakfast') }}">
@@ -29,4 +30,5 @@
 </a>
 <div style="clear:both;"></div>
 </div>
+    </section>
 {% endblock %}
