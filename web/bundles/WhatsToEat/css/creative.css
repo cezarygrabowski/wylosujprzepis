@@ -462,3 +462,48 @@ body {
 {
   background-image: url(../images/deser.jpg);
 }
+.styleClearer
+{
+  clear:both;
+}
+.leftFloater
+{
+  float:left;
+}
+.spaceLeft
+{
+  position: absolute;
+  left:350px;
+}
+.ImagePlacer
+{
+  width:300px;
+  height:300px;
+  position: relative;
+  left:250px;
+}
+.TextToShow
+{
+  width:500px;
+}
+.marginRight
+{
+  position: relative;
+  font-weight: bold;
+  padding-top: 20px;
+  left:250px;
+}
+.BoldPadding
+{
+  font-weight:bold;
+  padding-bottom:5px;
+}
+.BottomPadding
+{
+  padding-bottom: 15px;
+}
+.ButtonsContainer
+{
+   height: 150px;
+   padding-top: 25px;
+}

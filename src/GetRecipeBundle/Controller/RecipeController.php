@@ -2,11 +2,13 @@
 
 namespace GetRecipeBundle\Controller;
 
+use GetRecipeBundle\Form\ComponentsForRecipes;
 use GetRecipeBundle\Form\GetRecipeForm;
 use GetRecipeBundle\Form\UploadRecipeForm;
 use Symfony\Component\HttpFoundation\Request;
 use GetRecipeBundle\Entity\Recipe;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 class RecipeController extends CzaroController
 {
 
@@ -29,7 +31,6 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(GetRecipeForm::class, $recipe);
-        $this->addBreakfastComponents($form);
 
         return $this->handleGetFormAction($request, $form);
     }
@@ -42,7 +43,7 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(GetRecipeForm::class, $recipe);
-        $this->addDinnerComponents($form);
+
         return $this->handleGetFormAction($request, $form);
     }
 
@@ -54,7 +55,6 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(GetRecipeForm::class, $recipe);
-        $this->addSupperComponents($form);
 
         return $this->handleGetFormAction($request, $form);
     }
@@ -67,7 +67,6 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(GetRecipeForm::class, $recipe);
-        $this->addDessertComponents($form);
 
         return $this->handleGetFormAction($request, $form);
     }
@@ -89,7 +88,6 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(UploadRecipeForm::class, $recipe);
-        $this->addBreakfastComponents($form);
 
         return $this->handleUploadFormAction($request, $form);
     }
@@ -103,8 +101,6 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(UploadRecipeForm::class, $recipe);
-        $this->addDinnerComponents($form);
-
 
         return $this->handleUploadFormAction($request, $form);
     }
@@ -117,7 +113,6 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(UploadRecipeForm::class, $recipe);
-        $this->addSupperComponents($form);
 
         return $this->handleUploadFormAction($request, $form);
 
@@ -132,7 +127,7 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(UploadRecipeForm::class, $recipe);
-        $this->addDessertComponents($form);
+
 
         return $this->handleUploadFormAction($request, $form);
     }
@@ -153,7 +148,17 @@ class RecipeController extends CzaroController
     public function accept_recipesAction(Request $request)
     {
         $formPassword = $this->createFormBuilder()->getForm();
-        $this->handlePasswordForm($formPassword, $request);
+        $formPassword->add('password', PasswordType::class, array());
+        $formPassword->handleRequest($request);
+        if ($request->getMethod() == 'POST') {
+            if ($formPassword->get('password')->getData() == 'AOCE2270Sw') {
+                return $this->redirect($this->generateUrl('admin_panel'));
+            }
+        }
+
+        return $this->render('GetRecipeBundle:confirmRecipes:confirmRecipes.html.twig', array(
+            'formPassword' => $formPassword->createView()
+        ));
     }
 
 
@@ -162,6 +167,27 @@ class RecipeController extends CzaroController
      */
     public function admin_panelAction(Request $request)
     {
-        $this->handleAdminPanel($request);
+        $em = $this->getDoctrine()->getManager();
+        $recipeToAccept = $this->getRecipeRepository()
+            ->acceptRecipes();
+
+        if ($request->query->has('acceptRecipe')) {
+            foreach ($recipeToAccept as $recipe) {
+                $recipe->setAccepted(Recipe::accepted);
+                $em->persist($recipe);
+                $em->flush();
+            }
+        }
+        else if($request->query->has('deleteRecipe'))
+        {
+            foreach ($recipeToAccept as $recipe) {
+                $em->remove($recipe);
+                $em->flush();
+            }
+        }
+
+        return $this->render('GetRecipeBundle:confirmRecipes:adminPanel.html.twig', array(
+            'recipeToAccept' => $recipeToAccept,
+        ));
     }
 }

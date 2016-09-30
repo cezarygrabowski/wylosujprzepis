@@ -17,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class UploadRecipeForm extends AbstractType
+class UploadRecipeForm extends ComponentsForRecipes
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -50,6 +50,7 @@ class UploadRecipeForm extends AbstractType
             ->add('type', TextType::class,array(
                 'mapped' => false,
             ));
+        $this->addComponentsAndSetType($builder);
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -58,7 +59,6 @@ class UploadRecipeForm extends AbstractType
             'data_class' =>'GetRecipeBundle\Entity\Recipe',
         ));
     }
-
 
 
 }

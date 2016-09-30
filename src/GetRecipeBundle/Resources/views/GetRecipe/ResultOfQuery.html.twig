@@ -3,13 +3,25 @@
 {% block content %}
 
     {% for randomRecipe in randomRecipe %}
-        {{ randomRecipe.name }}
-        {{ randomRecipe.time }}
+        <div class="leftFloater TextToShow">
+            <div>
+                <h1 class="BoldPadding">{{ randomRecipe.name }}</h1>
+            </div>
+            <div>
+                <p class="BottomPadding">Czas przygotowania: {{ randomRecipe.time }} minut</p>
+            </div>
+            <div>
+                {{ randomRecipe.preparation }}
+            </div>
+            <div class="marginRight">
 
-        <img src="{{ asset('uploads/images/' ~ randomRecipe.image) }}"/>
-        {{ randomRecipe.preparation }}
-        {{ randomRecipe.author }}
+                <p>-{{ randomRecipe.author }}</p>
+            </div>
+        </div>
 
+        <div class="ImagePlacer leftFloater">
+            <img class="" src="{{ asset('uploads/images/' ~ randomRecipe.image) }}"/>
+        </div>
         {% endfor %}
 
 {% endblock %}

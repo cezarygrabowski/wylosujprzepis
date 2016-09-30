@@ -182,7 +182,7 @@
                 elemId,
                 sequence,
                 sequenceId;
-
++6
             // Resolve container.
             if (config && config.container) {
                 container = _resolveContainer(config);

@@ -1,14 +1,22 @@
-{% extends '::base1.html.twig' %}
+{% extends '::base1.html.twig'%}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        ScrollDown('#DrawRecipe');
+    </script>
+
+{% endblock %}
 {% block content %}
     {{ parent() }}
-    <div class="has-error">
-        {{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
+        <div class="DrawRecipe">
+            {{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
 
-        {{ form_row(form.time) }}
+            {{ form_row(form.time) }}
 
-        {{ form_row(form.components) }}
-        {{ form_row(form._token) }}
-        <input type="submit" value="Losuj"
-               class="btn btn-default pull-middle" />
-    </div>
+            {{ form_row(form.components) }}
+            {{ form_row(form._token) }}
+            <input type="submit" value="Losuj"
+                   class="btn btn-primary btn-xl text-center" />
+        </div>
 {% endblock %}

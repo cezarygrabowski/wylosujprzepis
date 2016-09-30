@@ -1,34 +1,38 @@
 {% extends '::base1.html.twig' %}
+
+
+
 {% block content %}
     {{ parent() }}
     <section class="text-center">
-    <div id="types">
-        <a href="{{ path('draw_breakfast') }}">
-            <div class="type" id="breakfast" style="float:left;">
-                <p>Śniadanie</p>
-            </div>
-        </a>
+        <div id="types">
+            <a href="{{ path('draw_breakfast') }}">
+                <div class="type leftFloater" id="breakfast">
+                    <p>Śniadanie</p>
+                </div>
+            </a>
 
-        <a href="{{ path('draw_dinner') }}">
-            <div class="type" id="dinner"  style="float:left;">
-                <p>Obiad</p>
-            </div>
-        </a>
-        <div style="clear:both;"></div>
+            <a href="{{ path('draw_dinner') }}">
+                <div class="type leftFloater" id="dinner">
+                    <p>Obiad</p>
+                </div>
+            </a>
+            <div class="styleClearer"></div>
 
-        <a href="{{ path('draw_supper') }}">
-            <div class="type" id="supper" style="float:left;">
-                <p>Kolacja</p>
-            </div>
-        </a>
+            <a href="{{ path('draw_supper') }}">
+                <div class="type leftFloater" id="supper">
+                    <p>Kolacja</p>
+                </div>
+            </a>
 
-        <a href="{{ path('draw_dessert') }}">
-            <div class="type" id="dessert"  style="float:left;">
-                <p>Deser/przekąska</p>
-            </div>
-        </a>
-        <div style=" clear:both;"></div>
+            <a href="{{ path('draw_dessert') }}">
+                <div class="type leftFloater" id="dessert">
+                    <p>Deser/przekąska</p>
+                </div>
+            </a>
+            <div class="styleClearer"></div>
 
-    </div>
+        </div>
     </section>
+
 {% endblock %}

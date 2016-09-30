@@ -1,34 +1,40 @@
 {% extends '::base1.html.twig' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        ScrollDown('#ChooseMealToUpload');
+    </script>
+{% endblock %}
 {% block content %}
     <section class="text-center">
-    <h1 id="napiswPrzepis">Dodaj przepis!</h1>
-    <div id="types">
-        <a href="{{ path('add_breakfast') }}">
-            <div class="type" id="breakfast" style="float:left;">
-                <p>Śniadanie</p>
-            </div>
-        </a>
+        <h1 id="ChooseMealToUpload">Dodaj przepis!</h1>
+        <div id="types">
+            <a href="{{ path('add_breakfast') }}">
+                <div class="type leftFloater" id="breakfast">
+                    <p>Śniadanie</p>
+                </div>
+            </a>
 
-        <a href="{{ path('add_dinner') }}">
-            <div class="type" id="dinner"  style="float:left;">
-                <p>Obiad</p>
-            </div>
-        </a>
-        <div style="clear:both;"></div>
+            <a href="{{ path('add_dinner') }}">
+                <div class="type leftFloater" id="dinner">
+                    <p>Obiad</p>
+                </div>
+            </a>
+            <div class="styleClearer"></div>
 
-        <a href="{{ path('add_supper') }}">
-            <div class="type" id="supper" style="float:left;">
-                <p>Kolacja</p>
-            </div>
-        </a>
+            <a href="{{ path('add_supper') }}">
+                <div class="type leftFloater" id="supper">
+                    <p>Kolacja</p>
+                </div>
+            </a>
 
-        <a href="{{ path('add_dessert') }}">
-            <div class="type" id="dessert"  style="float:left;">
-                <p>Deser/przekąska</p>
-</div>
-</a>
-<div style="clear:both;"></div>
-</div>
+            <a href="{{ path('add_dessert') }}">
+                <div class="type leftFloater" id="dessert">
+                    <p>Deser/przekąska</p>
+                </div>
+            </a>
+            <div class="styleClearer"></div>
+        </div>
     </section>
 {% endblock %}

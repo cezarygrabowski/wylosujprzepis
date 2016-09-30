@@ -1,7 +1,18 @@
 {% extends '::base1.html.twig' %}
 {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $('html, body').stop().animate({
+                scrollTop: ($('#UploadRecipe').offset().top - 50)
+            }, 1250, 'easeInOutExpo');
+            event.preventDefault();
+        });
+    </script>
+{% endblock %}
 {% block content %}
-    <h1 id="napisPrzepis">Dodaj przepis!</h1>
+    <h1 id="UploadRecipe">Dodaj przepis!</h1>
 
     {{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
 

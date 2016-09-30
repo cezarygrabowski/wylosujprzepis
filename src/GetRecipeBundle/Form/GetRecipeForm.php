@@ -9,14 +9,14 @@
 namespace GetRecipeBundle\Form;
 
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
-class GetRecipeForm extends AbstractType
+class GetRecipeForm extends ComponentsForRecipes
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -33,6 +33,8 @@ class GetRecipeForm extends AbstractType
                 'mapped' => false,
             ))
             ->getForm();
+
+        $this->addComponentsAndSetType($builder);
     }
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -40,5 +42,6 @@ class GetRecipeForm extends AbstractType
             'data_class' =>'GetRecipeBundle\Entity\Recipe',
         ));
     }
+
 
 }

@@ -77,6 +77,5 @@ class RecipeRepository extends EntityRepository
             ->setMaxResults(1)
             ->getQuery()
             ->execute();
-
     }
 }
