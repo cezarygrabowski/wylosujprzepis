@@ -11,30 +11,25 @@ namespace GetRecipeBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
+
 class ComponentsForRecipes extends AbstractType
 {
 
-    protected function addComponentsAndSetType($builder)
+    public function addComponentsAndSetType(FormBuilderInterface $builder, array $options)
     {
-        $uri = $_SERVER['REQUEST_URI'];
-        if($uri == '/sniadanie' || $uri == '/dodaj-sniadanie')
-        {
-            $this->addBreakfastComponents($builder);
-        }
-        else if($uri == '/obiad' || $uri == '/dodaj-obiad')
-        {
-            $this->addDinnerComponents($builder);
-        }
-        else if($uri == '/kolacja' || $uri == '/dodaj-kolacje')
-        {
-            $this->addSupperComponents($builder);
-        }
-        else if($uri == '/deser' || $uri == '/dodaj-deser')
-        {
-            $this->addDessertComponents($builder);
-        }
+        switch($options['label']){
+            case 'breakfast': $this->addBreakfastComponents($builder);
+                                break;
+            case  'dinner': $this->addDinnerComponents($builder);
+                                break;
+            case  'supper': $this->addSupperComponents($builder);
+                                break;
+            case  'dessert': $this->addDessertComponents($builder);
+                                break;
+        };
+
     }
-    protected function addBreakfastComponents(FormBuilderInterface $builder)
+    public function addBreakfastComponents(FormBuilderInterface $builder)
     {
         $builder->add('components', ChoiceType::class, array(
             'label' => 'Wybierz składniki:',
@@ -82,7 +77,7 @@ class ComponentsForRecipes extends AbstractType
     }
 
 
-    protected function addSupperComponents(FormBuilderInterface $builder)
+    public function addSupperComponents(FormBuilderInterface $builder)
     {
         $builder->add('components', ChoiceType::class, array(
             'label' => 'Wybierz składniki:',
@@ -102,7 +97,7 @@ class ComponentsForRecipes extends AbstractType
     }
 
 
-    protected function addDessertComponents(FormBuilderInterface $builder)
+    public function addDessertComponents(FormBuilderInterface $builder)
     {
         $builder->add('components', ChoiceType::class, array(
             'label' => 'Wybierz składniki:',

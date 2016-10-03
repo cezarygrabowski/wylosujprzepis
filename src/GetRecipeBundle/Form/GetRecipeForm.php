@@ -14,11 +14,13 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 class GetRecipeForm extends ComponentsForRecipes
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('time', ChoiceType::class, array(
                 'label' => 'Wybierz czas przygotowania:',
@@ -31,10 +33,9 @@ class GetRecipeForm extends ComponentsForRecipes
                 )))
             ->add('type', TextType::class,array(
                 'mapped' => false,
-            ))
-            ->getForm();
+            ));
+            $this->addComponentsAndSetType($builder, $options );
 
-        $this->addComponentsAndSetType($builder);
     }
     public function configureOptions(OptionsResolver $resolver)
     {

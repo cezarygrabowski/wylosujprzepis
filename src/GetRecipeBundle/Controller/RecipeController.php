@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use GetRecipeBundle\Entity\Recipe;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+
 class RecipeController extends CzaroController
 {
 
@@ -31,7 +32,7 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(GetRecipeForm::class, $recipe);
-
+        $type = 'breakfast';
         return $this->handleGetFormAction($request, $form);
     }
 
@@ -43,7 +44,7 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(GetRecipeForm::class, $recipe);
-
+        $type = 'dinner';
         return $this->handleGetFormAction($request, $form);
     }
 
@@ -55,6 +56,7 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(GetRecipeForm::class, $recipe);
+        $type = 'supper';
 
         return $this->handleGetFormAction($request, $form);
     }
@@ -67,6 +69,7 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(GetRecipeForm::class, $recipe);
+        $type = 'dessert';
 
         return $this->handleGetFormAction($request, $form);
     }
@@ -87,7 +90,8 @@ class RecipeController extends CzaroController
     {
         $recipe = new Recipe();
 
-        $form = $this->createForm(UploadRecipeForm::class, $recipe);
+        $form = $this->createForm(UploadRecipeForm::class, $recipe, array('label' => 'breakfast'));
+
 
         return $this->handleUploadFormAction($request, $form);
     }
@@ -101,6 +105,7 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(UploadRecipeForm::class, $recipe);
+        $type = 'dinner';
 
         return $this->handleUploadFormAction($request, $form);
     }
@@ -113,7 +118,7 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(UploadRecipeForm::class, $recipe);
-
+        $type = 'supper';
         return $this->handleUploadFormAction($request, $form);
 
 
@@ -127,7 +132,7 @@ class RecipeController extends CzaroController
         $recipe = new Recipe();
 
         $form = $this->createForm(UploadRecipeForm::class, $recipe);
-
+        $type = 'dessert';
 
         return $this->handleUploadFormAction($request, $form);
     }
