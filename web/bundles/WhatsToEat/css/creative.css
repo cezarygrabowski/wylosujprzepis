@@ -507,3 +507,16 @@ body {
    height: 150px;
    padding-top: 25px;
 }
+#AdminContainer
+{
+  width:100%;
+  height: 100%;
+  background-image: url(../images/adminPanel.png);
+}
+#RecipesContainer
+{
+  width:1000px;
+  height:100%;
+  margin-left:auto;
+  margin-right:auto;
+}

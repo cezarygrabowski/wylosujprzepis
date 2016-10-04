@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Recipe
 {
-    const accepted = 1;
+    const ACCEPTED = 1;
     /**
      * @var int
      *

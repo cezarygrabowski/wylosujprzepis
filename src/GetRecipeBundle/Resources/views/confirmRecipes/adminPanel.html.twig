@@ -1,54 +1,55 @@
 {% extends '::base1.html.twig' %}
-{% block javascripts %}
-        {{ parent() }}
-        <script>
-                ScrollDown('.BottomPadding');
-        </script>
 
-{% endblock %}
-{% block content %}
-        {% for recipe in recipeToAccept %}
-                <div class="BottomPadding">
-                        <div class="leftFloater TextToShow">
-                                <div>
-                                        <h1 class="BoldPadding">{{ recipe.name }}</h1>
+{% block body %}
+        <div id="AdminContainer">
+            <h1 class="text-center BottomPadding"> Liczba przepisów do zaakceptowania: {{recipeToAccept|length }}</h1>
+            <div id="RecipesContainer">
+                {% for recipe in recipeToAccept %}
+                    <div class="DrawnRecipeForAdmin">
+                         <div class="BottomPadding">
+                                <div class="leftFloater TextToShow">
+                                        <div>
+                                                <h1 class="BoldPadding">{{ recipe.name }}</h1>
+                                        </div>
+                                        <div>
+                                                <p class="BottomPadding">Czas przygotowania: {{ recipe.time }} minut</p>
+                                        </div>
+                                        <div>
+                                                {{ recipe.preparation }}
+                                        </div>
+                                        <div class="marginRight">
+                                                <p>-{{ recipe.author }}</p>
+                                        </div>
                                 </div>
-                                <div>
-                                        <p class="BottomPadding">Czas przygotowania: {{ recipe.time }} minut</p>
+
+                                <div class="ImagePlacer leftFloater">
+                                        <img class="" src="{{ asset('uploads/images/' ~ recipe.image) }}"/>
                                 </div>
-                                <div>
-                                        {{ recipe.preparation }}
-                                </div>
-                                <div class="marginRight">
-                                        <p>-{{ recipe.author }}</p>
-                                </div>
+                                <div class="styleClearer"></div>
                         </div>
 
-                        <div class="ImagePlacer leftFloater">
-                                <img class="" src="{{ asset('uploads/images/' ~ recipe.image) }}"/>
-                        </div>
-                        <div class="styleClearer"></div>
-                </div>
-        {% endfor %}
+                        <div class="ButtonsContainer">
+                                <form method="GET" action="{{ path('home') }}">
+                                        <input type="submit" value="Wyjdź"
+                                               class="btn btn-primary btn-xl pull-left leftFloater " />
+                                </form>
 
-        <div class="ButtonsContainer">
-                <form method="GET" action="{{ path('home') }}">
-                        <input type="submit" value="Wyjdź"
-                               class="btn btn-primary btn-xl pull-left leftFloater " />
-                </form>
+                                <form method="GET">
+                                        <input type="submit" name = "acceptRecipe" value="Akceptuj przepis"
+                                               class="btn btn-primary btn-xl pull-middle leftFloater" />
+                                </form>
+                                <form method="GET">
+                                        <input type="submit" name = "deleteRecipe" value="Usuń przepis"
+                                               class="btn btn-primary btn-xl pull-middle leftFloater" />
+                                </form>
 
-                <form method="GET">
-                        <input type="submit" name = "acceptRecipe" value="Akceptuj przepis"
-                               class="btn btn-primary btn-xl pull-middle leftFloater" />
-                </form>
-                <form method="GET">
-                        <input type="submit" name = "deleteRecipe" value="Usuń przepis"
-                               class="btn btn-primary btn-xl pull-middle leftFloater" />
-                </form>
-
-                <form>
-                        <input type="submit" value="Następny przepis"
-                               class="btn btn-primary btn-xl pull-right leftFloater" />
-                </form>
+                                <form>
+                                        <input type="submit" value="Następny przepis"
+                                               class="btn btn-primary btn-xl pull-right leftFloater" />
+                                </form>
+                         </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
 {% endblock %}
