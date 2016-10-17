@@ -4,6 +4,7 @@
         <div id="AdminContainer">
             <h1 class="text-center BottomPadding"> Liczba przepisów do zaakceptowania: {{recipeToAccept|length }}</h1>
             <div id="RecipesContainer">
+                {% set numberOfRecipe = 0 %}
                 {% for recipe in recipeToAccept %}
                     <div class="DrawnRecipeForAdmin">
                          <div class="BottomPadding">
@@ -35,20 +36,16 @@
                                 </form>
 
                                 <form method="GET">
-                                        <input type="submit" name = "acceptRecipe" value="Akceptuj przepis"
+                                        <input type="submit" name = "acceptRecipe{{ numberOfRecipe }}" value="Akceptuj przepis"
                                                class="btn btn-primary btn-xl pull-middle leftFloater" />
                                 </form>
                                 <form method="GET">
-                                        <input type="submit" name = "deleteRecipe" value="Usuń przepis"
+                                        <input type="submit" name = "deleteRecipe{{ numberOfRecipe }}" value="Usuń przepis"
                                                class="btn btn-primary btn-xl pull-middle leftFloater" />
-                                </form>
-
-                                <form>
-                                        <input type="submit" value="Następny przepis"
-                                               class="btn btn-primary btn-xl pull-right leftFloater" />
                                 </form>
                          </div>
                     </div>
+                    {% set numberOfRecipe = numberOfRecipe+1 %}
                 {% endfor %}
             </div>
         </div>

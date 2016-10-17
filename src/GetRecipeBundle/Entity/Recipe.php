@@ -74,7 +74,6 @@ class Recipe
 
     /**
      * @var string
-     * @Assert\NotBlank(message="Podpisz się, a zyskasz wieczną sławę!")
      * @ORM\Column(name="author", type="string", length=255)
      */
     private $author;

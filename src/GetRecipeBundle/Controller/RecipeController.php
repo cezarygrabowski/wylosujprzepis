@@ -153,23 +153,19 @@ class RecipeController extends CzaroController
 
         $recipeToAccept = $this->getRecipeRepository()
             ->acceptRecipes();
-/*
-        if ($request->query->has('acceptRecipe')) {
-            foreach ($recipeToAccept as $recipe) {
+        $numberOfRecipe = 0;
+        foreach ($recipeToAccept as $recipe) {
+            if ($request->query->has('acceptRecipe'.$numberOfRecipe)) {
                 $recipe->setAccepted(Recipe::ACCEPTED);
                 $em->persist($recipe);
                 $em->flush();
             }
-        }
-
-        else if($request->query->has('deleteRecipe'))
-        {
-            foreach ($recipeToAccept as $recipe) {
-                $em->remove($recipe);
-                $em->flush();
+            else if ($request->query->has('deleteRecipe'.$numberOfRecipe)) {
+                    $em->remove($recipe);
+                    $em->flush();
             }
+            $numberOfRecipe+=1;
         }
-*/
         return $this->render('GetRecipeBundle:confirmRecipes:adminPanel.html.twig', array(
             'recipeToAccept' => $recipeToAccept,
         ));

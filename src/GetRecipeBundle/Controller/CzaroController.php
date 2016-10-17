@@ -48,6 +48,8 @@ class CzaroController extends Controller
     protected function handleUploadFormAction(Request $request, Form $form)
     {
         $form->handleRequest($request);
+        $recipe = $form->getData();
+        $recipe->setAuthor($this->getUser()->getUsername());
         if ($request->getMethod() == 'POST') {
 
             if ($form->isValid() && $form->isSubmitted()) {
@@ -62,7 +64,6 @@ class CzaroController extends Controller
                     $this->getParameter('images_directory'),
                     $fileName
                 );
-
                 $recipe->setImage($fileName);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($recipe);

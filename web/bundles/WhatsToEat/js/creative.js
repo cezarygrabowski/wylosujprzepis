@@ -1,4 +1,5 @@
 $(document).ready(function($) {
+
         "use strict"; // Start of use strict
         // jQuery for page scrolling feature - requires jQuery Easing plugin
         $('.page-scroll').bind('click', function(event) {
@@ -33,5 +34,10 @@ function ScrollDown($anchor) {
             scrollTop: ($($anchor).offset().top - 50)
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
+    });
+}
+function Show($anchor){
+    $(document).ready(function(){
+       $($anchor).hide(0).show(1000);
     });
 }

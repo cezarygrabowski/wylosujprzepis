@@ -16,7 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class UploadRecipeForm extends ComponentsForRecipes
 {
 
@@ -50,13 +50,13 @@ class UploadRecipeForm extends ComponentsForRecipes
             ))
 
             ->add('author', TextType::class, array(
-                'label' => 'Podpisz się!'
             ))
 
             ->add('type', TextType::class,array(
                 'mapped' => false,
             ));
             $this->addComponentsAndSetType($builder, $options);
+
         }
 
     public function configureOptions(OptionsResolver $resolver)

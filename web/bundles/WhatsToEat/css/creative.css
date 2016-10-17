@@ -155,7 +155,7 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('../img/header.jpg');
+  background-image: url('../images/tlo.jpg');
   text-align: center;
   color: white;
 }
@@ -187,7 +187,7 @@ header .header-content .header-content-inner p {
   }
   header .header-content {
     position: absolute;
-    top: 50%;
+    top: 30%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -493,6 +493,10 @@ body {
   padding-top: 20px;
   left:250px;
 }
+.padding
+{
+  padding:5px;
+}
 .BoldPadding
 {
   font-weight:bold;
@@ -501,6 +505,10 @@ body {
 .BottomPadding
 {
   padding-bottom: 15px;
+}
+.top-padding
+{
+  padding-top: 15px;
 }
 .ButtonsContainer
 {
@@ -519,4 +527,98 @@ body {
   height:100%;
   margin-left:auto;
   margin-right:auto;
+}
+
+#lean_overlay {
+  position: fixed;
+  z-index:100;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+  background: #000;
+  display: none;
+}
+
+.displayNone
+{
+  display:none;
+}
+
+.btn_red {background: #ED6347; color: #FFF;}
+
+.btn_red:hover {background: #C12B05;}
+
+a.btn {color:#666; text-align: center; text-decoration: none;}
+a.btn_red {color: #FFF;}
+
+
+.user_login label {display: block; margin-bottom:5px;}
+.user_login input[type="text"], .user_login input[type="email"], .user_login input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
+.forgot_password {display:block; margin: 20px 0 10px; clear: both; overflow: hidden; text-decoration: none; color:#ED6347;}
+
+
+.user_register label {display: block; margin-bottom:5px;}
+.user_register input[type="text"], .user_register input[type="email"], .user_register input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
+
+.FormContainer{
+  position:fixed;
+  border-radius: 5px;
+  padding:30px;
+  width:550px;
+  height: auto;
+  top:0px;
+  left:50%;
+  margin-left: -275px;
+  color: black;
+  background: #FFF;
+}
+
+.one_half {width:50%; display: block; float:left;}
+.one_half.last {width:45%; margin-left:5%;}
+.FormBody {padding:20px;}
+.FormHeader
+{
+    padding: 10px;
+}
+
+.rememberMe
+{
+  padding:10px;
+  text-align:left;
+}
+
+.fos_user_user_show
+{
+  height:1000px;
+  background-image: url('../img/dark_embroidery.png');
+}
+
+.profileNavigator
+{
+  color:black;
+  background-color:white;
+  position: absolute;
+  height:500px;
+  width:50px;
+  left:50px;
+  top:100px;
+  border-radius: 5px;
+}
+
+.profileContent
+{
+  background-color:white;
+  position: absolute;
+  min-height:900px;
+  width:1500px;
+  left:350px;
+  top:100px;
+  border-radius: 5px;
+}
+
+.navigationList
+{
+  padding:10px;
+  list-style:none;
 }

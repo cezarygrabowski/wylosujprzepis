@@ -6,6 +6,7 @@
         <entryData>
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/src/GetRecipeBundle" />
+            <path value="file://$PROJECT_DIR$/src/UserBundle" />
           </resourceRoots>
         </entryData>
       </entry>
