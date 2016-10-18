@@ -1,12 +1,16 @@
 {% extends '::base1.html.twig' %}
 
 {% block javascripts %}
+    {% if not app.user %}
+        <script>window.location.href ={{"fos_user_security_login"}}</script>
+    {% endif %}
     {{ parent() }}
     <script>
         ScrollDown('#ChooseMealToUpload');
     </script>
 {% endblock %}
 {% block content %}
+
     <section class="text-center">
         <h1 id="ChooseMealToUpload">Dodaj przepis!</h1>
         <div id="types">
