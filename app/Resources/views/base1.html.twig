@@ -72,7 +72,7 @@
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                        </button>
+                         </button>
                         <a class="navbar-brand page-scroll" href="{{ path('home') }}">What's to eat?</a>
                     </div>
 
@@ -80,6 +80,18 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
 
+                            {% if app.user %}
+                                {% if not user.image %}
+                                    <li>
+                                        <img class="userLogo" src="{{ asset('uploads/images/defaultImage.png') }}"/>
+                                    </li>
+                                {% else %}
+
+                                {% endif %}
+                                <li>
+                                    <a href="{{ path('fos_user_profile_show') }}">{{ user.username }}</a>
+                                </li>
+                            {% endif %}
                             <li>
                                 {% if app.request.get('_route') == 'home' %}
                                     <a class="page-scroll" href="#DrawRecipe"> Wylosuj przepis</a>
@@ -87,13 +99,10 @@
                                     <a class="page-scroll" href="{{ path('home') }}"> Wylosuj przepis</a>
                                 {% endif %}
                             </li>
+
                             {% if app.user %}
                                 <li>
                                     <a class="page-scroll" href="{{ path('add_recipe') }}">Dodaj przepis</a>
-                                </li>
-
-                                <li>
-                                    <a class="page-scroll" href="{{ path('fos_user_profile_show') }}">Profil TODO</a>
                                 </li>
 
                                 <li>

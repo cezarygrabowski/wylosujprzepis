@@ -19,6 +19,35 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var string
+     * @ORM\Column(name="image", type="string")
+     */
+    private $image;
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return User
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
     public function __construct()
     {
         parent::__construct();

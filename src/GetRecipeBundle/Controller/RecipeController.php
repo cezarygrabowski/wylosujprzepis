@@ -19,7 +19,14 @@ class RecipeController extends CzaroController
 
     public function indexAction()
     {
+
+        if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->render('GetRecipeBundle:Default:index.html.twig', array(
+                'user' => $this->getUser()
+            ));
+        }
         return $this->render('GetRecipeBundle:Default:index.html.twig');
+
     }
 
     /**
@@ -153,18 +160,17 @@ class RecipeController extends CzaroController
 
         $recipeToAccept = $this->getRecipeRepository()
             ->acceptRecipes();
-        $numberOfRecipe = 0;
+
         foreach ($recipeToAccept as $recipe) {
-            if ($request->query->has('acceptRecipe'.$numberOfRecipe)) {
+            if ($request->query->has('acceptRecipe'.$recipe->getId())) {
                 $recipe->setAccepted(Recipe::ACCEPTED);
                 $em->persist($recipe);
                 $em->flush();
             }
-            else if ($request->query->has('deleteRecipe'.$numberOfRecipe)) {
+            else if ($request->query->has('deleteRecipe'.$recipe->getId())) {
                     $em->remove($recipe);
                     $em->flush();
             }
-            $numberOfRecipe+=1;
         }
         return $this->render('GetRecipeBundle:confirmRecipes:adminPanel.html.twig', array(
             'recipeToAccept' => $recipeToAccept,
