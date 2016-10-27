@@ -58,7 +58,6 @@ class CzaroController extends Controller
 
                 /** @var UploadedFile $file */
                 $file = $recipe->getImage();
-
                 $fileName = md5(uniqid()).'.'. $file->guessExtension();
                 $file->move(
                     $this->getParameter('images_directory'),

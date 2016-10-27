@@ -34,6 +34,7 @@ class User extends BaseUser
      */
     public function setImage($image)
     {
+
         $this->image = $image;
 
         return $this;
@@ -52,5 +53,7 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
+        $this->addRole('ROLE_USER');
+        $this->setImage('defaultImage.png');
     }
 }

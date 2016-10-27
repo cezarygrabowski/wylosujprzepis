@@ -1,19 +1,69 @@
 {% extends "::base1.html.twig" %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+    function loadProfile() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("profile-content").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "", true);
+    xhttp.send();
+    }
+    </script>
+{% endblock %}
+{% block ExceptNavbar %}
+    <!--
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+-->
+    <div class="ProfileContainer">
+        <div class="ProfileWrapper">
+            <div class="row profile">
+                <div class="col-md-3">
+                    <div class="profile-sidebar">
+                        <div class="profile-userpic">
+                            <img class="userLogo img-responsive" src="{{ asset('uploads/images/' ~ app.user.image) }}"/>
+                        </div>
 
-{% block bodyExceptNavbar %}
-    <div class="fos_user_user_show">
-        <div class="profileNavigator">
-            <ul class="navigationList">
-                <li>
-                    <a class="" href="#">Dodane przepisydsaasddsaadsdsadas</a>
-                </li>
-                <li>
-                    <a class="" href="#">Edytuj profil</a>
-                </li>
-            </ul>
-        </div>
-        <div class="profileContent">
+                        <div class="profile-usertitle">
+                            <div class="profile-usertitle-name">
+                                {{ user.username }}
+                            </div>
 
+                        </div>
+                        <!-- END SIDEBAR USER TITLE -->
+                        <!-- SIDEBAR BUTTONS -->
+
+                        <!-- END SIDEBAR BUTTONS -->
+                        <!-- SIDEBAR MENU -->
+                        <div class="profile-usermenu">
+                            <ul class="nav">
+                                <li class="active">
+                                    <a href="#" onclick="loadProfile()">
+                                        <i class="glyphicon glyphicon-home"></i>
+                                        Profil </a>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="loadSettings()">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        Ustawienia </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END MENU -->
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="profile-content">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-{% endblock bodyExceptNavbar %}
+
+{% endblock ExceptNavbar %}

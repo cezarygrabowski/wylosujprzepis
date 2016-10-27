@@ -54,7 +54,6 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.js"></script>
             <![endif]-->
-
         {% endblock %}
 
         <link rel="icon" type="image/x-icon" href="{{ asset('bundles/WhatsToEat/images/logo.png') }}" />
@@ -81,15 +80,13 @@
                         <ul class="nav navbar-nav navbar-right">
 
                             {% if app.user %}
-                                {% if not user.image %}
-                                    <li>
-                                        <img class="userLogo" src="{{ asset('uploads/images/defaultImage.png') }}"/>
-                                    </li>
-                                {% else %}
 
-                                {% endif %}
                                 <li>
-                                    <a href="{{ path('fos_user_profile_show') }}">{{ user.username }}</a>
+                                    <img class="userLogo img-responsive" src="{{ asset('uploads/images/' ~ app.user.image) }}"/>
+                                </li>
+
+                                <li>
+                                    <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>
                                 </li>
                             {% endif %}
                             <li>
@@ -116,9 +113,13 @@
                                     <a id = "register" href="{{ path('fos_user_registration_register') }}" class="btn">Zarejestruj się</a>
                                 </li>
                             {% endif %}
-                            <li>
-                                <a class="page-scroll" href="#contact">Kontakt</a>
-                            </li>
+                            {% if app.request.get('_route') == 'fos_user_profile_show' %}
+
+                            {% else %}
+                                <li>
+                                    <a id="contactButton" class="page-scroll" href="#contact">Kontakt</a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -128,7 +129,7 @@
             </nav>
                 {% endblock %}
 
-        {% block bodyExceptNavbar %}
+        {% block ExceptNavbar %}
             {% if app.session.flashbag.has('success') %}
                 <div class="alert alert-success">
                     {% for msg in app.session.flashbag.get('success') %}
