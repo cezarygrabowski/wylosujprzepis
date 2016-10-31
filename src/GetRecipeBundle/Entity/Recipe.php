@@ -5,6 +5,7 @@ namespace GetRecipeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use UserBundle\Entity\User;
 /**
  * Recipe
  *
@@ -92,6 +93,16 @@ class Recipe
      */
     private $type;
 
+
+    /**
+     * Inverse side
+     * @ORM\ManyToOne(
+     *     targetEntity="UserBundle\Entity\User",
+     *     inversedBy="recipes"
+     * )
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    private $owner;
 
     /**
      * Get id
@@ -292,6 +303,22 @@ class Recipe
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @return User
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+    /**
+     * @param User $owner
+     */
+    public function setOwner($owner)
+    {
+        $this->owner = $owner;
     }
 }
 

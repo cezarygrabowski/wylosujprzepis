@@ -19,7 +19,6 @@ class RecipeController extends CzaroController
 
     public function indexAction()
     {
-
         if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             return $this->render('GetRecipeBundle:Default:index.html.twig', array(
                 'user' => $this->getUser()

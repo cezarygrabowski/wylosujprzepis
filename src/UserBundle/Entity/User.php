@@ -3,12 +3,14 @@
 
 namespace UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @ORM\HasLifecycleCallbacks
  */
 class User extends BaseUser
 {
@@ -20,8 +22,17 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * Inverse side
+     * @ORM\OneToMany(targetEntity="GetRecipeBundle\Entity\Recipe", mappedBy="owner")
+     */
+    protected $recipes;
+
+    /**
      * @var string
-     * @ORM\Column(name="image", type="string")
+     * @Assert\Image(mimeTypesMessage="Powinieneś wybrać zdjęcie!")
+     * @Assert\NotBlank(message="Wybierz plik w formie zdjęcia")
+     * @Assert\File(maxSize="6000000")
+     * @ORM\Column(name="zdjecie", type="string")
      */
     private $image;
 
@@ -34,7 +45,6 @@ class User extends BaseUser
      */
     public function setImage($image)
     {
-
         $this->image = $image;
 
         return $this;
@@ -55,5 +65,14 @@ class User extends BaseUser
         // your own logic
         $this->addRole('ROLE_USER');
         $this->setImage('defaultImage.png');
+        $this->recipes = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRecipes()
+    {
+        return $this->recipes;
     }
 }

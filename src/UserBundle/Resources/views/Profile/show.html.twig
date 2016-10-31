@@ -1,18 +1,6 @@
 {% extends "::base1.html.twig" %}
 {% block javascripts %}
     {{ parent() }}
-    <script>
-    function loadProfile() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("profile-content").innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("GET", "", true);
-    xhttp.send();
-    }
-    </script>
 {% endblock %}
 {% block ExceptNavbar %}
     <!--
@@ -26,12 +14,12 @@ Licensed under MIT
                 <div class="col-md-3">
                     <div class="profile-sidebar">
                         <div class="profile-userpic">
-                            <img class="userLogo img-responsive" src="{{ asset('uploads/images/' ~ app.user.image) }}"/>
+                            <img class="userLogo img-responsive" src="{{ asset('uploads/logos/' ~ app.user.image) }}"/>
                         </div>
 
                         <div class="profile-usertitle">
                             <div class="profile-usertitle-name">
-                                {{ user.username }}
+                                {{ app.user.username }}
                             </div>
 
                         </div>
@@ -43,23 +31,63 @@ Licensed under MIT
                         <div class="profile-usermenu">
                             <ul class="nav">
                                 <li class="active">
-                                    <a href="#" onclick="loadProfile()">
+                                    <a href="{{ path('fos_user_profile_show') }}">
                                         <i class="glyphicon glyphicon-home"></i>
                                         Profil </a>
                                 </li>
                                 <li>
-                                    <a href="#" onclick="loadSettings()">
+                                    <a href="{{ path('fos_user_profile_edit') }}">
                                         <i class="glyphicon glyphicon-user"></i>
-                                        Ustawienia </a>
+                                        Zmień nazwę użytkownika lub email </a>
                                 </li>
+                                <li>
+                                    <a href="{{ path('fos_user_change_password') }}">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        Zmień hasło </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('change_logo') }}">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        Zmień logo </a>
+                                </li>
+
                             </ul>
                         </div>
                         <!-- END MENU -->
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="profile-content">
 
+                    <div class="profile-content">
+                    {% block profileContent %}
+
+                        <h3 class=" BottomPadding"> TODO: WYSWIETLA ZAAKCEPTOWANE I NIEZAAKCEPTOWANE: {{uploadedRecipes|length }}</h3>
+
+                        {% for recipe in uploadedRecipes %}
+                        <div class="DrawnRecipeForAdmin">
+                            <div class="BottomPadding">
+                                <div class="leftFloater TextToShow">
+                                    <div>
+                                        <h1 class="BoldPadding">{{ recipe.name }}</h1>
+                                    </div>
+                                    <div>
+                                        <p class="BottomPadding">Czas przygotowania: {{ recipe.time }} minut</p>
+                                    </div>
+                                    <div>
+                                        {{ recipe.preparation }}
+                                    </div>
+                                    <div class="marginRight">
+                                        <p>-{{ recipe.author }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="ImagePlacer leftFloater">
+                                    <img class="" src="{{ asset('uploads/images/' ~ recipe.image) }}"/>
+                                </div>
+                                <div class="styleClearer"></div>
+                            </div>
+                        {% endfor %}
+                    {% endblock %}
                     </div>
                 </div>
             </div>

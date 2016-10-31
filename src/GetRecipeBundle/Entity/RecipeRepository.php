@@ -69,4 +69,17 @@ class RecipeRepository extends EntityRepository
             ->getQuery()
             ->execute();
     }
+
+    /**
+     * @return Recipe[]
+     */
+
+    public function getAllRecipesOfUser($username)
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.author = :username')
+            ->setParameter('username', $username)
+            ->getQuery()
+            ->execute();
+    }
 }

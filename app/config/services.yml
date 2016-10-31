@@ -9,3 +9,9 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
      addComponentsAndSetType:
           class: GetRecipeBundle\Form\ComponentsForRecipes
+     app.image_uploader:
+        class: GetRecipeBundle\FileUploader
+        arguments: ["%images_directory%"]
+     app.logo_uploader:
+        class: UserBundle\FileUploader
+        arguments: ["%logo_directory%"]

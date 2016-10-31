@@ -14,6 +14,7 @@ use Symfony\Component\Form\Form;
 use GetRecipeBundle\Entity\RecipeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 class CzaroController extends Controller
 {
     /**
@@ -58,11 +59,9 @@ class CzaroController extends Controller
 
                 /** @var UploadedFile $file */
                 $file = $recipe->getImage();
-                $fileName = md5(uniqid()).'.'. $file->guessExtension();
-                $file->move(
-                    $this->getParameter('images_directory'),
-                    $fileName
-                );
+
+                $fileName = $this->get('app.image_uploader')->upload($file);
+
                 $recipe->setImage($fileName);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($recipe);
