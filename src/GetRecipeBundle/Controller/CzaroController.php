@@ -60,9 +60,10 @@ class CzaroController extends Controller
                 /** @var UploadedFile $file */
                 $file = $recipe->getImage();
 
-                $fileName = $this->get('app.image_uploader')->upload($file);
+                $fileName = $this->get('images_uploader')->upload($file);
 
                 $recipe->setImage($fileName);
+                $recipe->setOwner($this->getUser());
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($recipe);
                 $em->flush();

@@ -167,8 +167,8 @@ class RecipeController extends CzaroController
                 $em->flush();
             }
             else if ($request->query->has('deleteRecipe'.$recipe->getId())) {
-                    $em->remove($recipe);
-                    $em->flush();
+                $em->remove($recipe);
+                $em->flush();
             }
         }
         return $this->render('GetRecipeBundle:confirmRecipes:adminPanel.html.twig', array(

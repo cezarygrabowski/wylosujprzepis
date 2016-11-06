@@ -1,5 +1,5 @@
 {% extends "::layout.html.twig" %}
-{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
 
 {% block fos_user_content %}
 
@@ -13,7 +13,6 @@
                 {{ form_row(form.email) }}
                 {{ form_row(form.plainPassword) }}
                 {{ form_row(form.plainPassword) }}
-
                 <div class="action_btns top-padding">
                         <div class="one_half"><a href="{{ path('home') }}" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
                     <input type="submit" class="one_half last btn btn_red" id="_submit" name="_submit" value="{{ 'Zarejestruj'|trans }}" />

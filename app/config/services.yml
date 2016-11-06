@@ -2,16 +2,17 @@
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
 #    parameter_name: value
-
 services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
      addComponentsAndSetType:
           class: GetRecipeBundle\Form\ComponentsForRecipes
-     app.image_uploader:
-        class: GetRecipeBundle\FileUploader
+     images_uploader:
+        class: UserBundle\FileUploader
         arguments: ["%images_directory%"]
      app.logo_uploader:
         class: UserBundle\FileUploader
         arguments: ["%logo_directory%"]
+        app.findOneByUsernameOrEmail:
+                class: UserBundle\Entity\UserRepository
