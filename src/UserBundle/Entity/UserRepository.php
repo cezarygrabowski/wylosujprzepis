@@ -19,13 +19,12 @@ class UserRepository extends EntityRepository
      * @param $username
      * @return User|null
      */
-    public function findOneByUsernameOrEmail($username)
+    public function findOneByUsername($username)
     {
         return $this->createQueryBuilder('e')
             ->select('e')
-            ->where('e.username = :username OR e.email = :email')
+            ->where('e.username = :username')
             ->setParameter('username', $username)
-            ->setParameter('email', $username)
             ->getQuery()
         ->getOneOrNullResult();
     }

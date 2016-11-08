@@ -13,16 +13,15 @@ use UserBundle\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 
-class LoadRecipes implements FixtureInterface, OrderedFixtureInterface
+class LoadUsers implements FixtureInterface, OrderedFixtureInterface
 {
-
-
     public function load(ObjectManager $manager)
     {
         $Czaro = new User();
         $Czaro->setUsername("Czaro");
         $Czaro->setPlainPassword("czaro");
         $Czaro->setEmail("czaros45@gmail.com");
+        $Czaro->setEnabled(true);
         $manager->persist($Czaro);
 
         $admin = new User();
