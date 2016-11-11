@@ -29,6 +29,7 @@ class LoadUsers implements FixtureInterface, OrderedFixtureInterface
         $admin->setEmail("czarodziejskasymfonia@gmail.com");
         $admin->setPlainPassword("nimdA");
         $admin->setRoles(array('ROLE_ADMIN'));
+        $admin->setEnabled(true);
         $manager->persist($admin);
 
         $manager->flush();

@@ -75,7 +75,7 @@ class ProfileController extends BaseController
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
-        $uploadedRecipes = $this->getRecipeRepository()->getAllRecipesOfUser($this->getUser()->getUsername());
+        $uploadedRecipes = $this->getRecipeRepository()->getAllRecipesOfUser($this->getUser()->getId());
 
         return $this->render('FOSUserBundle:Profile:show.html.twig', array(
             'user' => $user,

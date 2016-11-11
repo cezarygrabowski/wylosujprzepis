@@ -74,11 +74,11 @@ class RecipeRepository extends EntityRepository
      * @return Recipe[]
      */
 
-    public function getAllRecipesOfUser($username)
+    public function getAllRecipesOfUser($id)
     {
         return $this->createQueryBuilder('e')
-            ->where('e.author = :username')
-            ->setParameter('username', $username)
+            ->where('e.owner = :Id')
+            ->setParameter('Id', $id)
             ->getQuery()
             ->execute();
     }

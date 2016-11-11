@@ -129,27 +129,6 @@ class RecipeController extends CzaroController
         return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig');
     }
 
-
-    /**
-     * @Route("/akceptuj-przepisy", name="accept_recipes")
-     */
-    public function accept_recipesAction(Request $request)
-    {
-        $formPassword = $this->createFormBuilder()->getForm();
-        $formPassword->add('password', PasswordType::class, array());
-        $formPassword->handleRequest($request);
-        if ($request->getMethod() == 'POST') {
-            if ($formPassword->get('password')->getData() == 'AOCE2270Sw') {
-                return $this->redirect($this->generateUrl('admin_panel'));
-            }
-        }
-
-        return $this->render('GetRecipeBundle:confirmRecipes:confirmRecipes.html.twig', array(
-            'formPassword' => $formPassword->createView()
-        ));
-    }
-
-
     /**
      * @Route("/panel-admina", name="admin_panel")
      */

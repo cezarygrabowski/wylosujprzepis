@@ -6,6 +6,7 @@
     </script>
     <div id ="DrawnRecipe">
     {% for randomRecipe in randomRecipe %}
+
         <div class="leftFloater TextToShow">
             <div>
                 <h1 class="BoldPadding">{{ randomRecipe.name }}</h1>
@@ -17,12 +18,12 @@
                 {{ randomRecipe.preparation }}
             </div>
             <div class="marginRight">
-                <p>-{{ randomRecipe.author }}</p>
+                <p>-{{ randomRecipe.owner.username }}</p>
             </div>
         </div>
 
-        <div class="ImagePlacer leftFloater">
-            <img class="" src="{{ asset('uploads/images/' ~ randomRecipe.image) }}"/>
+        <div class=" leftFloater ">
+            <img class = "ImagePlacer img-responsive" src="{{ asset('uploads/images/' ~ randomRecipe.image) }}"/>
         </div>
         {% endfor %}
     </div>

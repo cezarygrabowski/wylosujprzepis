@@ -23,7 +23,6 @@ class LoadRecipes implements FixtureInterface, OrderedFixtureInterface
 
         $recipe1 = new Recipe();
 
-        $recipe1->setAuthor($Czaro->getUsername());
         $recipe1->setType('dessert');
         $recipe1->setTime('30');
         $recipe1->setName('Nutella');
@@ -38,7 +37,6 @@ class LoadRecipes implements FixtureInterface, OrderedFixtureInterface
 
 
         $recipe2= new Recipe();
-        $recipe2->setAuthor($Czaro->getUsername());
         $recipe2->setType('breakfast');
         $recipe2->setTime('90');
         $recipe2->setName('Burgery');
@@ -53,7 +51,6 @@ class LoadRecipes implements FixtureInterface, OrderedFixtureInterface
 
 
         $recipe3 = new Recipe();
-        $recipe3->setAuthor($Czaro->getUsername());
         $recipe3->setType('dinner');
         $recipe3->setTime('60');
         $recipe3->setName('Pizza');
@@ -68,7 +65,6 @@ class LoadRecipes implements FixtureInterface, OrderedFixtureInterface
 
 
         $recipe4 = new Recipe();
-        $recipe4->setAuthor($Czaro->getUsername());
         $recipe4->setType('supper');
         $recipe4->setTime('90');
         $recipe4->setName('Sushi');
@@ -83,8 +79,6 @@ class LoadRecipes implements FixtureInterface, OrderedFixtureInterface
         $manager->persist($recipe4);
 
         $manager->flush();
-
-
     }
 
     public function getOrder()

@@ -73,11 +73,6 @@ class Recipe
      */
     private $preparation;
 
-    /**
-     * @var string
-     * @ORM\Column(name="author", type="string", length=255)
-     */
-    private $author;
 
     /**
      * @var bool
@@ -231,30 +226,6 @@ class Recipe
     public function getPreparation()
     {
         return $this->preparation;
-    }
-
-    /**
-     * Set author
-     *
-     * @param string $author
-     *
-     * @return Recipe
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
     }
 
     /**
