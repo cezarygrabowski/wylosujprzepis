@@ -29,10 +29,18 @@ class CzaroController extends Controller
     {
         $form->handleRequest($request);
         if ($request->getMethod() == 'POST') {
-            if ($form->get('components')->isValid() && $form->get('time')->isValid()) {
-
+            if ($form->get('components')->isValid() && $form->get('time')->isValid()) {     //strange things happened here thats why I have 2 arguments in 'IF' statement
                 $randomRecipe = $this->getRecipeRepository()
                     ->getRandomRecipe($form);
+
+                if (!$randomRecipe) {
+                    $message = 'Niestety nie ma przepisu spełniającego podane parametry.';
+                    return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
+                        'form' => $form->createView(),
+                        'message' => $message
+                    ));
+
+                }
 
                 return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig', array(
                     'randomRecipe' => $randomRecipe,

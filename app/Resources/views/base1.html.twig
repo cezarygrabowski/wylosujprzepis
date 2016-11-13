@@ -132,17 +132,17 @@
                 <!-- /.container-fluid -->
 
             </nav>
-                {% endblock %}
+                {% if app.session.flashbag.get('success') %}
+                    <div class="alert alert-success">
+                        {% for msg in app.session.flashbag.get('success') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endblock %}
 
         {% block ExceptNavbar %}
-            {% if app.session.flashbag.has('success') %}
-                <div class="alert alert-success">
-                    {% for msg in app.session.flashbag.get('success') %}
-                        {{ msg }}
-                    {% endfor %}
-                </div>
 
-            {% endif %}
             <header>
                 <div class="header-content">
                     <div class="header-content-inner">
@@ -186,6 +186,7 @@
                 </div>
             </section>
         {% endblock %}
+
         {% endblock %}
     </body>
 

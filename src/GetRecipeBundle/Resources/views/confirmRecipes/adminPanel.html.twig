@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('adminPanel/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('adminPanel/css/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/WhatsToEat/css/creative.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,8 +47,7 @@
                             zaakceptowania: {{ recipeToAccept|length }}</h1>
                         <div id="RecipesContainer">
                             {% for recipe in recipeToAccept %}
-                            <div id="DrawnRecipe" class ="listedRecipes">
-
+                            <div id="DrawnRecipe" class ="DrawnRecipe">
                                 <div class="leftFloater TextToShow">
                                     <div>
                                         <h1 class="BoldPadding">{{ recipe.name }}</h1>
@@ -70,6 +70,7 @@
                                 <div class=" leftFloater ">
                                     <img class="ImagePlacer img-responsive" src="{{ asset('uploads/images/' ~ recipe.image) }}"/>
                                 </div>
+                                <div class="styleCleaner"></div>
 
                                 <div class="ButtonsContainer">
                                     <form method="GET" action="{{ path('home') }}">
@@ -88,9 +89,9 @@
                                 </div>
 
                                 <div class="styleClearer"></div>
-                                {% endfor %}
                             </div>
                         </div>
+                        <div class="BottomPadding"></div>
                         {% endfor %}
                     </div>
                 </div>
@@ -103,7 +104,7 @@
 <footer>
     <div class="container">
         <div class="copy text-center">
-            Copyright 2014 Website
+            Not original admin panel
         </div>
     </div>
 </footer>

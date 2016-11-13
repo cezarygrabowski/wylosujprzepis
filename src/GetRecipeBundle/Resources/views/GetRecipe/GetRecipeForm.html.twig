@@ -10,6 +10,13 @@
 {% block content %}
     {{ parent() }}
         <div class="DrawRecipe">
+
+            {% if message is defined %}
+                <div class = "alert-danger">
+                    {{ message }}
+                </div>
+            {% endif %}
+
             {{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
 
             {{ form_row(form.time) }}

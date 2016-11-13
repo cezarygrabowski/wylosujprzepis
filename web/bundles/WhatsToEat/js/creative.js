@@ -36,8 +36,3 @@ function ScrollDown($anchor) {
         event.preventDefault();
     });
 }
-function Show($anchor){
-    $(document).ready(function(){
-       $($anchor).hide(0).show(1000);
-    });
-}

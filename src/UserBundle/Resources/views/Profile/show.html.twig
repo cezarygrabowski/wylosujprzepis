@@ -1,8 +1,7 @@
-{% extends "::base1.html.twig" %}
+{% extends '::base1.html.twig' %}
 {% block javascripts %}
     {{ parent() }}
-{% endblock %}
-
+    {% endblock %}
 {% block ExceptNavbar %}
     <!--
 User Profile Sidebar by @keenthemes
@@ -64,8 +63,7 @@ Licensed under MIT
                         <h3 class=" BottomPadding"> //TODO: WYSWIETLA ZAAKCEPTOWANE I NIEZAAKCEPTOWANE: {{uploadedRecipes|length }}</h3>
 
                         {% for recipe in uploadedRecipes %}
-                        <div class="DrawnRecipeForAdmin listedRecipes">
-                            <div class="BottomPadding">
+                        <div class="DrawnRecipe">
                                 <div class="leftFloater TextToShow">
                                     <div>
                                         <h1 class="BoldPadding">{{ recipe.name }}</h1>
@@ -77,25 +75,27 @@ Licensed under MIT
                                         {{ recipe.preparation }}
                                     </div>
                                     <div class="marginRight">
-                                        <p>-{{ recipe.owner.username}}</p>
+                                        <p>-{{ recipe.owner.username }}</p>
                                     </div>
 
                                     <div class="marginRight">
-                                        <p>Typ: {{ recipe.type}}</p>
+                                        <p>Typ: {{ recipe.type }}</p>
                                     </div>
                                 </div>
 
                                 <div class="leftFloater">
-                                    <img class="ImagePlacer img-responsive" src="{{ asset('uploads/images/' ~ recipe.image) }}"/>
+                                    <img class="ImagePlacer img-responsive"
+                                         src="{{ asset('uploads/images/' ~ recipe.image) }}"/>
                                 </div>
                                 <div class="styleClearer"></div>
-                            </div>
+
+                        </div>
+                            <div class="BottomPadding"></div>
                         {% endfor %}
                     {% endblock %}
                     </div>
-                </div>
             </div>
         </div>
+        </div>
     </div>
-
 {% endblock ExceptNavbar %}
