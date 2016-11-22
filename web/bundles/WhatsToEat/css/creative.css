@@ -755,6 +755,7 @@ Licensed under MIT
 
 .DrawnRecipe
 {
-  padding:30px;
+  overflow: auto;
+  padding:20px;
   border: solid black 1px;
 }

@@ -3,7 +3,7 @@ user:
     type:     annotation
     prefix:   /
 
-get_recipe:
+get_recipe_controller:
     resource: "@GetRecipeBundle/Controller/"
     type:     annotation
     prefix:   /

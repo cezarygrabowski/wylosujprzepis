@@ -62,7 +62,7 @@ class RecipeRepository extends EntityRepository
     /**
      * @return Recipe[]
      */
-    public function acceptRecipes()
+    public function getUnacceptedRecipes()
     {
          return $this->createQueryBuilder('e')
             ->where('e.accepted = 0')

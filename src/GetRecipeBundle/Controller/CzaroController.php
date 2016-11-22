@@ -9,6 +9,7 @@
 namespace GetRecipeBundle\Controller;
 
 
+use GetRecipeBundle\Entity\Recipe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use GetRecipeBundle\Entity\RecipeRepository;
@@ -90,4 +91,5 @@ class CzaroController extends Controller
             'form' => $form->createView()
         ));
     }
+
 }

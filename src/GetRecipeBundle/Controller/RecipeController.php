@@ -5,6 +5,7 @@ namespace GetRecipeBundle\Controller;
 use GetRecipeBundle\Form\ComponentsForRecipes;
 use GetRecipeBundle\Form\GetRecipeForm;
 use GetRecipeBundle\Form\UploadRecipeForm;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use GetRecipeBundle\Entity\Recipe;
 use Symfony\Component\Routing\Annotation\Route;
@@ -132,26 +133,54 @@ class RecipeController extends CzaroController
     /**
      * @Route("/panel-admina", name="admin_panel")
      */
-    public function admin_panelAction(Request $request)
+    public function admin_panelAction()
+    {
+        $unacceptedRecipes = $this->getRecipeRepository()->getUnacceptedRecipes();
+        return $this->render('GetRecipeBundle:confirmRecipes:adminPanel.html.twig', array(
+            'unacceptedRecipes' => $unacceptedRecipes,
+        ));
+    }
+
+    /**
+     * @Route("/{id}/akceptuj-przepis", name="accept_recipe")
+     */
+    public function acceptRecipeAction($id)
     {
         $em = $this->getDoctrine()->getManager();
+        $recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($id);
 
-        $recipeToAccept = $this->getRecipeRepository()
-            ->acceptRecipes();
-
-        foreach ($recipeToAccept as $recipe) {
-            if ($request->query->has('acceptRecipe'.$recipe->getId())) {
-                $recipe->setAccepted(Recipe::ACCEPTED);
-                $em->persist($recipe);
-                $em->flush();
-            }
-            else if ($request->query->has('deleteRecipe'.$recipe->getId())) {
-                $em->remove($recipe);
-                $em->flush();
-            }
+        if($recipe)
+        {
+            $recipe->setAccepted(Recipe::ACCEPTED);
         }
-        return $this->render('GetRecipeBundle:confirmRecipes:adminPanel.html.twig', array(
-            'recipeToAccept' => $recipeToAccept,
-        ));
+        else
+        {
+            throw $this->createNotFoundException('Nie mogę znaleźć przepisu...');
+        }
+        $em->persist($recipe);
+        $em->flush();
+
+        return $this->redirectToRoute('admin_panel');
+
+    }
+
+    /**
+     * @Route("/{id}/usun-przepis", name="remove_recipe")
+     */
+    public function removeRecipeAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($id);
+
+        if($recipe)
+        {
+            $em->remove($recipe);
+            $em->flush();
+        }
+        else
+        {
+            throw $this->createNotFoundException('Nie mogę znaleźć przepisu...');
+        }
+        return $this->redirectToRoute('admin_panel');
     }
 }

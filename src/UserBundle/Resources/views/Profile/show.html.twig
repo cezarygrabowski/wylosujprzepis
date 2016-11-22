@@ -1,8 +1,14 @@
 {% extends '::base1.html.twig' %}
+
 {% block javascripts %}
     {{ parent() }}
-    {% endblock %}
+    <script>
+        ScrollDown('#DrawRecipe');
+    </script>
+
+{% endblock %}
 {% block ExceptNavbar %}
+
     <!--
 User Profile Sidebar by @keenthemes
 A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme

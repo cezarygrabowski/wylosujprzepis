@@ -44,9 +44,9 @@
 
                     <div id="AdminContainer">
                         <h1 class="text-center BottomPadding"> Liczba przepisów do
-                            zaakceptowania: {{ recipeToAccept|length }}</h1>
+                            zaakceptowania: {{ unacceptedRecipes|length }}</h1>
                         <div id="RecipesContainer">
-                            {% for recipe in recipeToAccept %}
+                            {% for recipe in unacceptedRecipes %}
                             <div id="DrawnRecipe" class ="DrawnRecipe">
                                 <div class="leftFloater TextToShow">
                                     <div>
@@ -65,6 +65,10 @@
                                     <div class="marginRight">
                                         <p>-{{ recipe.type }}</p>
                                     </div>
+                                    <div class="ButtonsContainer">
+                                        <a href="{{ path('accept_recipe', {id: recipe.id}) }}" class="btn btn-primary btn-xl">Akceptuj przepis</a>
+                                        <a href="{{ path('remove_recipe', {id: recipe.id}) }}" class="btn btn-primary btn-xl">Usun przepis</a>
+                                    </div>
                                 </div>
 
                                 <div class=" leftFloater ">
@@ -72,21 +76,7 @@
                                 </div>
                                 <div class="styleCleaner"></div>
 
-                                <div class="ButtonsContainer">
-                                    <form method="GET" action="{{ path('home') }}">
-                                        <input type="submit" value="Wyjdź"
-                                               class="btn btn-primary btn-xl pull-left leftFloater "/>
-                                    </form>
 
-                                    <form method="GET">
-                                        <input type="submit" name="acceptRecipe{{ recipe.id }}" value="Akceptuj przepis"
-                                               class="btn btn-primary btn-xl pull-middle leftFloater"/>
-                                    </form>
-                                    <form method="GET">
-                                        <input type="submit" name="deleteRecipe{{ recipe.id }}" value="Usuń przepis"
-                                               class="btn btn-primary btn-xl pull-middle leftFloater"/>
-                                    </form>
-                                </div>
 
                                 <div class="styleClearer"></div>
                             </div>
