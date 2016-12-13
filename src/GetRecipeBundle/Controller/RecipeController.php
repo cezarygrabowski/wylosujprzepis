@@ -87,7 +87,6 @@ class RecipeController extends CzaroController
 
         $form = $this->createForm(UploadRecipeForm::class, new Recipe(), array('label' => 'breakfast'));
 
-
         return $this->handleUploadFormAction($request, $form);
     }
 
@@ -136,13 +135,16 @@ class RecipeController extends CzaroController
     public function admin_panelAction()
     {
         $unacceptedRecipes = $this->getRecipeRepository()->getUnacceptedRecipes();
-        return $this->render('GetRecipeBundle:confirmRecipes:adminPanel.html.twig', array(
+
+        return $this->render('GetRecipeBundle:Admin:adminPanel.html.twig', array(
             'unacceptedRecipes' => $unacceptedRecipes,
         ));
     }
 
     /**
-     * @Route("/{id}/akceptuj-przepis", name="accept_recipe")
+     * @Route("/akceptuj-przepis/{id}", name="accept_recipe")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function acceptRecipeAction($id)
     {
@@ -165,7 +167,9 @@ class RecipeController extends CzaroController
     }
 
     /**
-     * @Route("/{id}/usun-przepis", name="remove_recipe")
+     * @Route("/usun-przepis/{id}", name="remove_recipe")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function removeRecipeAction($id)
     {
@@ -182,5 +186,6 @@ class RecipeController extends CzaroController
             throw $this->createNotFoundException('Nie mogę znaleźć przepisu...');
         }
         return $this->redirectToRoute('admin_panel');
+
     }
 }

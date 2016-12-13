@@ -61,7 +61,7 @@ class CzaroController extends Controller
         $recipe = $form->getData();
 
         if($this->getUser() != null) {
-            $recipe->setAuthor($this->getUser()->getUsername());
+            $recipe->setOwner($this->getUser()->getUsername());
         }
         if ($request->getMethod() == 'POST') {
 

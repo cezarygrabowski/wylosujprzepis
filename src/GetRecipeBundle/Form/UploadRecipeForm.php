@@ -20,7 +20,6 @@ class UploadRecipeForm extends ComponentsForRecipes
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
         $builder
             ->add('time', ChoiceType::class, array(
                 'label' => 'Wybierz czas przygotowania:',
@@ -46,10 +45,8 @@ class UploadRecipeForm extends ComponentsForRecipes
                     'cols' => '50',
                     'rows' => '20'),
             ))
-
-            ->add('author', TextType::class, array(
+            ->add('owner', TextType::class, array(
             ))
-
             ->add('type', TextType::class,array(
                 'mapped' => false,
             ));

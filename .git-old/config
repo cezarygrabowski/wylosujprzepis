@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "WhatsToEat"]
+	url = https://czaros45@bitbucket.org/czaros45/symfony3.git
+	fetch = +refs/heads/*:refs/remotes/WhatsToEat/*
+[branch "master"]
+	remote = https://czaros45@bitbucket.org/czaros45/symfony3.git
+	merge = refs/heads/master

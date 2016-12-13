@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel admina</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ asset('adminPanel/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('adminPanel/css/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/WhatsToEat/css/creative.css') }}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <!-- Logo -->
+                <a class="navbar-brand page-scroll" href="{{ path('home') }}">What's to eat?</a>
+                <div class="logo">
+                    <h1><a href="{{ path('admin_panel')}}">Panel admina</a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+                    <!-- Main menu -->
+                    <li class="current"><a href="{{ path('admin_panel') }}"><i class="glyphicon glyphicon-home"></i>Przeglądaj
+                            przepisy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="content-box-large">
+
+                    <div id="AdminContainer">
+                        <h1 class="text-center BottomPadding"> Liczba przepisów do
+                            zaakceptowania: {{ unacceptedRecipes|length }}</h1>
+                        <div class="profile-content">
+                            {% block profileContent %}
+                                {% for recipe in unacceptedRecipes %}
+                                    <div class="DrawnRecipe">
+                                        <div class="leftFloater TextToShow">
+                                            <div>
+                                                <h1 class="BoldPadding">{{ recipe.name }}</h1>
+                                            </div>
+                                            <div>
+                                                <p class="BottomPadding">Czas przygotowania: {{ recipe.time }} minut</p>
+                                            </div>
+                                            <div>
+                                                {{ recipe.preparation }}
+                                            </div>
+                                            <div class="marginRight">
+                                                <p>-{{ recipe.owner.username }}</p>
+                                            </div>
+
+                                            <div class="marginRight">
+                                                <p>Typ: {{ recipe.type }}</p>
+                                            </div>
+                                            <div class="ButtonsContainer">
+                                                <a href="{{ path('accept_recipe', {id: recipe.id}) }}" class="btn btn-primary btn-xl">Akceptuj przepis</a>
+                                                <a href="{{ path('remove_recipe', {id: recipe.id}) }}" class="btn btn-primary btn-xl">Usun przepis</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="leftFloater">
+                                            <img class="ImagePlacer img-responsive"
+                                                 src="{{ asset('uploads/images/' ~ recipe.image) }}"/>
+                                        </div>
+                                        <div class="styleClearer"></div>
+                                    </div>
+                                    <div class="BottomPadding"></div>
+                                {% endfor %}
+                            {% endblock %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="copy text-center">
+                Not original admin panel
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

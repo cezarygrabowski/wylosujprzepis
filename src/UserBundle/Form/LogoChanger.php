@@ -20,7 +20,7 @@ class LogoChanger extends AbstractType
     {
         $builder
             ->add('image', FileType::class, array(
-                'label' => 'Wybierz zdjęcie potrawy',
+                'label' => 'Wybierz logo',
                 'data_class' => null ,             //http://stackoverflow.com/questions/14423265/symfony-2-form-exception-when-modifying-an-object-that-has-a-filepicture-fie
                 'property_path' => 'image'
             ));

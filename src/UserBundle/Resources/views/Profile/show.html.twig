@@ -1,12 +1,5 @@
-{% extends '::base1.html.twig' %}
+{% extends '::layout.html.twig' %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        ScrollDown('#DrawRecipe');
-    </script>
-
-{% endblock %}
 {% block ExceptNavbar %}
 
     <!--
@@ -94,7 +87,6 @@ Licensed under MIT
                                          src="{{ asset('uploads/images/' ~ recipe.image) }}"/>
                                 </div>
                                 <div class="styleClearer"></div>
-
                         </div>
                             <div class="BottomPadding"></div>
                         {% endfor %}
