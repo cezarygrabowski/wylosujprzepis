@@ -29,13 +29,14 @@ class UploadRecipeFormTest extends TypeTestCase
 
     public function testSubmitValidData()
     {
-        $client =$this->container->get('doctrine.orm.entity_manager');
+
         $user = $this->em->getRepository('UserBundle:User')->findOneByUsername('Czaro');
+
         $formData = array(
             'time' => 30,
             'id' => 133,
             'type' => 'breakfast',
-            'owner' => $user,
+            'owner' => 57,
             'accepted' => 0,
             'name' => 'Test',
             'image' => 'DataFixtures/Recipe1.png',

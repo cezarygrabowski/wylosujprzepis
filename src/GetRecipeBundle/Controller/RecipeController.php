@@ -146,19 +146,15 @@ class RecipeController extends CzaroController
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
+
     public function acceptRecipeAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($id);
-
-        if($recipe)
-        {
-            $recipe->setAccepted(Recipe::ACCEPTED);
-        }
-        else
-        {
+        if( !(is_object($recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($id)))){
             throw $this->createNotFoundException('Nie mogę znaleźć przepisu...');
         }
+
+        $recipe->setAccepted(Recipe::ACCEPTED);
         $em->persist($recipe);
         $em->flush();
 
@@ -174,17 +170,13 @@ class RecipeController extends CzaroController
     public function removeRecipeAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($id);
-
-        if($recipe)
-        {
-            $em->remove($recipe);
-            $em->flush();
-        }
-        else
-        {
+        if( !(is_object($recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($id)))){
             throw $this->createNotFoundException('Nie mogę znaleźć przepisu...');
         }
+
+        $em->remove($recipe);
+        $em->flush();
+
         return $this->redirectToRoute('admin_panel');
 
     }

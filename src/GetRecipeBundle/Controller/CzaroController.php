@@ -40,7 +40,6 @@ class CzaroController extends Controller
                         'form' => $form->createView(),
                         'message' => $message
                     ));
-
                 }
 
                 return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig', array(

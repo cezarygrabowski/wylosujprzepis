@@ -37,7 +37,6 @@ class RegistrationListener implements EventSubscriberInterface
 
     public function onRegistrationCompleted(FilterUserResponseEvent $event)
     {
-        //$this->session->getFlashBag()->add('success', 'Aby dokończyć rejestracji kliknij na link, który otrzymałeś w mailu!');
         /** @var RedirectResponse $response */
         $response = $event->getResponse();
         $response->setTargetUrl($this->router->generate('home'));
