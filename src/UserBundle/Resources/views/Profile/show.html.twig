@@ -49,6 +49,11 @@ Licensed under MIT
                                         <i class="glyphicon glyphicon-user"></i>
                                         Zmień logo </a>
                                 </li>
+                                <li>
+                                    <a href="{{ path('unaccepted_recipes') }}">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        Przepisy oczekujące na akceptację ({{unacceptedRecipes|length }})</a>
+                                </li>
                             </ul>
                         </div>
                         <!-- END MENU -->
@@ -59,9 +64,9 @@ Licensed under MIT
                     <div class="profile-content">
                     {% block profileContent %}
 
-                        <h3 class=" BottomPadding"> //TODO: WYSWIETLA ZAAKCEPTOWANE I NIEZAAKCEPTOWANE: {{uploadedRecipes|length }}</h3>
+                        <h3 class=" BottomPadding"> Liczba zaakceptowanych przepisów: {{acceptedRecipes|length }}</h3>
 
-                        {% for recipe in uploadedRecipes %}
+                        {% for recipe in acceptedRecipes %}
                         <div class="DrawnRecipe">
                                 <div class="leftFloater TextToShow">
                                     <div>

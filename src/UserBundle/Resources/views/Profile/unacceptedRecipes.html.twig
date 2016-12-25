@@ -1,0 +1,34 @@
+{% extends 'UserBundle:Profile:show.html.twig' %}
+{% block profileContent %}
+    <h3 class=" BottomPadding"> Liczba niezaakceptowanych przepisów: {{unacceptedRecipes|length }}</h3>
+
+    {% for recipe in unacceptedRecipes %}
+        <div class="DrawnRecipe">
+            <div class="leftFloater TextToShow">
+                <div>
+                    <h1 class="BoldPadding">{{ recipe.name }}</h1>
+                </div>
+                <div>
+                    <p class="BottomPadding">Czas przygotowania: {{ recipe.time }} minut</p>
+                </div>
+                <div>
+                    {{ recipe.preparation }}
+                </div>
+                <div class="marginRight">
+                    <p>-{{ recipe.owner.username }}</p>
+                </div>
+
+                <div class="marginRight">
+                    <p>Typ: {{ recipe.type }}</p>
+                </div>
+            </div>
+
+            <div class="leftFloater">
+                <img class="ImagePlacer img-responsive"
+                     src="{{ asset('uploads/images/' ~ recipe.image) }}"/>
+            </div>
+            <div class="styleClearer"></div>
+        </div>
+        <div class="BottomPadding"></div>
+    {% endfor %}
+{% endblock %}

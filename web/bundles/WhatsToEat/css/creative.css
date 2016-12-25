@@ -518,17 +518,6 @@ body {
    padding-top: 25px;
   float:left;
 }
-/*#AdminContainer*/
-/*{*/
-  /**/
-/*}*/
-/*#RecipesContainer*/
-/*{*/
-  /*width:1000px;*/
-  /*height:100%;*/
-  /*margin-left:auto;*/
-  /*margin-right:auto;*/
-/*}*/
 
 #lean_overlay {
   position: fixed;
@@ -636,11 +625,15 @@ Licensed under MIT
 ***/
 .ProfileContainer
 {
-  overflow: auto;
-  height: 100%;
-  min-height:974px;
-  min-width: 1920px;
-  background-color:#93a3b5;
+    overflow: auto;
+    height:100%;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    background-image: url('../images/tlo.jpg');
 }
 /* Profile container */
 .profile {

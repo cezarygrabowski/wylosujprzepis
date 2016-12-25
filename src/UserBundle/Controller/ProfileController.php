@@ -75,11 +75,28 @@ class ProfileController extends BaseController
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
-        $uploadedRecipes = $this->getRecipeRepository()->getAllRecipesOfUser($this->getUser()->getId());
-
+        $acceptedRecipes = $this->getRecipeRepository()->getAcceptedRecipesOfUser($this->getUser()->getId());
+        $unacceptedRecipes = $this->getRecipeRepository()->getUnacceptedRecipesOfUser($this->getUser()->getId());
         return $this->render('FOSUserBundle:Profile:show.html.twig', array(
             'user' => $user,
-            'uploadedRecipes' => $uploadedRecipes
+            'acceptedRecipes' => $acceptedRecipes,
+            'unacceptedRecipes' => $unacceptedRecipes
+        ));
+    }
+    /**
+     * @Route("/profile/unaccepted-recipes", name="unaccepted_recipes")
+     */
+    public function showUnacceptedRecipesAction()
+    {
+        $user = $this->getUser();
+        if (!is_object($user) || !$user instanceof UserInterface) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+        $unacceptedRecipes = $this->getRecipeRepository()->getUnacceptedRecipesOfUser($this->getUser()->getId());
+
+        return $this->render('UserBundle:Profile:unacceptedRecipes.html.twig',array(
+            'user' => $user,
+            'unacceptedRecipes' => $unacceptedRecipes
         ));
     }
 }

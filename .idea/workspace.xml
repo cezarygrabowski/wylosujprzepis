@@ -2,13 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8629c9cc-65cf-470f-8db3-9ba3b4277c51" name="Default" comment="2016.09.02 idę jak burza&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/img/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/unacceptedRecipes.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/css/star-rating.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/css/star-rating.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/examples/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/examples/sample.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/LANG.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/ua.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/locales/zh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/star-rating.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/js/star-rating.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-fa/theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-fa/theme.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-fa/theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-fa/theme.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-svg/theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-svg/theme.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-svg/theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-svg/theme.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-uni/theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-uni/theme.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-uni/theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kartik-v/themes/krajee-uni/theme.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/translations/FOSUserBundle.en.yml" afterPath="$PROJECT_DIR$/app/Resources/translations/FOSUserBundle.en.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GetRecipeBundle/Controller/CzaroController.php" afterPath="$PROJECT_DIR$/src/GetRecipeBundle/Controller/CzaroController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GetRecipeBundle/Controller/RecipeController.php" afterPath="$PROJECT_DIR$/src/GetRecipeBundle/Controller/RecipeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/EventListener/RegistrationListener.php" afterPath="$PROJECT_DIR$/src/UserBundle/EventListener/RegistrationListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Controller/ControllerTest.php" afterPath="$PROJECT_DIR$/tests/Controller/ControllerTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/GetRecipeBundle/Form/Type/UploadRecipeFormTest.php" afterPath="$PROJECT_DIR$/tests/GetRecipeBundle/Form/Type/UploadRecipeFormTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base1.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base1.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/symfony_requirements" afterPath="$PROJECT_DIR$/bin/symfony_requirements" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GetRecipeBundle/Entity/Recipe.php" afterPath="$PROJECT_DIR$/src/GetRecipeBundle/Entity/Recipe.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GetRecipeBundle/Entity/RecipeRepository.php" afterPath="$PROJECT_DIR$/src/GetRecipeBundle/Entity/RecipeRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/Admin/adminPanel.html.twig" afterPath="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/Admin/adminPanel.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/GetRecipeForm.html.twig" afterPath="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/GetRecipeForm.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig" afterPath="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/UploadRecipe/UploadRecipeForm.html.twig" afterPath="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/UploadRecipe/UploadRecipeForm.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Controller/ProfileController.php" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/ProfileController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/show.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/Registration/register.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Registration/register.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/WhatsToEat/css/creative.css" afterPath="$PROJECT_DIR$/web/bundles/WhatsToEat/css/creative.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/WhatsToEat/js/creative.js" afterPath="$PROJECT_DIR$/web/bundles/WhatsToEat/js/creative.js" />
     </list>
     <ignored path="WhatsToEat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,90 +70,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/UserController.php">
+      <file leaf-file-name="base1.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/base1.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="554">
+              <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProfileController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/ProfileController.php">
+      <file leaf-file-name="ResultOfQuery.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecipeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Controller/RecipeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2214">
-              <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CzaroController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Controller/CzaroController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegistrationListener.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserBundle/EventListener/RegistrationListener.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+            <state relative-caret-position="126">
+              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
               <folding>
-                <element signature="e#44#93#0#PHP" expanded="true" />
+                <element signature="e#12#29#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FOSUserBundle.en.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/translations/FOSUserBundle.en.yml">
+      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="35" column="92" selection-start-line="35" selection-start-column="92" selection-end-line="35" selection-end-column="92" />
+            <state relative-caret-position="162">
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+              <folding>
+                <element signature="e#12#30#0#Twig" expanded="true" />
+                <element signature="e#1299#1320#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="creative.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/css/creative.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="628" column="16" selection-start-line="628" selection-start-column="16" selection-end-line="628" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base1.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/base1.html.twig">
+      <file leaf-file-name="star-rating.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/kartik-v/js/star-rating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2250">
-              <caret line="125" column="67" selection-start-line="125" selection-start-column="67" selection-end-line="125" selection-end-column="67" />
-              <folding />
+            <state relative-caret-position="324">
+              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.en.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.en.yml">
+      <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/kartik-v/bootstrap-star-rating/bower.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -121,11 +137,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="validators.en.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/translations/validators.en.yml">
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/kartik-v/bootstrap-star-rating/composer.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LICENSE.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/kartik-v/bootstrap-star-rating/LICENSE.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Recipe.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Entity/Recipe.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="109" column="6" selection-start-line="109" selection-start-column="6" selection-end-line="109" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -140,23 +179,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Test/KernelTestCase.php" />
-        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Controller/ControllerTest.php" />
         <option value="$PROJECT_DIR$/tests/GetRecipeBundle/Controller/ControllerTest.php" />
         <option value="$PROJECT_DIR$/tests/AppBundle/GetRecipeBundle.php" />
         <option value="$PROJECT_DIR$/tests/AppBundle/GetRecipeBundle/Controller/GetRecipeBundleControllerTest.php" />
         <option value="$PROJECT_DIR$/tests/AppBundle/GetRecipeBundle/Form/Type/TestedTypeTest.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/UserBundle/DataFixtures/ORM/LoadUsers.php" />
-        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Entity/Recipe.php" />
-        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig" />
         <option value="$PROJECT_DIR$/src/GetRecipeBundle/DataFixtures/ORM/LoadRecipes.php" />
         <option value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/css/style.css" />
         <option value="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/confirmRecipes/confirmRecipes.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Entity/UserRepository.php" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Controller/ProfileController.php" />
-        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Entity/RecipeRepository.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/GetRecipeBundle/Resources/config/routing/event.yml" />
         <option value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle/Configuration/Method.php" />
@@ -165,22 +197,14 @@
         <option value="$PROJECT_DIR$/src/UserBundle/Events/EventListener.php" />
         <option value="$PROJECT_DIR$/src/UserBundle/EventListener/EventListener.php" />
         <option value="$PROJECT_DIR$/src/UserBundle/EventListener/RegisterListener.php" />
-        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/GetRecipeForm.html.twig" />
         <option value="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Registration/register.html.twig" />
         <option value="$PROJECT_DIR$/web/bundles/WhatsToEat/vendor/magnific-popup/magnific-popup.css" />
         <option value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/css/bootstrap.min.css" />
-        <option value="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/EventListener/EmailConfirmationListener.php" />
         <option value="$PROJECT_DIR$/tests/AppBundle/Controller/ControllerTest.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base1.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Form/LogoChanger.php" />
         <option value="$PROJECT_DIR$/web/adminPanel/css/styles.css" />
-        <option value="$PROJECT_DIR$/web/bundles/WhatsToEat/css/creative.css" />
-        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/Admin/adminPanel.html.twig" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/show.html.twig" />
-        <option value="$PROJECT_DIR$/web/bundles/WhatsToEat/js/creative.js" />
         <option value="$PROJECT_DIR$/tests/AppBundle/GetRecipeBundle/Form/Type/UploadRecipeFormTest.php" />
         <option value="$PROJECT_DIR$/src/GetRecipeBundle/Form/UploadRecipeForm.php" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
@@ -191,6 +215,21 @@
         <option value="$PROJECT_DIR$/tests/Controller/ControllerTest.php" />
         <option value="$PROJECT_DIR$/tests/GetRecipeBundle/Form/Type/UploadRecipeFormTest.php" />
         <option value="$PROJECT_DIR$/src/GetRecipeBundle/Controller/CzaroController.php" />
+        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Entity/RecipeRepository.php" />
+        <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/unacceptedRecipes.html.twig" />
+        <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Registration/register.html.twig" />
+        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/Admin/adminPanel.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/UserBundle/Controller/ProfileController.php" />
+        <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/show.html.twig" />
+        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/GetRecipeForm.html.twig" />
+        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/UploadRecipe/UploadRecipeForm.html.twig" />
+        <option value="$PROJECT_DIR$/web/bundles/WhatsToEat/js/creative.js" />
+        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Entity/Recipe.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base1.html.twig" />
+        <option value="$PROJECT_DIR$/web/bundles/WhatsToEat/css/creative.css" />
+        <option value="$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig" />
       </list>
     </option>
   </component>
@@ -443,7 +482,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="var" />
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -457,15 +496,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -479,175 +510,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GetRecipeBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Form" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Type" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EventListener" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GetRecipeBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GetRecipeBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
+              <option name="myItemId" value="friendsofsymfony" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -680,32 +547,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WhatsToEat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="translations" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -720,22 +561,22 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="D:\Program Files\nodejs\node.exe" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="SearchEverywhereHistoryKey" value="terminal&#9;ACTION&#9;ActivateTerminalToolWindow&#10;object&#9;null&#9;null&#10;admin&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/Admin/adminPanel.html.twig&#10;show.html.&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/Resources/views/Profile/show.html.twig&#10;ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;ayout&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/Resources/views/layout.html.twig&#10;base1&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/Resources/views/base1.html.twig&#10;layout.&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/Resources/views/layout.html.twig&#10;layou&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/Resources/views/layout.html.twig&#10;service&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/config/services.yml&#10;CzaroCo&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Controller/CzaroController.php&#10;termin&#9;ACTION&#9;ActivateTerminalToolWindow&#10;TERMIN&#9;ACTION&#9;ActivateTerminalToolWindow&#10;event.&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/config/routing/event.yml&#10;RecipeR&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Entity/RecipeRepository.php&#10;term&#9;ACTION&#9;ActivateTerminalToolWindow&#10;acceptR&#9;null&#9;null&#10;Recipe&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Entity/Recipe.php&#10;admin.&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/confirmRecipes/adminPanel.html.twig&#10;show&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/Resources/views/Profile/show.html.twig&#10;termina&#9;ACTION&#9;ActivateTerminalToolWindow&#10;czar&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Controller/CzaroController.php&#10;get&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/GetRecipe/GetRecipeForm.html.twig&#10;getrecipe&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/GetRecipe/GetRecipeForm.html.twig&#10;getre&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Form/GetRecipeForm.php&#10;upload&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Form/UploadRecipeForm.php&#10;result&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig&#10;layout&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/Resources/views/layout.html.twig&#10;ResultOfQuer&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig&#10;Controller&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/Controller/ProfileController.php&#10;RecipeCon&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Controller/RecipeController.php&#10;creat&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/web/bundles/WhatsToEat/css/creative.css&#10;rminal&#9;null&#9;null&#10;nal&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/vendor/doctrine/common/lib/Doctrine/Common/Persistence/ObjectManager.php&#10;recipeco&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Controller/RecipeController.php&#10;style&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/css/style.css&#10;admin_&#9;null&#9;null&#10;RecipeRepo&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Entity/RecipeRepository.php&#10;UserRepo&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/Entity/UserRepository.php&#10;lugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;style.css&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/css/style.css&#10;LoadRecipes&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/DataFixtures/ORM/LoadRecipes.php&#10;LoadUsers&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/DataFixtures/ORM/LoadUsers.php" />
+    <property name="SearchEverywhereHistoryKey" value="how&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/Resources/views/Profile/show.html.twig&#10;resultOf&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig&#10;Recipe&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Entity/Recipe.php&#10;star-ra&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/vendor/kartik-v/bootstrap-star-rating/js/star-rating.js&#10;base1&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/Resources/views/base1.html.twig&#10;terminal&#9;ACTION&#9;ActivateTerminalToolWindow&#10;object&#9;null&#9;null&#10;admin&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/Admin/adminPanel.html.twig&#10;show.html.&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/Resources/views/Profile/show.html.twig&#10;ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;ayout&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/Resources/views/layout.html.twig&#10;layout.&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/Resources/views/layout.html.twig&#10;layou&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/Resources/views/layout.html.twig&#10;service&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/config/services.yml&#10;CzaroCo&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Controller/CzaroController.php&#10;termin&#9;ACTION&#9;ActivateTerminalToolWindow&#10;TERMIN&#9;ACTION&#9;ActivateTerminalToolWindow&#10;event.&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/config/routing/event.yml&#10;RecipeR&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Entity/RecipeRepository.php&#10;term&#9;ACTION&#9;ActivateTerminalToolWindow&#10;acceptR&#9;null&#9;null&#10;admin.&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/confirmRecipes/adminPanel.html.twig&#10;show&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/Resources/views/Profile/show.html.twig&#10;termina&#9;ACTION&#9;ActivateTerminalToolWindow&#10;czar&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Controller/CzaroController.php&#10;get&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/GetRecipe/GetRecipeForm.html.twig&#10;getrecipe&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/GetRecipe/GetRecipeForm.html.twig&#10;getre&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Form/GetRecipeForm.php&#10;upload&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Form/UploadRecipeForm.php&#10;result&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig&#10;layout&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/app/Resources/views/layout.html.twig&#10;ResultOfQuer&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig&#10;Controller&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/Controller/ProfileController.php&#10;RecipeCon&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Controller/RecipeController.php&#10;creat&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/web/bundles/WhatsToEat/css/creative.css&#10;rminal&#9;null&#9;null&#10;nal&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/vendor/doctrine/common/lib/Doctrine/Common/Persistence/ObjectManager.php&#10;recipeco&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Controller/RecipeController.php&#10;style&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/css/style.css&#10;admin_&#9;null&#9;null&#10;RecipeRepo&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/Entity/RecipeRepository.php&#10;UserRepo&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/Entity/UserRepository.php&#10;lugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;style.css&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/css/style.css&#10;LoadRecipes&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/GetRecipeBundle/DataFixtures/ORM/LoadRecipes.php&#10;LoadUsers&#9;FILE&#9;file:///home/czaro/Documents/WhatsToEat/src/UserBundle/DataFixtures/ORM/LoadUsers.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\WhatsToEat\tests\UserBundle\Controller" />
-      <recent name="D:\Projects\WhatsToEat\tests\GetRecipeBundle\Controller" />
-      <recent name="D:\Projects\WhatsToEat\web\uploads\images" />
-      <recent name="D:\Projects\WhatsToEat\src\GetRecipeBundle" />
-      <recent name="D:\Projects\WhatsToEat\web" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/kartik-v" />
+      <recent name="$PROJECT_DIR$/web" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="D:\Projects\WhatsToEat\tests\AppBundle\GetRecipeBundle\Form\Type" />
       <recent name="D:\Projects\WhatsToEat\tests\AppBundle\Controller" />
-      <recent name="D:\Projects\WhatsToEat\web\uploads\images" />
-      <recent name="D:\Projects\WhatsToEat\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/bundles/WhatsToEat/js" />
+      <recent name="$PROJECT_DIR$/web/bundles/WhatsToEat/css" />
+      <recent name="$PROJECT_DIR$/web/bundles/WhatsToEat" />
+      <recent name="D:\Projects\WhatsToEat\tests\UserBundle\Controller" />
+      <recent name="D:\Projects\WhatsToEat\tests\GetRecipeBundle\Controller" />
     </key>
   </component>
   <component name="RunManager">
@@ -906,7 +747,7 @@
       <workItem from="1481576980997" duration="4568000" />
       <workItem from="1481616344735" duration="12005000" />
       <workItem from="1481634102863" duration="598000" />
-      <workItem from="1482620075628" duration="62000" />
+      <workItem from="1482620075628" duration="8188000" />
     </task>
     <task id="LOCAL-00001" summary="2016.09.02 idę jak burza&#10;">
       <created>1472818288686</created>
@@ -919,11 +760,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="631395000" />
+    <option name="totallyTimeSpent" value="639521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18573798" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -931,7 +772,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914573" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21189979" sideWeight="0.49585405" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21189979" sideWeight="0.49585405" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920536" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1005,253 +846,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/EventListener/LastLoginListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Event/UserEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Controller/RegistrationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="160" column="7" selection-start-line="160" selection-start-column="7" selection-end-line="160" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/vendor/magnific-popup/magnific-popup.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/EventListener/EmailConfirmationListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Model/UserInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/phrase.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="180" column="16" selection-start-line="180" selection-start-column="16" selection-end-line="180" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/block.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="228" column="16" selection-start-line="228" selection-start-column="16" selection-end-line="228" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Form/LogoChanger.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/css/creative.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="763" column="15" selection-start-line="763" selection-start-column="15" selection-end-line="763" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/adminPanel/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="595" column="4" selection-start-line="595" selection-start-column="4" selection-end-line="595" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/adminPanel/bootstrap/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="833" column="1" selection-start-line="833" selection-start-column="1" selection-end-line="833" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/js/creative.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/adminPanel/bootstrap/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="1971" column="2" selection-start-line="1971" selection-start-column="2" selection-end-line="1971" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Form/ComponentsForRecipes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/Admin/adminPanel.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="43" column="47" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/UploadRecipe/UploadRecipe.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/UploadRecipe/UploadRecipeForm.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Entity/Recipe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="212" column="7" selection-start-line="212" selection-start-column="7" selection-end-line="212" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Form/UploadRecipeForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config_test.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config_prod.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Entity/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/FileUploader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/phpdocumentor/type-resolver/src/Types/Object_.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/DataFixtures/ORM/LoadRecipes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1294,45 +888,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/translations/validators.en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserBundle/EventListener/RegistrationListener.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
           <folding>
-            <element signature="e#44#93#0#PHP" expanded="true" />
+            <element signature="e#44#93#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/translations/FOSUserBundle.en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="35" column="92" selection-start-line="35" selection-start-column="92" selection-end-line="35" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base1.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="125" column="67" selection-start-line="125" selection-start-column="67" selection-end-line="125" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1344,11 +906,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/ProfileController.php">
+    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Entity/RecipeRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+        <state relative-caret-position="644">
+          <caret line="100" column="24" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Controller/RecipeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="62" column="7" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+          <folding>
+            <element signature="e#4382#4406#1#PHP" expanded="false" />
+            <element signature="e#4991#5015#1#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Controller/CzaroController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+            <element signature="e#1259#1310#0#PHP" expanded="true" />
+            <element signature="e#1500#1551#0#PHP" expanded="true" />
+            <element signature="e#1688#1739#0#PHP" expanded="true" />
+            <element signature="e#2919#2976#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Resetting/email.txt.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/translations/validators.en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/Admin/adminPanel.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="33" column="73" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/unacceptedRecipes.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#45#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Resetting/check_email.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <folding>
+            <element signature="e#12#43#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1360,18 +1007,280 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Controller/RecipeController.php">
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Registration/register.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2214">
-          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="17" column="120" selection-start-line="17" selection-start-column="120" selection-end-line="17" selection-end-column="120" />
+          <folding>
+            <element signature="e#12#30#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/translations/FOSUserBundle.en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Controller/CzaroController.php">
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+        <state relative-caret-position="486">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/UploadRecipe/UploadRecipeForm.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding>
+            <element signature="e#54#93#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/UploadRecipe/UploadRecipe.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/GetRecipeForm.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="e#12#29#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="83" column="11" selection-start-line="83" selection-start-column="11" selection-end-line="83" selection-end-column="11" />
+          <folding>
+            <element signature="e#3122#3170#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/change_logo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#45#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#45#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/js/creative.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/kartik-v/bootstrap-star-rating/js/locales/ar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/kartik-v/bootstrap-star-rating/js/locales/pl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/kartik-v/bootstrap-star-rating/css/star-rating.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/kartik-v/bootstrap-star-rating/css/star-rating.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/kartik-v/bootstrap-star-rating/js/star-rating.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/js/locales/ar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/kartik-v/bootstrap-star-rating/js/star-rating.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/kartik-v/bootstrap-star-rating/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="540">
+            <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/kartik-v/bootstrap-star-rating/img/loading.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/kartik-v/bootstrap-star-rating/examples/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/css/star-rating.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/kartik-v/bootstrap-star-rating/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/kartik-v/bootstrap-star-rating/LICENSE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/kartik-v/bootstrap-star-rating/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/kartik-v/js/star-rating.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Entity/Recipe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="109" column="6" selection-start-line="109" selection-start-column="6" selection-end-line="109" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/WhatsToEat/css/creative.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="628" column="16" selection-start-line="628" selection-start-column="16" selection-end-line="628" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Profile/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="e#12#30#0#Twig" expanded="true" />
+            <element signature="e#1299#1320#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GetRecipeBundle/Resources/views/GetRecipe/ResultOfQuery.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <folding>
+            <element signature="e#12#29#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base1.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
           <folding />
         </state>
       </provider>

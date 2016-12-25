@@ -82,4 +82,22 @@ class RecipeRepository extends EntityRepository
             ->getQuery()
             ->execute();
     }
+    public function getAcceptedRecipesOfUser($id)
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.owner = :Id')
+            ->andWhere('e.accepted = 1')
+            ->setParameter('Id', $id)
+            ->getQuery()
+            ->execute();
+    }
+    public function getUnacceptedRecipesOfUser($id)
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.owner = :Id')
+            ->andWhere('e.accepted = 0')
+            ->setParameter('Id', $id)
+            ->getQuery()
+            ->execute();
+    }
 }

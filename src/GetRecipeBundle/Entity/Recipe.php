@@ -17,6 +17,7 @@ use UserBundle\Entity\User;
  */
 class Recipe
 {
+
     const ACCEPTED = 1;
     /**
      * @var int
@@ -88,7 +89,6 @@ class Recipe
      */
     private $type;
 
-
     /**
      * Inverse side
      * @ORM\ManyToOne(
@@ -98,6 +98,19 @@ class Recipe
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $owner;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="rating", type="float")
+     */
+    private $rating;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="number_of_rates", type="integer")
+     */
+    private $numberOfRates;
 
     /**
      * Get id
@@ -290,6 +303,38 @@ class Recipe
     public function setOwner($owner)
     {
         $this->owner = $owner;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfRates()
+    {
+        return $this->numberOfRates;
+    }
+
+    /**
+     * @param int $numberOfRates
+     */
+    public function setNumberOfRates($numberOfRates)
+    {
+        $this->numberOfRates = $numberOfRates;
+    }
+
+    /**
+     * @return float
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param float $rating
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
     }
 }
 
