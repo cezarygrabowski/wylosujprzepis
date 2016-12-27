@@ -196,15 +196,13 @@ class RecipeController extends CzaroController
         }
 
         //if user rated this recipe replace old with a new one
-        $ratingArray = $this->getRatingRepository()->getUsersVoteForRecipe($recipe->getId(), $this->getUser()->getId());
-        if($ratingArray){
-            foreach($ratingArray as $rating)
-            {
-                $rating->setRating(floatval($request->get('rating')));
-                $em->persist($rating);
-            }
+        if($rating = $this->getRatingRepository()->getUsersVoteForRecipe($recipe->getId(), $this->getUser()->getId()))
+        {
+            $rating->setRating(floatval($request->get('rating')));
+            $em->persist($rating);
         }
-        else{
+        else
+        {
             $rating = new Rating();
             $rating->setOwner($this->getUser());
             $rating->setRecipe($recipe);
@@ -214,6 +212,6 @@ class RecipeController extends CzaroController
         $em->flush();
 
         $this->get('session')->getFlashBag()->add('success', 'Dziękujemy za oddanie Twojego głosu.');
-        return $this->render('GetRecipeBundle:Default:index.html.twig');
+        return $this->redirectToRoute('home');
     }
 }

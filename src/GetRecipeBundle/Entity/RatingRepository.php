@@ -21,7 +21,8 @@ class RatingRepository extends EntityRepository
             ->setParameter(':userId', $userId)
             ->setParameter(':recipeId', $recipeId)
             ->getQuery()
-            ->execute();
+            ->setMaxResults(1)
+            ->getOneOrNullResult();
     }
     public function getRatingOfRecipe($recipeId)
     {

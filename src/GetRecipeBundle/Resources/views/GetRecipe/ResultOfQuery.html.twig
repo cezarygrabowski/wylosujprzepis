@@ -24,8 +24,6 @@
 {% endblock %}
 {% block content %}
     <div id ="DrawnRecipe">
-        {% for randomRecipe in randomRecipe %}
-
             <div class="leftFloater TextToShow">
                 <div>
                     <h1 class="BoldPadding">{{ randomRecipe.name }}</h1>
@@ -64,27 +62,8 @@
                 <img class = "ImagePlacer img-responsive" src="{{ asset('uploads/images/' ~ randomRecipe.image) }}"/>
             </div>
             {% block commentblock %}
-            <div id="fos_comment_thread"></div>
-
-            <script type="text/javascript">
-                // thread id
-                var fos_comment_thread_id = '{{ randomRecipe.id }}';
-
-                // api base url to use for initial requests
-                var fos_comment_thread_api_base_url = '{{ path('fos_comment_get_threads') }}';
-
-                // Snippet for asynchronously loading the comments
-                (function() {
-                    var fos_comment_script = document.createElement('script');
-                    fos_comment_script.async = true;
-                    fos_comment_script.src = '{{ asset('bundles/foscomment/js/comments.js') }}';
-                    fos_comment_script.type = 'text/javascript';
-
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(fos_comment_script);
-                })();
-            </script>
+                {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}
             {% endblock %}
-        {% endfor %}
     </div>
 
 {% endblock %}

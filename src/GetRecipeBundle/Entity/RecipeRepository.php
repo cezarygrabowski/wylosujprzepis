@@ -57,7 +57,8 @@ class RecipeRepository extends EntityRepository
             ->setFirstResult(rand(0, $numberOfResults - 1))
             ->setMaxResults(1)
             ->getQuery()
-            ->execute();
+            ->getOneOrNullResult();
+
     }
     /**
      * @return Recipe[]
