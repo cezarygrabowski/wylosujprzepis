@@ -2,14 +2,17 @@
 
 namespace GetRecipeBundle\Controller;
 
+use GetRecipeBundle\Entity\Rating;
 use GetRecipeBundle\Form\ComponentsForRecipes;
 use GetRecipeBundle\Form\GetRecipeForm;
 use GetRecipeBundle\Form\UploadRecipeForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use GetRecipeBundle\Entity\Recipe;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Serializer\Serializer;
 
 class RecipeController extends CzaroController
 {
@@ -179,5 +182,38 @@ class RecipeController extends CzaroController
 
         return $this->redirectToRoute('admin_panel');
 
+    }
+    /**
+     * @Route("/deal-with-rating", name="deal_with_rating")
+     * @Method({"POST"})
+     **/
+    public function dealWithRatingAction(Request $request)
+    {
+        $id = intval($request->get('id'));
+        $em = $this->getDoctrine()->getManager();
+        if( !(is_object($recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($id)))){
+            throw $this->createNotFoundException("N");
+        }
+
+        //if user rated this recipe replace old with a new one
+        $ratingArray = $this->getRatingRepository()->getUsersVoteForRecipe($recipe->getId(), $this->getUser()->getId());
+        if($ratingArray){
+            foreach($ratingArray as $rating)
+            {
+                $rating->setRating(floatval($request->get('rating')));
+                $em->persist($rating);
+            }
+        }
+        else{
+            $rating = new Rating();
+            $rating->setOwner($this->getUser());
+            $rating->setRecipe($recipe);
+            $rating->setRating(floatval($request->get('rating')));
+            $em->persist($rating);
+        }
+        $em->flush();
+
+        $this->get('session')->getFlashBag()->add('success', 'Dziękujemy za oddanie Twojego głosu.');
+        return $this->render('GetRecipeBundle:Default:index.html.twig');
     }
 }

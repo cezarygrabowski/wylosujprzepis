@@ -8,7 +8,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: pl
     images_directory: '%kernel.root_dir%/../web/uploads/images'
     logo_directory:   '%kernel.root_dir%/../web/uploads/logos'
 framework:
@@ -37,7 +37,7 @@ framework:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ "FOSCommentBundle" ]
     filters:
         cssrewrite: ~
 # Twig Configuration
@@ -85,3 +85,10 @@ fos_user:
             from_email:
                 address:        registration@example.com
                 sender_name:    Demo Registration
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: MyProject\MyBundle\Entity\Comment
+            thread: MyProject\MyBundle\Entity\Thread
+

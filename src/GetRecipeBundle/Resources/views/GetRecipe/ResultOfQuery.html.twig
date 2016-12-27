@@ -1,42 +1,90 @@
 {% extends '::base1.html.twig' %}
 {% block javascripts %}
-{{ parent() }}
+    {{ parent() }}
     <script>
+        ScrollDown('#DrawnRecipe');
         $('#input-id').rating();
-        var displayValue = function (){
-            console.log('halo');
-        };
-        displayValue();
+        $(document).ready(function(){
+            var frm = $('#myForm');
+            frm.ajaxForm(function(ev) {
+                $.ajax({
+                    type: frm.attr('method'),
+                    url: frm.attr('action'),
+                    data: frm.serialize(),
+                    success: function (data){
+                        alert('ok');
+                        document.getElementById('formInside').innerHTML = '<h2 class = "voting">Dziękujemy za oddanie głosu</h2>';
+                    }
+                });
+                ev.preventDefault();
+            });
+        });
+
     </script>
 {% endblock %}
 {% block content %}
-    <script>
-        ScrollDown('#DrawnRecipe')
-    </script>
     <div id ="DrawnRecipe">
-    {% for randomRecipe in randomRecipe %}
+        {% for randomRecipe in randomRecipe %}
 
-        <div class="leftFloater TextToShow">
-            <div>
-                <h1 class="BoldPadding">{{ randomRecipe.name }}</h1>
+            <div class="leftFloater TextToShow">
+                <div>
+                    <h1 class="BoldPadding">{{ randomRecipe.name }}</h1>
+                </div>
+                <div>
+                    <p class="BottomPadding">Czas przygotowania: {{ randomRecipe.time }} minut</p>
+                </div>
+                <div>
+                    {{ randomRecipe.preparation }}
+                </div>
+                <div class="marginRight">
+                    <p>-{{ randomRecipe.owner.username }}</p>
+                </div>
+                <div id = "rating">
+                    {% if numberOfRatings != 0 %}
+                        <h5>{{ 'Average rating' | trans }}: {{ averageRating }}</h5>
+                        <h5>{{ 'Number of ratings' | trans}}: {{ numberOfRatings }}</h5>
+                    {% else %}
+                        <h5>{{ 'No rating' | trans }}</h5>
+                    {% endif %}
+                </div>
+                <div id = 'formInside'>
+                    <form method="POST" id="myForm" action = '{{ path('deal_with_rating')}}'>
+                        {% if givenRating != 0 %}
+                            <h5>{{ "Your last rating" | trans }}: {{ givenRating }}/10</h5>
+                            <input id="input-rating" name="rating" type="number" class="rating" data-stars="10" min=1 max=10 step=0.5 data-size="xs" value="{{ givenRating }}">
+                        {% else %}
+                            <input id="input-rating" name="rating" type="number" class="rating" data-stars="10" min=1 max=10 step=0.5 data-size="xs">
+                        {% endif %}
+                        <input id="input-id" name="id" value="{{ randomRecipe.id}}" class = "hidden">
+                        <input type="submit" value="Głosuj!" />
+                    </form>
+                </div>
             </div>
-            <div>
-                <p class="BottomPadding">Czas przygotowania: {{ randomRecipe.time }} minut</p>
+            <div class=" leftFloater ">
+                <img class = "ImagePlacer img-responsive" src="{{ asset('uploads/images/' ~ randomRecipe.image) }}"/>
             </div>
-            <div>
-                {{ randomRecipe.preparation }}
-            </div>
-            <div class="marginRight">
-                <p>-{{ randomRecipe.owner.username }}</p>
-            </div>
-            Aktualna ocena przepisu:
-            <input id="input-id" name="input-name" type="number" class="rating" data-stars="10" min=1 max=10 step=0.5 data-size="xs">
-        </div>
+            {% block commentblock %}
+            <div id="fos_comment_thread"></div>
 
-        <div class=" leftFloater ">
-            <img class = "ImagePlacer img-responsive" src="{{ asset('uploads/images/' ~ randomRecipe.image) }}"/>
-        </div>
+            <script type="text/javascript">
+                // thread id
+                var fos_comment_thread_id = '{{ randomRecipe.id }}';
 
+                // api base url to use for initial requests
+                var fos_comment_thread_api_base_url = '{{ path('fos_comment_get_threads') }}';
+
+                // Snippet for asynchronously loading the comments
+                (function() {
+                    var fos_comment_script = document.createElement('script');
+                    fos_comment_script.async = true;
+                    fos_comment_script.src = '{{ asset('bundles/foscomment/js/comments.js') }}';
+                    fos_comment_script.type = 'text/javascript';
+
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(fos_comment_script);
+                })();
+            </script>
+            {% endblock %}
         {% endfor %}
     </div>
+
 {% endblock %}

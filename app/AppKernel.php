@@ -19,6 +19,9 @@ class AppKernel extends Kernel
             new GetRecipeBundle\GetRecipeBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new UserBundle\UserBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new FOS\CommentBundle\FOSCommentBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -9,6 +9,8 @@
 namespace GetRecipeBundle\Controller;
 
 
+use GetRecipeBundle\Entity\Rating;
+use GetRecipeBundle\Entity\RatingRepository;
 use GetRecipeBundle\Entity\Recipe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
@@ -25,12 +27,23 @@ class CzaroController extends Controller
     {
         return $this->getDoctrine()->getManager()->getRepository('GetRecipeBundle:Recipe');
     }
+    /**
+     * @return RatingRepository
+     */
+    protected function getRatingRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('GetRecipeBundle:Rating');
+    }
 
     protected function handleGetFormAction(Request $request, Form $form)
     {
+
         $form->handleRequest($request);
         if ($request->getMethod() == 'POST') {
-            if ($form->get('components')->isValid() && $form->get('time')->isValid()) {     //strange things happened here thats why I have 2 arguments in 'IF' statement
+            if ($form->get('components')->isValid() && $form->get('time')->isValid()) {     //strange things happened here that's why I have 2 arguments in 'IF' statement
+                /**
+                 * @var Recipe[]
+                 */
                 $randomRecipe = $this->getRecipeRepository()
                     ->getRandomRecipe($form);
 
@@ -41,14 +54,45 @@ class CzaroController extends Controller
                         'message' => $message
                     ));
                 }
+                //check if user rated this recipe
+
+                $givenRating = Rating::NOTRATED;
+                $sumOfRating = Rating::NOTRATED;
+                $numberOfRatings = Rating::NOTRATED;
+                $averageRating = Rating::NOTRATED;
+                foreach($randomRecipe as $recipe)
+                {
+                    //if the user voted for this recipe get his rating
+                    $ifVoted = $this->getRatingRepository()->getUsersVoteForRecipe($recipe->getId(), $this->getUser()->getId());
+                    if($ifVoted)
+                    {
+                        foreach($ifVoted as $vote){
+                            $givenRating = $vote->getRating();
+                        }
+                    }
+                    //if the recipe is rated calculate the average rating and number of ratings
+                    $allRatingsForRecipe = $this->getRatingRepository()->getRatingOfRecipe($recipe->getId());
+                    if($allRatingsForRecipe){
+                        foreach($allRatingsForRecipe as $rating){
+                            $numberOfRatings++;
+                            $sumOfRating += $rating->getRating();
+                        }
+                    }
+                }
+
+                //calculate the average rating
+                if($numberOfRatings != 0){
+                    $averageRating = round(floatval($sumOfRating) / $numberOfRatings, 2);
+                }
 
                 return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig', array(
                     'randomRecipe' => $randomRecipe,
-
+                    'givenRating' => $givenRating,
+                    'numberOfRatings' => $numberOfRatings,
+                    'averageRating' => $averageRating
                 ));
             }
         }
-
         return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
             'form' => $form->createView()
         ));
