@@ -155,7 +155,7 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('../images/tlo.jpg');
+  background-image: url('../images/background.jpg');
   text-align: center;
   color: white;
 }
@@ -633,7 +633,7 @@ Licensed under MIT
     background-size: cover;
     -o-background-size: cover;
     background-position: center;
-    background-image: url('../images/tlo.jpg');
+    background-image: url('../images/background.jpg');
 }
 /* Profile container */
 .profile {
@@ -755,4 +755,19 @@ Licensed under MIT
   position: absolute;
   top:50px;
   z-index: 300;
+}
+
+.adminContainer
+{
+  background-image: url('../images/background.jpg');
+}
+
+.myFooter
+{
+  font-weight: bold;
+  font-size: 15px;
+}
+.page-content
+{
+  min-height: 900px;
 }

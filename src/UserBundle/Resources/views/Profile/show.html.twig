@@ -31,8 +31,13 @@ Licensed under MIT
                             <ul class="nav">
                                 <li class="active">
                                     <a href="{{ path('fos_user_profile_show') }}">
-                                        <i class="glyphicon glyphicon-home"></i>
-                                        Profil </a>
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        Przepisy zaakceptowane ({{ acceptedRecipes|length }})</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('unaccepted_recipes') }}">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        Przepisy oczekujące na akceptację ({{unacceptedRecipes|length }})</a>
                                 </li>
                                 <li>
                                     <a href="{{ path('fos_user_profile_edit') }}">
@@ -48,11 +53,6 @@ Licensed under MIT
                                     <a href="{{ path('change_logo') }}">
                                         <i class="glyphicon glyphicon-user"></i>
                                         Zmień logo </a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('unaccepted_recipes') }}">
-                                        <i class="glyphicon glyphicon-user"></i>
-                                        Przepisy oczekujące na akceptację ({{unacceptedRecipes|length }})</a>
                                 </li>
                             </ul>
                         </div>
