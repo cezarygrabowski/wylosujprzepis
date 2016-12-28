@@ -93,10 +93,12 @@ class ProfileController extends BaseController
             throw new AccessDeniedException('This user does not have access to this section.');
         }
         $unacceptedRecipes = $this->getRecipeRepository()->getUnacceptedRecipesOfUser($this->getUser()->getId());
+        $acceptedRecipes = $this->getRecipeRepository()->getAcceptedRecipesOfUser($this->getUser()->getId());
 
         return $this->render('UserBundle:Profile:unacceptedRecipes.html.twig',array(
             'user' => $user,
-            'unacceptedRecipes' => $unacceptedRecipes
+            'unacceptedRecipes' => $unacceptedRecipes,
+            'acceptedRecipes' => $acceptedRecipes
         ));
     }
 }
