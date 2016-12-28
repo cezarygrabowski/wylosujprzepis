@@ -31,7 +31,7 @@
         "symfony/assetic-bundle": "^2.8",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "kartik-v/bootstrap-star-rating": "@dev",
-        "friendsofsymfony/comment-bundle": "@dev",
+        "friendsofsymfony/comment-bundle": ">=2.0.0",
         "friendsofsymfony/jsrouting-bundle": "@dev"
     },
     "require-dev": {
