@@ -35,6 +35,44 @@ class CzaroController extends Controller
         return $this->getDoctrine()->getManager()->getRepository('GetRecipeBundle:Rating');
     }
 
+    protected function getHistoryOfRecipeRating(Recipe $randomRecipe)
+    {
+
+        //check if user rated this recipe
+        $givenRating = Rating::NOTRATED;
+        $sumOfRating = Rating::NOTRATED;
+        $numberOfRatings = Rating::NOTRATED;
+        $averageRating = Rating::NOTRATED;
+
+        //if the user voted for this recipe get his rating
+        if($lastVote = $this->getRatingRepository()->getUsersVoteForRecipe($randomRecipe->getId(), $this->getUser()->getId()))
+        {
+            $givenRating = $lastVote->getRating();
+        }
+
+        //if the recipe was rated calculate the average rating and number of ratings
+        $allRatingsForRecipe = $this->getRatingRepository()->getRatingOfRecipe($randomRecipe->getId());
+        if($allRatingsForRecipe)
+        {
+            foreach($allRatingsForRecipe as $rating){
+                $numberOfRatings++;
+                //moze nie dzialac
+                $sumOfRating += $rating->getRating();
+            }
+        }
+
+        //calculate the average rating
+        if($numberOfRatings != 0){
+            $averageRating = round(floatval($sumOfRating) / $numberOfRatings, 2);
+        }
+        return array(
+            'randomRecipe' => $randomRecipe,
+            'givenRating' => $givenRating,
+            'numberOfRatings' => $numberOfRatings,
+            'averageRating' => $averageRating
+        );
+    }
+
     protected function handleGetFormAction(Request $request, Form $form)
     {
 
@@ -52,41 +90,11 @@ class CzaroController extends Controller
                     ));
                 }
 
-                //check if user rated this recipe
-                $givenRating = Rating::NOTRATED;
-                $sumOfRating = Rating::NOTRATED;
-                $numberOfRatings = Rating::NOTRATED;
-                $averageRating = Rating::NOTRATED;
 
-                //if the user voted for this recipe get his rating
-                if($lastVote = $this->getRatingRepository()->getUsersVoteForRecipe($randomRecipe->getId(), $this->getUser()->getId()))
-                {
-                    $givenRating = $lastVote->getRating();
-                }
-
-                //if the recipe was rated calculate the average rating and number of ratings
-                $allRatingsForRecipe = $this->getRatingRepository()->getRatingOfRecipe($randomRecipe->getId());
-                if($allRatingsForRecipe)
-                {
-                    foreach($allRatingsForRecipe as $rating){
-                        $numberOfRatings++;
-                        $sumOfRating += $rating->getRating();
-                    }
-                }
-
-                //calculate the average rating
-                if($numberOfRatings != 0){
-                    $averageRating = round(floatval($sumOfRating) / $numberOfRatings, 2);
-                }
-
-                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig', array(
-                    'randomRecipe' => $randomRecipe,
-                    'givenRating' => $givenRating,
-                    'numberOfRatings' => $numberOfRatings,
-                    'averageRating' => $averageRating
-                ));
+                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig', $this->getHistoryOfRecipeRating($randomRecipe));
             }
         }
+
         return $this->render('GetRecipeBundle:GetRecipe:GetRecipeForm.html.twig', array(
             'form' => $form->createView()
         ));

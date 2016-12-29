@@ -1,2 +1,7 @@
 event_event:
     resource: "@GetRecipeBundle/Resources/config/routing/event.yml"
+deal_with_rating:
+  path: /deal-with-rating/{recipeId}/{givenRating}/rate.{format}
+  defaults: { _controller: "GetRecipeBundle:Recipe:dealWithRating", format: html }
+  options:
+    expose: true

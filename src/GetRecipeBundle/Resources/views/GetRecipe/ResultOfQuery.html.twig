@@ -1,26 +1,30 @@
 {% extends '::base1.html.twig' %}
 {% block javascripts %}
     {{ parent() }}
-    <script>
-        ScrollDown('#DrawnRecipe');
-        $('#input-id').rating();
-        $(document).ready(function(){
-            var frm = $('#myForm');
-            frm.ajaxForm(function(ev) {
-                $.ajax({
-                    type: frm.attr('method'),
-                    url: frm.attr('action'),
-                    data: frm.serialize(),
-                    success: function (data){
-                        alert('ok');
-                        document.getElementById('formInside').innerHTML = '<h2 class = "voting">Dziękujemy za oddanie głosu</h2>';
-                    }
-                });
-                ev.preventDefault();
+<script>        //
+
+    $(document).ready( function() {
+        $('.js-rate-toggle').on('click', function(e) {
+            // prevents the browser from "following" the link
+            e.preventDefault();
+
+            //Routing.generate( 'deal_with_rating', { 'recipeId': {{ randomRecipe.id }}, 'givenRating': $("#input-rating").val() });
+            var $anchor = $(this);
+            var url = Routing.generate('deal_with_rating', { 'recipeId': {{ randomRecipe.id }}, 'givenRating': $("#input-rating").val(), 'format': 'json' });
+            $.post(url, null, function(data) {
+                if (data.rated) {
+                    document.getElementById('givenRating').innerHTML='<h5 id="givenRating" class="BoldPadding">{{ 'Your last rating' | trans }}: ' + data.givenRating + '/10</h5>';
+                    document.getElementById('averageRating').innerHTML='<h5 id="averageRating" class="BoldPadding">{{ 'Average rating' | trans }}: ' + data.averageRating + '/10</h5>';
+                    document.getElementById('numberOfRatings').innerHTML='<h5 id="numberOfRatings" class="BoldPadding">{{ 'Number of ratings' | trans }}: ' + data.numberOfRatings + '</h5>';
+                }
+                document.getElementById('wrapperForInput').innerHTML= 'Dziękujemy za oddanie głosu!';
+                $anchor.hide();
             });
         });
+    });
+    ScrollDown('#DrawnRecipe');
+</script>
 
-    </script>
 {% endblock %}
 {% block content %}
     <div id ="DrawnRecipe">
@@ -37,30 +41,32 @@
                 <div class="marginRight">
                     <p>-{{ randomRecipe.owner.username }}</p>
                 </div>
-                <div id = "rating">
+                <div id = 'ratingInside'>
                     {% if numberOfRatings != 0 %}
-                        <h5>{{ 'Average rating' | trans }}: {{ averageRating }}</h5>
-                        <h5>{{ 'Number of ratings' | trans}}: {{ numberOfRatings }}</h5>
+                        <h5 id="averageRating" class="BoldPadding">{{ 'Average rating' | trans }}: {{ averageRating }}/10</h5>
+                        <h5 id="numberOfRatings" class="BoldPadding">{{ 'Number of ratings' | trans}}: {{ numberOfRatings }}</h5>
                     {% else %}
                         <h5>{{ 'No rating' | trans }}</h5>
                     {% endif %}
-                </div>
-                <div id = 'formInside'>
-                    <form method="POST" id="myForm" action = '{{ path('deal_with_rating')}}'>
-                        {% if givenRating != 0 %}
-                            <h5>{{ "Your last rating" | trans }}: {{ givenRating }}/10</h5>
-                            <input id="input-rating" name="rating" type="number" class="rating" data-stars="10" min=1 max=10 step=0.5 data-size="xs" value="{{ givenRating }}">
-                        {% else %}
-                            <input id="input-rating" name="rating" type="number" class="rating" data-stars="10" min=1 max=10 step=0.5 data-size="xs">
-                        {% endif %}
-                        <input id="input-id" name="id" value="{{ randomRecipe.id}}" class = "hidden">
-                        <input type="submit" value="Głosuj!" />
-                    </form>
+
+                    {% if givenRating != 0 %}
+                        <h5 id="givenRating" class="BoldPadding">{{ "Your last rating" | trans }}: {{ givenRating }}/10</h5>
+                            <h3 id = "wrapperForInput">
+                                <a href=""><input id="input-rating" name="rating" type="number" class="rating js-rate-toggle" data-max="10" data-min="1" step=1
+                                        value="{{ givenRating }}"></a>
+                            </h3>
+                    {% else %}
+                            <h3 id = "wrapperForInput">
+                                <a href=""><input id="input-rating" name="rating" type="number" class="rating js-rate-toggle" data-max="10" data-min="1" step=1
+                                   value="{{ givenRating }}"></a>
+                            </h3>
+                    {% endif %}
                 </div>
             </div>
             <div class=" leftFloater ">
                 <img class = "ImagePlacer img-responsive" src="{{ asset('uploads/images/' ~ randomRecipe.image) }}"/>
             </div>
+
             {% block commentblock %}
                 {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}
             {% endblock %}

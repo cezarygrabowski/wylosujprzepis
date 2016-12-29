@@ -7,6 +7,7 @@ use GetRecipeBundle\Form\ComponentsForRecipes;
 use GetRecipeBundle\Form\GetRecipeForm;
 use GetRecipeBundle\Form\UploadRecipeForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use GetRecipeBundle\Entity\Recipe;
 use Symfony\Component\HttpFoundation\Response;
@@ -183,22 +184,19 @@ class RecipeController extends CzaroController
         return $this->redirectToRoute('admin_panel');
 
     }
-    /**
-     * @Route("/deal-with-rating", name="deal_with_rating")
-     * @Method({"POST"})
-     **/
-    public function dealWithRatingAction(Request $request)
+
+    public function dealWithRatingAction($recipeId, $givenRating, $format)
     {
-        $id = intval($request->get('id'));
+
         $em = $this->getDoctrine()->getManager();
-        if( !(is_object($recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($id)))){
-            throw $this->createNotFoundException("N");
+        if( !(is_object($recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($recipeId)))){
+            throw $this->createNotFoundException("Recipe not found, sorry");
         }
 
         //if user rated this recipe replace old with a new one
-        if($rating = $this->getRatingRepository()->getUsersVoteForRecipe($recipe->getId(), $this->getUser()->getId()))
+        if($rating = $this->getRatingRepository()->getUsersVoteForRecipe($recipeId, $this->getUser()->getId()))
         {
-            $rating->setRating(floatval($request->get('rating')));
+            $rating->setRating($givenRating);
             $em->persist($rating);
         }
         else
@@ -206,12 +204,21 @@ class RecipeController extends CzaroController
             $rating = new Rating();
             $rating->setOwner($this->getUser());
             $rating->setRecipe($recipe);
-            $rating->setRating(floatval($request->get('rating')));
+            $rating->setRating($givenRating);
             $em->persist($rating);
         }
         $em->flush();
 
-        $this->get('session')->getFlashBag()->add('success', 'Dziękujemy za oddanie Twojego głosu.');
-        return $this->redirectToRoute('home');
+        if($format == 'json') {
+
+            $data = array(
+                'rated' => true,
+            );
+            $mergedArrays = array_merge($data, $this->getHistoryOfRecipeRating($recipe));
+
+            $response = new JsonResponse($mergedArrays);
+            return $response;
+        }
+        return null;
     }
 }

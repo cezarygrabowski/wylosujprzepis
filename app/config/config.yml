@@ -91,4 +91,3 @@ fos_comment:
         model:
             comment: MyProject\MyBundle\Entity\Comment
             thread: MyProject\MyBundle\Entity\Thread
-
