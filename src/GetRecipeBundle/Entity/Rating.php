@@ -23,14 +23,9 @@ class Rating
 {
     const NOTRATED = 0;
 
-    /**
-    * @ORM\Id
-    * @ORM\GeneratedValue(strategy="AUTO")
-    * @ORM\Column(type="integer")
-    */
-    private $id;
 
     /**
+     * @ORM\Id
      * Inverse side
      * @ORM\ManyToOne(
      *     targetEntity="GetRecipeBundle\Entity\Recipe",
@@ -41,6 +36,7 @@ class Rating
     private $recipe;
 
     /**
+     * @ORM\Id
      * Inverse side
      * @ORM\ManyToOne(
      *     targetEntity="UserBundle\Entity\User",
@@ -54,22 +50,6 @@ class Rating
     * @ORM\Column(type="float")
     */
     private $rating;
-
-    /**
-    * @return mixed
-    */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-    */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
     /**
     * @return mixed

@@ -9,7 +9,7 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
-
+use Doctrine\ORM\Query;
 
 
 class UserRepository extends EntityRepository
@@ -29,4 +29,16 @@ class UserRepository extends EntityRepository
         ->getOneOrNullResult();
     }
 
+
+    public function getIdsOfAllUsers()
+    {
+        $result =$this->createQueryBuilder('e')
+            ->select('e.id')
+            ->where('e.enabled = 1')
+            ->getQuery()
+            ->getScalarResult();
+
+        //http://stackoverflow.com/questions/11657835/how-to-get-a-one-dimensional-scalar-array-as-a-doctrine-dql-query-result
+        return array_map('current', $result);
+    }
 }

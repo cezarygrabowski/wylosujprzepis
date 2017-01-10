@@ -1,0 +1,96 @@
+{% extends "UserBundle:Admin:adminPanel.html.twig" %}
+{% block AdminContainer %}
+<div class="profile-content">
+    <h1 class="text-center BottomPadding"> {{ "Recipe rated the most"| trans }} - {{ "number of ratings"|trans }}: {{ highestNumberOfRatings }}</h1>
+    {% for recipe in mostRatedRecipes %}
+    <div class="DrawnItem">
+        <div class="leftFloater TextToShow">
+            <div>
+                <h1 class="BoldPadding">{{ recipe.name }}</h1>
+            </div>
+            <div>
+                <p class="BottomPadding">Czas przygotowania: {{ recipe.time }} minut</p>
+            </div>
+            <div>
+                {{ recipe.preparation }}
+            </div>
+            <div class="marginRight">
+                <p>-{{ recipe.owner.username }}</p>
+            </div>
+
+            <div class="marginRight">
+                <p>Typ: {{ recipe.type }}</p>
+            </div>
+        </div>
+
+        <div class="leftFloater">
+            <img class="ImagePlacer img-responsive"
+                 src="{{ asset('uploads/images/' ~ recipe.image) }}"/>
+        </div>
+        <div class="styleClearer"></div>
+    </div>
+    {% endfor %}
+
+    <h1 class="text-center BottomPadding"> {{ "Best rated recipe"| trans }} - {{ "Rating"|trans }}: {{ bestAverageRating }}</h1>
+    <div class="DrawnItem">
+        <div class="leftFloater TextToShow">
+            <div>
+                <h1 class="BoldPadding">{{ bestRatedRecipe.name }}</h1>
+            </div>
+            <div>
+                <p class="BottomPadding">Czas przygotowania: {{ bestRatedRecipe.time }} minut</p>
+            </div>
+            <div>
+                {{ bestRatedRecipe.preparation }}
+            </div>
+            <div class="marginRight">
+                <p>-{{ bestRatedRecipe.owner.username }}</p>
+            </div>
+
+            <div class="marginRight">
+                <p>Typ: {{ bestRatedRecipe.type }}</p>
+            </div>
+        </div>
+
+        <div class="leftFloater">
+            <img class="ImagePlacer img-responsive"
+                 src="{{ asset('uploads/images/' ~ bestRatedRecipe.image) }}"/>
+        </div>
+        <div class="styleClearer"></div>
+    </div>
+
+    <h1 class="text-center BottomPadding"> {{ "User/Users who uploaded most recipes"| trans }} - {{ "number of recipes"|trans }}: {{ highestNumberOfUploadedRecipes }}</h1>
+    {% for user in usersWithMostUploadedRecipes  %}
+        <div class="DrawnItem">
+            <div class="leftFloater TextToShow">
+                <div>
+                    <h1 class="BoldPadding">{{ user.username }}</h1>
+                </div>
+                <div>
+                    <p class="BottomPadding">Email : {{ user.emailCanonical }}</p>
+                </div>
+            </div>
+            <div class="leftFloater">
+                <img class="logoPlacer img-responsive"
+                     src="{{ asset('uploads/logos/' ~ user.image) }}"/>
+            </div>
+            <div class="styleClearer"></div>
+        </div>
+        <div class="BottomPadding"></div>
+
+    {% endfor %}
+
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

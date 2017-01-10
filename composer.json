@@ -17,7 +17,7 @@
         }
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": "7.0.8",
         "symfony/symfony": "3.1.*",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
@@ -30,8 +30,6 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "symfony/assetic-bundle": "^2.8",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "kartik-v/bootstrap-star-rating": "@dev",
-        "friendsofsymfony/comment-bundle": ">=2.0.0",
         "friendsofsymfony/jsrouting-bundle": "^1.6"
     },
     "require-dev": {

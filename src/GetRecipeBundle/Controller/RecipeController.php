@@ -25,11 +25,11 @@ class RecipeController extends CzaroController
     public function indexAction()
     {
         if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
-            return $this->render('GetRecipeBundle:Default:index.html.twig', array(
+            return $this->render('@GetRecipe/Default/index.html.twig', array(
                 'user' => $this->getUser()
             ));
         }
-        return $this->render('GetRecipeBundle:Default:index.html.twig');
+        return $this->render('@GetRecipe/Default/index.html.twig');
 
     }
 
@@ -130,7 +130,7 @@ class RecipeController extends CzaroController
      */
     public function resultOfaDrawAction()
     {
-        return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig');
+        return $this->render('@GetRecipe/GetRecipe/ResultOfQuery.html.twig');
     }
 
     /**
@@ -140,60 +140,21 @@ class RecipeController extends CzaroController
     {
         $unacceptedRecipes = $this->getRecipeRepository()->getUnacceptedRecipes();
 
-        return $this->render('GetRecipeBundle:Admin:adminPanel.html.twig', array(
+        return $this->render('@User/Admin/adminPanel.html.twig', array(
             'unacceptedRecipes' => $unacceptedRecipes,
         ));
-    }
-
-    /**
-     * @Route("/akceptuj-przepis/{id}", name="accept_recipe")
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-
-    public function acceptRecipeAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        if( !(is_object($recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($id)))){
-            throw $this->createNotFoundException('Nie mogę znaleźć przepisu...');
-        }
-
-        $recipe->setAccepted(Recipe::ACCEPTED);
-        $em->persist($recipe);
-        $em->flush();
-
-        return $this->redirectToRoute('admin_panel');
-
-    }
-
-    /**
-     * @Route("/usun-przepis/{id}", name="remove_recipe")
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function removeRecipeAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        if( !(is_object($recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($id)))){
-            throw $this->createNotFoundException('Nie mogę znaleźć przepisu...');
-        }
-
-        $em->remove($recipe);
-        $em->flush();
-
-        return $this->redirectToRoute('admin_panel');
-
     }
 
     public function dealWithRatingAction($recipeId, $givenRating, $format)
     {
 
         $em = $this->getDoctrine()->getManager();
+
         if( !(is_object($recipe = $em->getRepository('GetRecipeBundle:Recipe')->find($recipeId)))){
             throw $this->createNotFoundException("Recipe not found, sorry");
         }
 
-        //if user rated this recipe replace old with a new one
+        //if user rated this recipe replace old with the new one
         if($rating = $this->getRatingRepository()->getUsersVoteForRecipe($recipeId, $this->getUser()->getId()))
         {
             $rating->setRating($givenRating);
@@ -221,4 +182,5 @@ class RecipeController extends CzaroController
         }
         return null;
     }
+
 }

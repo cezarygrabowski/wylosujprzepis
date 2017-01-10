@@ -24,6 +24,11 @@ class RatingRepository extends EntityRepository
             ->setMaxResults(1)
             ->getOneOrNullResult();
     }
+
+    /**
+     * @param $recipeId
+     * @return Rating[]
+     */
     public function getRatingOfRecipe($recipeId)
     {
         return $this->createQueryBuilder('e')

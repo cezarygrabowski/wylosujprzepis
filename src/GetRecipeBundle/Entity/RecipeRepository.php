@@ -71,11 +71,12 @@ class RecipeRepository extends EntityRepository
             ->execute();
     }
 
+
     /**
      * @return Recipe[]
      */
 
-    public function getAllRecipesOfUser($id)
+    public function getAllAcceptedRecipesOfUser($id)
     {
         return $this->createQueryBuilder('e')
             ->where('e.owner = :Id')
@@ -83,6 +84,7 @@ class RecipeRepository extends EntityRepository
             ->getQuery()
             ->execute();
     }
+
     public function getAcceptedRecipesOfUser($id)
     {
         return $this->createQueryBuilder('e')
@@ -92,6 +94,7 @@ class RecipeRepository extends EntityRepository
             ->getQuery()
             ->execute();
     }
+
     public function getUnacceptedRecipesOfUser($id)
     {
         return $this->createQueryBuilder('e')
@@ -101,4 +104,16 @@ class RecipeRepository extends EntityRepository
             ->getQuery()
             ->execute();
     }
+
+    /**
+     * @return Recipe[]
+     */
+    public function getAllAcceptedRecipes()
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.accepted = 1')
+            ->getQuery()
+            ->execute();
+    }
+
 }

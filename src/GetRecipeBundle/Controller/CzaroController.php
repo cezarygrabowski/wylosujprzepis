@@ -9,6 +9,7 @@
 namespace GetRecipeBundle\Controller;
 
 
+use Doctrine\ORM\EntityManager;
 use GetRecipeBundle\Entity\Rating;
 use GetRecipeBundle\Entity\RatingRepository;
 use GetRecipeBundle\Entity\Recipe;
@@ -37,18 +38,12 @@ class CzaroController extends Controller
 
     protected function getHistoryOfRecipeRating(Recipe $randomRecipe)
     {
-
         //check if user rated this recipe
         $givenRating = Rating::NOTRATED;
         $sumOfRating = Rating::NOTRATED;
         $numberOfRatings = Rating::NOTRATED;
         $averageRating = Rating::NOTRATED;
 
-        //if the user voted for this recipe get his rating
-        if($lastVote = $this->getRatingRepository()->getUsersVoteForRecipe($randomRecipe->getId(), $this->getUser()->getId()))
-        {
-            $givenRating = $lastVote->getRating();
-        }
 
         //if the recipe was rated calculate the average rating and number of ratings
         $allRatingsForRecipe = $this->getRatingRepository()->getRatingOfRecipe($randomRecipe->getId());
@@ -56,7 +51,6 @@ class CzaroController extends Controller
         {
             foreach($allRatingsForRecipe as $rating){
                 $numberOfRatings++;
-                //moze nie dzialac
                 $sumOfRating += $rating->getRating();
             }
         }
@@ -65,9 +59,22 @@ class CzaroController extends Controller
         if($numberOfRatings != 0){
             $averageRating = round(floatval($sumOfRating) / $numberOfRatings, 2);
         }
+
+        //if the user voted for this recipe get his rating, if user is logged in
+        if(is_object($this->getUser())){
+            if($lastVote = $this->getRatingRepository()->getUsersVoteForRecipe($randomRecipe->getId(), $this->getUser()->getId()))
+            {
+                $givenRating = $lastVote->getRating();
+            }
+            return array(
+                'randomRecipe' => $randomRecipe,
+                'givenRating' => $givenRating,
+                'numberOfRatings' => $numberOfRatings,
+                'averageRating' => $averageRating
+            );
+        }
         return array(
             'randomRecipe' => $randomRecipe,
-            'givenRating' => $givenRating,
             'numberOfRatings' => $numberOfRatings,
             'averageRating' => $averageRating
         );
@@ -91,7 +98,7 @@ class CzaroController extends Controller
                 }
 
 
-                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig', $this->getHistoryOfRecipeRating($randomRecipe));
+                return $this->render('@GetRecipe/GetRecipe/ResultOfQuery.html.twig', $this->getHistoryOfRecipeRating($randomRecipe));
             }
         }
 
@@ -125,7 +132,7 @@ class CzaroController extends Controller
                 $em->persist($recipe);
                 $em->flush();
 
-                $this->get('session')->getFlashBag()->add('success', 'Dodawanie przebiegło pomyślnie. Przepis oczekuję na akceptacje.');
+                $this->get('session')->getFlashBag()->add('success', 'Dodawanie przebiegło pomyślnie. Przepis oczekuje na akceptację.');
 
                 $url = $this->generateUrl('home');
 
@@ -136,5 +143,105 @@ class CzaroController extends Controller
             'form' => $form->createView()
         ));
     }
+    public function getBestRatedRecipe(array $allAcceptedRecipes, EntityManager $em)
+    {
+        $bestRatedRecipe = $allAcceptedRecipes[0];
+        $sumOfRating = 0;
+        $lastBestAverageRating = 0.0;
+        //foreach recipe check average rating
 
+        foreach($allAcceptedRecipes as $recipe)
+        {
+            if(!(count($allRatingsOfRecipe = $em->getRepository('GetRecipeBundle:Rating')->getRatingOfRecipe($recipe->getId())))){
+                continue; //continue makes going to the next iteration of the loop
+            }
+
+            foreach($allRatingsOfRecipe as $rating)
+            {
+                $sumOfRating = $rating->getRating();
+            }
+
+            $averageRating = floatval($sumOfRating) / count($allRatingsOfRecipe);
+            if($averageRating > $lastBestAverageRating)
+            {
+                $lastBestAverageRating = $averageRating;
+                $bestRatedRecipe = $recipe;
+            }
+        }
+        return array(
+            'bestRatedRecipe' => $bestRatedRecipe,
+            'bestAverageRating' => $lastBestAverageRating
+        );
+    }
+    public function getMostRatedRecipes(array $allAcceptedRecipes, EntityManager $em)
+    {
+        $mostRatedRecipes = [];
+        $highestNumberOfRatings = 0;
+        $i=0;
+
+        //get the numberOfRatings of mostRatedRecipe
+        foreach($allAcceptedRecipes as $recipe)
+        {
+            if(!(count($allRatingsOfRecipe = $em->getRepository('GetRecipeBundle:Rating')->getRatingOfRecipe($recipe->getId())))) {
+                continue;
+            }
+            elseif(count($allRatingsOfRecipe) > $highestNumberOfRatings)
+            {
+                $highestNumberOfRatings = count($allRatingsOfRecipe);
+            }
+        }
+        //get recipes the highest number of ratings
+        foreach($allAcceptedRecipes as $recipe)
+        {
+            if((count($allRatingsOfRecipe = $em->getRepository('GetRecipeBundle:Rating')->getRatingOfRecipe($recipe->getId())))
+                == $highestNumberOfRatings)
+            {
+                $mostRatedRecipes[$i] = $recipe;
+                $i++;
+            }
+        }
+        return array(
+            'mostRatedRecipes' => $mostRatedRecipes,
+            'highestNumberOfRatings' => $highestNumberOfRatings
+        );
+    }
+    public function getUsersWhoUploadedMostRecipes(EntityManager $em)
+    {
+        $highestNumberOfUploadedRecipes = 0;
+        $usersWithMostUploadedRecipes= [];
+        $i=0;
+
+        if(!(count($idsOfAllUsers = $em->getRepository('UserBundle:User')->getIdsOfAllUsers()))){
+            throw $this->createNotFoundException("No users in database");
+        }
+
+        //foreach user check how many recipes he/she uploaded and are accepted
+        foreach($idsOfAllUsers as $id)
+        {
+            if(!(count($allRatingsOfRecipe = $em->getRepository('GetRecipeBundle:Recipe')->getAllAcceptedRecipesOfUser($id)))) {
+                continue;
+            }
+            elseif(count($allRatingsOfRecipe) > $highestNumberOfUploadedRecipes){
+                $highestNumberOfUploadedRecipes = count($allRatingsOfRecipe);
+            }
+        }
+
+        if($highestNumberOfUploadedRecipes == 0){
+            throw $this->createNotFoundException("No recipes where uploaded");
+        }
+
+        //get users with most uploaded recipes
+        foreach($idsOfAllUsers as $id)
+        {
+            if(count($allRatingsOfRecipe = $em->getRepository('GetRecipeBundle:Recipe')->getAllAcceptedRecipesOfUser($id))
+                == $highestNumberOfUploadedRecipes ){
+                $usersWithMostUploadedRecipes[$i] = $em -> getRepository('UserBundle:User')->find($id);
+                $i++;
+            }
+        }
+        return array(
+            'usersWithMostUploadedRecipes' => $usersWithMostUploadedRecipes,
+            'highestNumberOfUploadedRecipes' => $highestNumberOfUploadedRecipes,
+        );
+    }
 }
