@@ -98,7 +98,7 @@ class CzaroController extends Controller
                 }
 
 
-                return $this->render('@GetRecipe/GetRecipe/ResultOfQuery.html.twig', $this->getHistoryOfRecipeRating($randomRecipe));
+                return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig', $this->getHistoryOfRecipeRating($randomRecipe));
             }
         }
 

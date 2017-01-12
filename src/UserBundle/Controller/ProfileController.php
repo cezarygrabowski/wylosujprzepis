@@ -56,7 +56,7 @@ class ProfileController extends BaseController
             return $this->redirect($this->generateUrl('fos_user_profile_show'));
         }
 
-        return $this->render('UserBundle:Profile:change_logo.html.twig', array(
+        return $this->render('@FOSUser/Profile/change_logo.html.twig', array(
             'form' => $form->createView()
         ));
 
@@ -95,7 +95,7 @@ class ProfileController extends BaseController
         $unacceptedRecipes = $this->getRecipeRepository()->getUnacceptedRecipesOfUser($this->getUser()->getId());
         $acceptedRecipes = $this->getRecipeRepository()->getAcceptedRecipesOfUser($this->getUser()->getId());
 
-        return $this->render('UserBundle:Profile:unacceptedRecipes.html.twig',array(
+        return $this->render('@FOSUser/Profile/unacceptedRecipes.html.twig',array(
             'user' => $user,
             'unacceptedRecipes' => $unacceptedRecipes,
             'acceptedRecipes' => $acceptedRecipes

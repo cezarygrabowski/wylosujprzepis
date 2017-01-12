@@ -74,7 +74,7 @@ class AdminController extends BaseController
         $highestNumberOfUploadedRecipes = $getUsersWhoUploadedMostRecipes["highestNumberOfUploadedRecipes"];
 
 
-        return $this->render("@User/Admin/statistics.html.twig", array(
+        return $this->render("@FOSUser/Admin/statistics.html.twig", array(
             'bestRatedRecipe' => $bestRatedRecipe,
             'bestAverageRating' => $bestAverageRating,
             'mostRatedRecipes' => $mostRatedRecipes,

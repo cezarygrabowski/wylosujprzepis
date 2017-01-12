@@ -1,5 +1,5 @@
 {# Overriding default login.html.twig brought by FOSUserBundle#}
 {% extends '::layout.html.twig' %}
 {% block header %}
-    {{ include('UserBundle:Security:login_content.html.twig') }}
+    {{ include('@FOSUser/Security/login_content.html.twig') }}
 {% endblock header %}

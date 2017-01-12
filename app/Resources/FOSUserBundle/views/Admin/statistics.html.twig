@@ -1,7 +1,7 @@
-{% extends "UserBundle:Admin:adminPanel.html.twig" %}
+{% extends "@FOSUser/Admin/adminPanel.html.twig" %}
 {% block AdminContainer %}
 <div class="profile-content">
-    <h1 class="text-center BottomPadding"> {{ "Recipe rated the most"| trans }} - {{ "number of ratings"|trans }}: {{ highestNumberOfRatings }}</h1>
+    <h1 class="text-center BottomPadding"> {{ "Recipes rated the most"| trans }} - {{ "number of ratings"|trans }}: {{ highestNumberOfRatings }}</h1>
     {% for recipe in mostRatedRecipes %}
     <div class="DrawnItem">
         <div class="leftFloater TextToShow">
@@ -31,7 +31,7 @@
     </div>
     {% endfor %}
 
-    <h1 class="text-center BottomPadding"> {{ "Best rated recipe"| trans }} - {{ "Rating"|trans }}: {{ bestAverageRating }}</h1>
+    <h1 class="text-center BottomPadding"> {{ "Best rated recipes"| trans }} - {{ "Rating"|trans }}: {{ bestAverageRating }}</h1>
     <div class="DrawnItem">
         <div class="leftFloater TextToShow">
             <div>

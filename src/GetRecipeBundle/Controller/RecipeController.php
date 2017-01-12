@@ -130,7 +130,7 @@ class RecipeController extends CzaroController
      */
     public function resultOfaDrawAction()
     {
-        return $this->render('@GetRecipe/GetRecipe/ResultOfQuery.html.twig');
+        return $this->render('GetRecipeBundle:GetRecipe:ResultOfQuery.html.twig');
     }
 
     /**
@@ -140,7 +140,7 @@ class RecipeController extends CzaroController
     {
         $unacceptedRecipes = $this->getRecipeRepository()->getUnacceptedRecipes();
 
-        return $this->render('@User/Admin/adminPanel.html.twig', array(
+        return $this->render('@FOSUser/Admin/adminPanel.html.twig', array(
             'unacceptedRecipes' => $unacceptedRecipes,
         ));
     }
