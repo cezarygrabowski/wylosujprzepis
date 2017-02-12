@@ -447,20 +447,20 @@ body {
 }
 #breakfast
 {
-  background-image: url(../images/sniadanie.jpg);
+  background-image: url(../images/breakfast.jpeg);
 }
 #dinner
 {
-  background-image: url(../images/obiad.jpg);
+  background-image: url(../images/dinner.jpeg);
 
 }
 #supper
 {
-  background-image: url(../images/kolacja.jpg);
+  background-image: url(../images/supper.jpg);
 }
 #dessert
 {
-  background-image: url(../images/deser.jpg);
+  background-image: url(../images/dessert.jpeg);
 }
 .styleClearer
 {

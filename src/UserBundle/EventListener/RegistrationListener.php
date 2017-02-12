@@ -32,12 +32,22 @@ class RegistrationListener implements EventSubscriberInterface
         return array(
             FOSUserEvents::REGISTRATION_COMPLETED => 'onRegistrationCompleted',
             FOSUserEvents::REGISTRATION_FAILURE => 'onRegistrationFailure',
+            FOSUserEvents::REGISTRATION_CONFIRMED => 'onRegistrationConfirmed',
+
             );
     }
 
     public function onRegistrationCompleted(FilterUserResponseEvent $event)
     {
         /** @var RedirectResponse $response */
+        $response = $event->getResponse();
+        $response->setTargetUrl($this->router->generate('home'));
+    }
+
+    public function onRegistrationConfirmed(FilterUserResponseEvent $event)
+    {
+        /** @var RedirectResponse $response */
+        $this->session->getFlashBag()->add('success', 'Gratulacje, potwierdziłeś swoje konto!');
         $response = $event->getResponse();
         $response->setTargetUrl($this->router->generate('home'));
     }

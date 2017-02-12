@@ -84,7 +84,7 @@ fos_user:
             template:   FOSUserBundle:Registration:email.txt.twig
             from_email:
                 address:        registration@example.com
-                sender_name:    Demo Registration
+                sender_name:    "%sender_name%"
 #fos_comment:
 #    db_driver: orm
 #    class:
