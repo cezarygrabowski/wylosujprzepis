@@ -78,13 +78,14 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: UserBundle\Entity\User
+    from_email:
+        address:        app@yoursite.com
+        sender_name:    Your App Admin
     registration:
         confirmation:
             enabled: true
             template:   FOSUserBundle:Registration:email.txt.twig
-            from_email:
-                address:        registration@example.com
-                sender_name:    "%sender_name%"
+
 #fos_comment:
 #    db_driver: orm
 #    class:
