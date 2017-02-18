@@ -41,6 +41,7 @@ class AdminController extends BaseController
             throw $this->createNotFoundException('Nie mogę znaleźć przepisu...');
         }
 
+        $this->RemoveFile($this->getParameter('images_directory'), $recipe->getImage());//usun zdjecie z folderu
         $em->remove($recipe);
         $em->flush();
 

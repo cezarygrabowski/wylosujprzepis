@@ -31,7 +31,6 @@ class RegistrationListener implements EventSubscriberInterface
     {
         return array(
             FOSUserEvents::REGISTRATION_COMPLETED => 'onRegistrationCompleted',
-            FOSUserEvents::REGISTRATION_FAILURE => 'onRegistrationFailure',
             FOSUserEvents::REGISTRATION_CONFIRMED => 'onRegistrationConfirmed',
 
             );
@@ -52,10 +51,4 @@ class RegistrationListener implements EventSubscriberInterface
         $response->setTargetUrl($this->router->generate('home'));
     }
 
-    public function onRegistrationFailure(FormEvent $event)
-    {
-        $this->session->getFlashBag()->add('warning', 'Wystąpił błąd podczas rejestracji. Proszę spróbować później!');
-        $url = $this->router->generate('home');
-        $event->setResponse(new RedirectResponse($url));
-    }
 }

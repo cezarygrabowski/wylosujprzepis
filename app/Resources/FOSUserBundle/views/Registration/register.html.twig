@@ -7,7 +7,7 @@
                 <div class="FormHeader">
                     <h3>Rejestracja</h3>
                 </div>
-    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {novalidate: 'novalidate'}}) }}
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register')}) }}
     {{ form_row(form.username) }}
     {{ form_row(form.email) }}
     {{ form_row(form.plainPassword) }}

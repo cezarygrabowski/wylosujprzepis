@@ -7,8 +7,7 @@
  */
 
 namespace UserBundle\Controller;
-use FOS\UserBundle\Controller\ProfileController as BaseController;
-use GetRecipeBundle\GetRecipeBundle;
+use GetRecipeBundle\Controller\CzaroController as BaseController;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use GetRecipeBundle\Entity\RecipeRepository;
@@ -31,6 +30,7 @@ class ProfileController extends BaseController
      */
     public function changeLogoAction(Request $request)
     {
+        $currentLogo = $this->getUser()->getImage();
         $user = $this->getUser();
         $form = $this->createForm(LogoChanger::class, $user);
 
@@ -38,7 +38,9 @@ class ProfileController extends BaseController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-
+            if($currentLogo!= "defaultImage.png"){
+                $this->RemoveFile($this->getParameter('logo_directory'), $currentLogo);
+            }
             // $file stores the uploaded image file
             /** @var UploadedFile $file */
             $file = $user->getImage();

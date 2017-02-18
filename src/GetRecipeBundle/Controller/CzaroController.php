@@ -14,6 +14,7 @@ use GetRecipeBundle\Entity\Rating;
 use GetRecipeBundle\Entity\RatingRepository;
 use GetRecipeBundle\Entity\Recipe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Form\Form;
 use GetRecipeBundle\Entity\RecipeRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -243,5 +244,12 @@ class CzaroController extends Controller
             'usersWithMostUploadedRecipes' => $usersWithMostUploadedRecipes,
             'highestNumberOfUploadedRecipes' => $highestNumberOfUploadedRecipes,
         );
+    }
+
+    public function RemoveFile(string $targetDir, string $fileName)
+    {
+        $fs = new Filesystem();
+        $fs->remove($targetDir. "/" . $fileName);
+
     }
 }

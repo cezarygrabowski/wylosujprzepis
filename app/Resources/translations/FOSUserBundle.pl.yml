@@ -33,7 +33,7 @@ registration:
     back: 'Powrót do poprzedniej strony.'
     submit: Zarejestruj
     flash:
-        user_created: 'Aby dokończyć rejestracji kliknij na link, który otrzymałeś w mailu!'
+        user_created: 'Aby dokończyć rejestrację kliknij na link, który otrzymałeś w mailu!'
     email:
         subject: 'Witaj %username%!'
         message: "Cześć %username%!\n\nAby potwierdzić swoje konto proszę przejść do %confirmationUrl%\n\nPozdrawiam,\nCzaro informatyk.\n"
